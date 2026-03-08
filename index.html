@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloomDots — Make Your Brand Unskippable</title>
+  <noscript><style>#intro-overlay{display:none!important}</style></noscript>
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://spark-labs.org" crossorigin>
+  <link rel="preconnect" href="https://hoirqrkdgbmvpwutwuwj.supabase.co" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Satoshi', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            'instrument-serif': ['Canela', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ── CSS Variables ──────────────────────────────────────── */
+    html {
+      color-scheme: dark;
+    }
+
+    :root {
+      --bg: #0b0b0d;
+      --bg-soft: #121317;
+      --bg-elevated: #17191f;
+      --surface: rgba(255,255,255,0.04);
+      --surface-2: rgba(255,255,255,0.07);
+      --text: #f5f1e8;
+      --text-soft: rgba(245,241,232,0.72);
+      --text-dim: rgba(245,241,232,0.48);
+      --line: rgba(245,241,232,0.12);
+      --line-strong: rgba(245,241,232,0.22);
+      --yellow: #f4c430;
+      --blue: #4f7cff;
+      --orange: #ff7a1a;
+    }
+
+    /* ── Canela (display) ─────────────────────────────────── */
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Thin-Trial.otf') format('opentype');
+      font-weight: 100; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-ThinItalic-Trial.otf') format('opentype');
+      font-weight: 100; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Light-Trial.otf') format('opentype');
+      font-weight: 300; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-LightItalic-Trial.otf') format('opentype');
+      font-weight: 300; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Regular-Trial.otf') format('opentype');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-RegularItalic-Trial.otf') format('opentype');
+      font-weight: 400; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Medium-Trial.otf') format('opentype');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-MediumItalic-Trial.otf') format('opentype');
+      font-weight: 500; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Bold-Trial.otf') format('opentype');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-BoldItalic-Trial.otf') format('opentype');
+      font-weight: 700; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Black-Trial.otf') format('opentype');
+      font-weight: 900; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-BlackItalic-Trial.otf') format('opentype');
+      font-weight: 900; font-style: italic; font-display: swap;
+    }
+
+    /* ── Satoshi (body / UI) ──────────────────────────────── */
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Light.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Light.woff') format('woff');
+      font-weight: 300; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-LightItalic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-LightItalic.woff') format('woff');
+      font-weight: 300; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.woff') format('woff');
+      font-weight: 400; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-MediumItalic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-MediumItalic.woff') format('woff');
+      font-weight: 500; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BoldItalic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BoldItalic.woff') format('woff');
+      font-weight: 700; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Black.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Black.woff') format('woff');
+      font-weight: 900; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BlackItalic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BlackItalic.woff') format('woff');
+      font-weight: 900; font-style: italic; font-display: swap;
+    }
+
+    /* ── Base ──────────────────────────────────────────────── */
+    body {
+      font-family: 'Satoshi', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a,
+    button {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(244,196,48,0.18);
+    }
+    button {
+      background: transparent;
+      color: inherit;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6,
+    .font-instrument-serif {
+      font-family: 'Canela', serif;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      z-index: 100;
+      transform: translateY(-200%);
+      padding: 0.85rem 1rem;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: transform 0.25s ease;
+    }
+
+    .skip-link:focus-visible {
+      transform: translateY(0);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--yellow);
+      outline-offset: 4px;
+    }
+
+    /* ── Grain Overlay ────────────────────────────────────── */
+    .bd-grain {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px 128px;
+    }
+
+    /* ── Intro Overlay ───────────────────────────────────── */
+    #intro-overlay { will-change: opacity, transform; }
+    .intro-dot { will-change: transform, opacity; }
+    #intro-wordmark { will-change: clip-path, opacity; }
+
+    /* ── Headline Clip Reveal ─────────────────────────────── */
+    .headline-line {
+      display: block;
+      clip-path: inset(100% 0 0 0);
+    }
+    .headline-line.revealed {
+      clip-path: inset(0 0 0 0);
+    }
+
+    /* ── Mobile Menu ──────────────────────────────────────── */
+    .mobile-menu {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .mobile-menu.open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* ── Hamburger Lines ──────────────────────────────────── */
+    .hb-line {
+      display: block;
+      width: 34px;
+      height: 2px;
+      border-radius: 1px;
+      transform-origin: center;
+      will-change: transform, opacity;
+    }
+
+    /* ── Nav always transparent — hide/show on scroll direction */
+    #main-nav {
+      will-change: transform;
+    }
+
+    /* ── Fullscreen Menu ──────────────────────────────────── */
+    .menu-link-text {
+      display: inline-block;
+    }
+
+    /* ── Logo Dots ────────────────────────────────────────── */
+    .logo-dot {
+      border-radius: 50%;
+      will-change: transform, opacity;
+    }
+
+    /* ── Scroll Indicator Dot ─────────────────────────────── */
+    .scroll-dot {
+      border-radius: 50%;
+      will-change: transform, opacity;
+    }
+
+    #team {
+      scroll-margin-top: 5.5rem;
+    }
+
+    .team-grid-overlay {
+      background-image:
+        linear-gradient(rgba(245,241,232,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,241,232,0.04) 1px, transparent 1px);
+      background-size: 124px 124px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+      opacity: 0.18;
+    }
+
+    .team-proof-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,241,232,0.62);
+    }
+
+    .team-proof-item::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: currentColor;
+      opacity: 0.75;
+      flex-shrink: 0;
+    }
+
+    .team-stage-frame {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)),
+        rgba(10, 11, 14, 0.42);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 30px 80px rgba(0,0,0,0.32);
+      backdrop-filter: blur(14px);
+    }
+
+    .team-card {
+      will-change: transform, opacity;
+    }
+
+    .team-avatar {
+      position: relative;
+      overflow: hidden;
+      border-radius: 999px;
+      border: 1px solid rgba(245,241,232,0.12);
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .team-avatar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(11,11,13,0.64), rgba(11,11,13,0.08) 48%, transparent 78%),
+        radial-gradient(circle at 30% 18%, rgba(255,255,255,0.28), transparent 34%);
+      pointer-events: none;
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.92) contrast(1.04);
+      transition: transform 0.45s ease, filter 0.45s ease;
+    }
+
+    .team-card:hover .team-avatar img {
+      transform: scale(1.035);
+      filter: saturate(1) contrast(1.08);
+    }
+
+    .team-caption {
+      will-change: transform, opacity;
+    }
+
+    .team-name {
+      font-family: 'Canela', serif;
+      font-size: 1.15rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .team-role {
+      margin-top: 0.32rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,241,232,0.56);
+    }
+
+    .team-signal path {
+      fill: none;
+      stroke: rgba(245,241,232,0.26);
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .team-signal circle {
+      fill: rgba(245,241,232,0.3);
+    }
+
+    .team-mobile-card {
+      background: linear-gradient(140deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(245,241,232,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    /* ── Selection ────────────────────────────────────────── */
+    ::selection {
+      background: rgba(244, 196, 48, 0.25);
+      color: var(--text);
+    }
+
+    /* ── Scrollbar ────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 3px; }
+  </style>
+</head>
+
+<body class="antialiased relative overflow-x-hidden">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ════════════════════════════════════════════════════════
+       INTRO REVEAL OVERLAY — Logo Reveal
+       ════════════════════════════════════════════════════════ -->
+  <div id="intro-overlay" class="fixed inset-0 z-[70] flex items-center justify-center overflow-hidden"
+       style="background: var(--bg); pointer-events: all;">
+
+    <!-- Intro grain -->
+    <div class="absolute inset-0 pointer-events-none" style="opacity: 0.05;
+      background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E&quot;);
+      background-repeat: repeat; background-size: 128px 128px;"></div>
+
+    <!-- Centered logo lockup -->
+    <div id="intro-logo" class="flex items-center select-none">
+      <!-- Wordmark — clip revealed -->
+      <div class="overflow-hidden">
+        <span id="intro-wordmark" class="block text-[3rem] sm:text-[4rem] md:text-[5rem] tracking-tight font-normal font-instrument-serif leading-none"
+              style="color: var(--text); clip-path: inset(0 100% 0 0);">Bloom</span>
+      </div>
+      <!-- Dots — scattered, then converge -->
+      <span class="flex items-center gap-[7px] sm:gap-[9px] ml-3 relative" style="top: 3px;">
+        <span class="intro-dot w-[13px] h-[13px] sm:w-[15px] sm:h-[15px] rounded-full inline-block" style="background: var(--yellow); opacity: 0;"></span>
+        <span class="intro-dot w-[13px] h-[13px] sm:w-[15px] sm:h-[15px] rounded-full inline-block" style="background: var(--blue); opacity: 0;"></span>
+        <span class="intro-dot w-[13px] h-[13px] sm:w-[15px] sm:h-[15px] rounded-full inline-block" style="background: var(--orange); opacity: 0;"></span>
+      </span>
+    </div>
+
+  </div>
+
+  <!-- Grain Overlay -->
+  <div class="bd-grain"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════════════════ -->
+  <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 px-5 py-5 md:px-12 md:py-8 flex justify-between items-center pointer-events-none" style="color: white;">
+
+    <!-- Logo -->
+    <a href="#hero" id="logo" class="pointer-events-auto flex items-center opacity-0">
+      <span class="text-[2.1rem] md:text-[2.5rem] tracking-tight font-normal font-instrument-serif leading-none">Bloom</span>
+      <span class="flex items-center gap-[6px] ml-2 relative" style="top: 2px;">
+        <span class="logo-dot w-[11px] h-[11px] rounded-full inline-block" style="background: var(--yellow);"></span>
+        <span class="logo-dot w-[11px] h-[11px] rounded-full inline-block" style="background: var(--blue);"></span>
+        <span class="logo-dot w-[11px] h-[11px] rounded-full inline-block" style="background: var(--orange);"></span>
+      </span>
+    </a>
+
+    <!-- Right: CTA + Hamburger -->
+    <div class="flex items-center gap-5 md:gap-6 pointer-events-auto">
+
+      <!-- CTA — hero-style underline link -->
+      <a href="#contact" id="nav-cta" class="group hidden sm:flex items-center gap-2 pb-0.5 border-b transition-colors duration-300 opacity-0"
+        style="color: white; border-color: rgba(255,255,255,0.28);"
+        onmouseover="this.style.borderColor='white'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.28)'">
+        <span class="text-[0.9rem] tracking-wide whitespace-nowrap">Start a Project</span>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+      </a>
+
+      <!-- Hamburger — 2 white lines, asymmetric -->
+      <button id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false"
+        class="pointer-events-auto flex flex-col items-end justify-center gap-[8px] w-10 h-10 flex-shrink-0 opacity-0">
+        <span class="hb-line" id="hb-top"    style="background: white;"></span>
+        <span class="hb-line" id="hb-bottom" style="background: white; width: 22px;"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════
+       FULLSCREEN MENU
+       ════════════════════════════════════════════════════════ -->
+  <div id="full-menu" class="mobile-menu fixed inset-0 z-[60] flex flex-col justify-center overflow-hidden" style="background: var(--bg-elevated);">
+
+    <!-- Grain inside menu -->
+    <div class="bd-noise absolute inset-0 pointer-events-none" style="opacity: 0.35;"></div>
+
+    <!-- Thin top accent line -->
+    <div class="absolute top-0 left-0 right-0 h-px" style="background: var(--line-strong);"></div>
+
+    <div class="relative px-8 md:px-16 lg:px-24 w-full">
+
+      <!-- Nav links -->
+      <div class="flex flex-col">
+
+        <a href="#hero" class="menu-link group flex items-end gap-3 md:gap-5 py-3 md:py-4 border-b" style="border-color: var(--line);" onclick="toggleMenu()">
+          <span class="text-[10px] md:text-xs text-white/20 tracking-[0.2em] uppercase mb-1 md:mb-2 font-mono flex-shrink-0">01</span>
+          <span class="menu-link-text text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] font-instrument-serif tracking-tight leading-none text-white group-hover:text-[#f4c430] transition-colors duration-300">Home</span>
+        </a>
+
+        <a href="#services" class="menu-link group flex items-end gap-3 md:gap-5 py-3 md:py-4 border-b" style="border-color: var(--line);" onclick="toggleMenu()">
+          <span class="text-[10px] md:text-xs text-white/20 tracking-[0.2em] uppercase mb-1 md:mb-2 font-mono flex-shrink-0">02</span>
+          <span class="menu-link-text text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] font-instrument-serif tracking-tight leading-none text-white group-hover:text-[#f4c430] transition-colors duration-300">Services</span>
+        </a>
+
+        <a href="#work" class="menu-link group flex items-end gap-3 md:gap-5 py-3 md:py-4 border-b" style="border-color: var(--line);" onclick="toggleMenu()">
+          <span class="text-[10px] md:text-xs text-white/20 tracking-[0.2em] uppercase mb-1 md:mb-2 font-mono flex-shrink-0">03</span>
+          <span class="menu-link-text text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] font-instrument-serif tracking-tight leading-none text-white group-hover:text-[#f4c430] transition-colors duration-300">Work</span>
+        </a>
+
+        <a href="#team" class="menu-link group flex items-end gap-3 md:gap-5 py-3 md:py-4 border-b" style="border-color: var(--line);" onclick="toggleMenu()">
+          <span class="text-[10px] md:text-xs text-white/20 tracking-[0.2em] uppercase mb-1 md:mb-2 font-mono flex-shrink-0">04</span>
+          <span class="menu-link-text text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] font-instrument-serif tracking-tight leading-none text-white group-hover:text-[#f4c430] transition-colors duration-300">Team</span>
+        </a>
+
+        <a href="#contact" class="menu-link group flex items-end gap-3 md:gap-5 py-3 md:py-4" onclick="toggleMenu()">
+          <span class="text-[10px] md:text-xs text-white/20 tracking-[0.2em] uppercase mb-1 md:mb-2 font-mono flex-shrink-0">05</span>
+          <span class="menu-link-text text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] font-instrument-serif tracking-tight leading-none text-white group-hover:text-[#f4c430] transition-colors duration-300">Contact</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Bottom bar: socials + CTA -->
+    <div class="menu-link absolute bottom-8 md:bottom-12 left-8 md:left-16 lg:left-24 right-8 md:right-16 lg:right-24 flex items-center justify-between">
+      <div class="flex gap-7">
+        <a href="#" class="text-[11px] uppercase tracking-[0.22em]" style="color: rgba(245,241,232,0.3);" onmouseover="this.style.color='rgba(245,241,232,0.75)'" onmouseout="this.style.color='rgba(245,241,232,0.3)'">Instagram</a>
+        <a href="#" class="text-[11px] uppercase tracking-[0.22em]" style="color: rgba(245,241,232,0.3);" onmouseover="this.style.color='rgba(245,241,232,0.75)'" onmouseout="this.style.color='rgba(245,241,232,0.3)'">LinkedIn</a>
+      </div>
+      <a href="#contact" class="group flex items-center gap-2 pb-0.5 border-b transition-colors duration-300"
+        style="color: white; border-color: rgba(255,255,255,0.28);"
+        onmouseover="this.style.borderColor='white'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.28)'"
+        onclick="toggleMenu()">
+        <span class="text-sm tracking-wide">Start a Project</span>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       HERO SECTION
+       ════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+  <header id="hero" class="relative w-full h-screen overflow-hidden" style="background: var(--bg);">
+
+    <!-- Video Background -->
+    <video id="hero-video" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-0" style="transform: scale(1.08);"
+      poster="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/16b5c7c1-f196-4707-b5d8-9ba5ecac10bc_1600w.jpg">
+      <source src="https://spark-labs.org/video/reel.mp4" type="video/mp4">
+    </video>
+
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0" style="background: linear-gradient(to top, var(--bg) 0%, rgba(11,11,13,0.5) 40%, transparent 100%);"></div>
+
+    <!-- Subtle Radial Glow (atmosphere) -->
+    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse at 30% 80%, rgba(244,196,48,0.06) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(79,124,255,0.04) 0%, transparent 50%);"></div>
+
+    <!-- Hero Content — Bottom Left -->
+    <div class="absolute bottom-0 left-0 w-full px-5 pb-16 pt-12 md:px-12 md:pb-24 md:pt-20 z-10">
+
+      <div class="max-w-3xl" id="hero-content">
+
+        <!-- Headline -->
+        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.92] tracking-tight font-instrument-serif mb-8 md:mb-10" style="text-wrap: balance;">
+          <span class="headline-line" id="headline-1">Make Your Brand</span>
+          <span class="headline-line" id="headline-2" style="color: var(--text-soft);">Unskippable.</span>
+        </h1>
+
+        <!-- Sub Copy + CTA Link — inline row matching inspiration -->
+        <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-0">
+
+          <!-- Sub Copy -->
+          <p id="hero-sub" class="leading-relaxed text-base md:text-lg opacity-0" style="color: rgba(245,241,232,0.55); max-width: 460px;">
+            We blend high-end art direction with intelligent automation to generate on-demand visuals that keep your business moving.
+          </p>
+
+          <!-- CTA Link -->
+          <a href="#contact" id="hero-cta" class="group flex items-center gap-2 pb-1 border-b transition-colors duration-300 w-fit shrink-0 opacity-0 md:ml-6" style="color: var(--text); border-color: rgba(245,241,232,0.3);" onmouseover="this.style.borderColor='var(--text)'" onmouseout="this.style.borderColor='rgba(245,241,232,0.3)'">
+            <span class="whitespace-nowrap" style="font-size: 1.10rem;">Schedule a strategy session</span>
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator — Bottom Center -->
+    <div id="scroll-indicator" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 opacity-0 z-20">
+      <span class="text-[10px] uppercase tracking-[0.3em] font-medium" style="color: var(--text-dim);">Scroll</span>
+      <div class="flex flex-col items-center gap-[6px]">
+        <span class="scroll-dot w-[5px] h-[5px] inline-block" style="background: var(--yellow);"></span>
+        <span class="scroll-dot w-[5px] h-[5px] inline-block" style="background: var(--blue);"></span>
+        <span class="scroll-dot w-[5px] h-[5px] inline-block" style="background: var(--orange);"></span>
+      </div>
+    </div>
+  </header>
+
+  <section id="team" class="relative flex min-h-screen items-center overflow-hidden"
+    style="background:
+      radial-gradient(circle at 10% 18%, rgba(244,196,48,0.09), transparent 28%),
+      radial-gradient(circle at 84% 18%, rgba(79,124,255,0.08), transparent 24%),
+      radial-gradient(circle at 74% 74%, rgba(255,122,26,0.06), transparent 22%),
+      linear-gradient(180deg, rgba(255,255,255,0.02), transparent 24%),
+      var(--bg-soft);">
+    <div class="absolute inset-0 team-grid-overlay pointer-events-none"></div>
+    <div class="absolute inset-x-0 top-0 h-px" style="background: var(--line);"></div>
+    <div class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 lg:block" style="background: linear-gradient(180deg, transparent, rgba(245,241,232,0.06) 18%, rgba(245,241,232,0.12) 52%, transparent);"></div>
+
+    <div class="relative mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-8 lg:px-12 xl:px-16">
+      <div class="grid items-center gap-14 lg:min-h-[100vh] lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] lg:gap-8 lg:py-14">
+        <div class="relative z-10 max-w-[440px]">
+          <p data-team-copy class="text-[11px] uppercase tracking-[0.28em]" style="color: rgba(245,241,232,0.46);">The Dots That Connect</p>
+          <div data-team-copy class="mt-5 h-px w-20" style="background: linear-gradient(90deg, rgba(245,241,232,0.55), rgba(245,241,232,0));"></div>
+          <h2 id="team-title" data-team-copy class="mt-8 font-instrument-serif text-[clamp(2.95rem,6vw,6rem)] leading-[0.9] tracking-[-0.03em]" style="text-wrap: balance;">
+            A Roster Built
+            <span class="block" style="color: rgba(245,241,232,0.72);">To Read The Room.</span>
+          </h2>
+          <p data-team-copy class="mt-7 max-w-[28rem] text-[1rem] leading-7 sm:text-[1.05rem]" style="color: rgba(245,241,232,0.62);">
+            Strategy, community, production, and performance sit close here on purpose. The structure stays clear so every face feels real, every role feels earned, and the work reads like one tight system instead of siloed specialists.
+          </p>
+
+          <div data-team-copy class="mt-10 grid gap-3 sm:max-w-[22rem]">
+            <div class="team-proof-item" style="color: rgba(244,196,48,0.82);">Culture Reading</div>
+            <div class="team-proof-item">Production Discipline</div>
+            <div class="team-proof-item" style="color: rgba(79,124,255,0.76);">Community Instincts</div>
+          </div>
+
+          <p data-team-copy class="mt-10 text-[0.72rem] uppercase tracking-[0.26em]" style="color: rgba(245,241,232,0.34);">
+            7 voices arranged with intent, then tightened on scroll.
+          </p>
+        </div>
+
+        <div class="relative">
+          <div class="team-stage-frame relative hidden min-h-[620px] overflow-hidden rounded-[30px] border lg:block" style="border-color: rgba(245,241,232,0.09);">
+            <div class="absolute inset-x-10 top-10 flex items-center justify-between text-[10px] uppercase tracking-[0.24em]" style="color: rgba(245,241,232,0.3);">
+              <span>Collective Read</span>
+              <span>Section 02</span>
+            </div>
+
+            <svg class="team-signal pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 760 620" aria-hidden="true">
+              <path d="M140 130C210 122 268 140 332 214"></path>
+              <path d="M338 214C410 188 470 160 560 150"></path>
+              <path d="M168 356C232 334 286 314 340 240"></path>
+              <path d="M352 244C420 298 468 342 556 382"></path>
+              <path d="M334 242C330 310 334 358 374 452"></path>
+              <circle cx="140" cy="130" r="3"></circle>
+              <circle cx="338" cy="214" r="3"></circle>
+              <circle cx="560" cy="150" r="3"></circle>
+              <circle cx="168" cy="356" r="3"></circle>
+              <circle cx="556" cy="382" r="3"></circle>
+              <circle cx="374" cy="452" r="3"></circle>
+            </svg>
+
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_24%,rgba(255,255,255,0.08),transparent_26%),radial-gradient(circle_at_78%_18%,rgba(79,124,255,0.1),transparent_22%),radial-gradient(circle_at_68%_72%,rgba(244,196,48,0.08),transparent_20%)] opacity-80"></div>
+
+            <article class="team-card absolute left-[6%] top-[10%] w-[150px]" data-start-x="-26" data-start-y="18" data-start-scale="1.04">
+              <div class="team-avatar aspect-square">
+                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=720&q=80" alt="Maria Sol, Community Director" width="720" height="720" loading="lazy" style="object-position: center 22%;">
+              </div>
+              <div class="team-caption pl-2 pt-4">
+                <p class="team-name">Maria Sol</p>
+                <p class="team-role">Community Director</p>
+              </div>
+            </article>
+
+            <article class="team-card absolute left-[34%] top-[8%] w-[128px]" data-start-x="16" data-start-y="-16" data-start-scale="0.96">
+              <div class="team-avatar aspect-square">
+                <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=720&q=80" alt="Talia Reed, Content Systems" width="720" height="720" loading="lazy" style="object-position: center 26%;">
+              </div>
+              <div class="team-caption pl-1 pt-3">
+                <p class="team-name">Talia Reed</p>
+                <p class="team-role">Content Systems</p>
+              </div>
+            </article>
+
+            <article class="team-card absolute right-[7%] top-[11%] w-[154px]" data-start-x="22" data-start-y="14" data-start-scale="1.05">
+              <div class="team-avatar aspect-square">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=720&q=80" alt="Rohan Dey, Production Lead" width="720" height="720" loading="lazy" style="object-position: center 26%;">
+              </div>
+              <div class="team-caption pt-4 text-right pr-2">
+                <p class="team-name">Rohan Dey</p>
+                <p class="team-role">Production Lead</p>
+              </div>
+            </article>
+
+            <article class="team-card absolute left-[13%] top-[47%] w-[132px]" data-start-x="-18" data-start-y="18" data-start-scale="0.97">
+              <div class="team-avatar aspect-square">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=720&q=80" alt="Noah Park, Performance Lead" width="720" height="720" loading="lazy" style="object-position: center 18%;">
+              </div>
+              <div class="team-caption pl-2 pt-3">
+                <p class="team-name">Noah Park</p>
+                <p class="team-role">Performance Lead</p>
+              </div>
+            </article>
+
+            <article class="team-card absolute left-[38%] top-[23%] w-[202px]" data-start-x="-14" data-start-y="20" data-start-scale="1.06">
+              <div class="team-avatar aspect-square">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Aditi Khan, Founder and Strategy Lead" width="900" height="900" loading="lazy" style="object-position: center 18%;">
+              </div>
+              <div class="team-caption pl-3 pt-5">
+                <p class="team-name text-[1.38rem]">Aditi Khan</p>
+                <p class="team-role">Founder / Strategy Lead</p>
+              </div>
+            </article>
+
+            <article class="team-card absolute left-[34%] top-[63%] w-[162px]" data-start-x="10" data-start-y="20" data-start-scale="1.02">
+              <div class="team-avatar aspect-square">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=720&q=80" alt="Serena Vale, Partnerships Lead" width="720" height="720" loading="lazy" style="object-position: center 24%;">
+              </div>
+              <div class="team-caption pl-2 pt-4">
+                <p class="team-name">Serena Vale</p>
+                <p class="team-role">Partnerships Lead</p>
+              </div>
+            </article>
+
+            <article class="team-card absolute right-[9%] top-[53%] w-[142px]" data-start-x="20" data-start-y="-10" data-start-scale="0.98">
+              <div class="team-avatar aspect-square">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=720&q=80" alt="Leila Hart, Cultural Strategist" width="720" height="720" loading="lazy" style="object-position: center 20%;">
+              </div>
+              <div class="team-caption pt-4 text-right pr-1">
+                <p class="team-name">Leila Hart</p>
+                <p class="team-role">Cultural Strategist</p>
+              </div>
+            </article>
+
+            <div class="absolute bottom-10 left-10 rounded-full border px-4 py-2 text-[10px] uppercase tracking-[0.24em]" style="border-color: rgba(245,241,232,0.14); color: rgba(245,241,232,0.36);">
+              Precision over noise
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2 lg:hidden">
+            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
+              <div class="flex items-center gap-4">
+                <div class="team-avatar h-20 w-20 flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Aditi Khan, Founder and Strategy Lead" width="400" height="400" loading="lazy" style="object-position: center 18%;">
+                </div>
+                <div class="team-caption">
+                  <p class="team-name">Aditi Khan</p>
+                  <p class="team-role">Founder / Strategy Lead</p>
+                </div>
+              </div>
+            </article>
+            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
+              <div class="flex items-center gap-4">
+                <div class="team-avatar h-20 w-20 flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=400&q=80" alt="Maria Sol, Community Director" width="400" height="400" loading="lazy" style="object-position: center 22%;">
+                </div>
+                <div class="team-caption">
+                  <p class="team-name">Maria Sol</p>
+                  <p class="team-role">Community Director</p>
+                </div>
+              </div>
+            </article>
+            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
+              <div class="flex items-center gap-4">
+                <div class="team-avatar h-20 w-20 flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80" alt="Talia Reed, Content Systems" width="400" height="400" loading="lazy" style="object-position: center 26%;">
+                </div>
+                <div class="team-caption">
+                  <p class="team-name">Talia Reed</p>
+                  <p class="team-role">Content Systems</p>
+                </div>
+              </div>
+            </article>
+            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
+              <div class="flex items-center gap-4">
+                <div class="team-avatar h-20 w-20 flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Rohan Dey, Production Lead" width="400" height="400" loading="lazy" style="object-position: center 26%;">
+                </div>
+                <div class="team-caption">
+                  <p class="team-name">Rohan Dey</p>
+                  <p class="team-role">Production Lead</p>
+                </div>
+              </div>
+            </article>
+            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
+              <div class="flex items-center gap-4">
+                <div class="team-avatar h-20 w-20 flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Noah Park, Performance Lead" width="400" height="400" loading="lazy" style="object-position: center 18%;">
+                </div>
+                <div class="team-caption">
+                  <p class="team-name">Noah Park</p>
+                  <p class="team-role">Performance Lead</p>
+                </div>
+              </div>
+            </article>
+            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
+              <div class="flex items-center gap-4">
+                <div class="team-avatar h-20 w-20 flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="Serena Vale, Partnerships Lead" width="400" height="400" loading="lazy" style="object-position: center 24%;">
+                </div>
+                <div class="team-caption">
+                  <p class="team-name">Serena Vale</p>
+                  <p class="team-role">Partnerships Lead</p>
+                </div>
+              </div>
+            </article>
+            <article class="team-card team-mobile-card rounded-[24px] p-4 sm:col-span-2" data-mobile-card>
+              <div class="flex items-center gap-4">
+                <div class="team-avatar h-20 w-20 flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=400&q=80" alt="Leila Hart, Cultural Strategist" width="400" height="400" loading="lazy" style="object-position: center 20%;">
+                </div>
+                <div class="team-caption">
+                  <p class="team-name">Leila Hart</p>
+                  <p class="team-role">Cultural Strategist</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════════════════════ -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Hamburger — 2 white lines ────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const hbTop     = document.getElementById('hb-top');
+    const hbBottom  = document.getElementById('hb-bottom');
+
+    // Hover: top line contracts, bottom expands to match — then resets
+    hamburger.addEventListener('mouseenter', () => {
+      if (!menuOpen) {
+        gsap.to(hbTop,    { scaleX: 0.64, duration: 0.28, ease: 'power2.out' });
+        gsap.to(hbBottom, { width: '34px', duration: 0.28, ease: 'power2.out' });
+      }
+    });
+    hamburger.addEventListener('mouseleave', () => {
+      if (!menuOpen) {
+        gsap.to(hbTop,    { scaleX: 1,     duration: 0.35, ease: 'power2.inOut' });
+        gsap.to(hbBottom, { width: '22px', duration: 0.35, ease: 'power2.inOut' });
+      }
+    });
+
+    // ── Full Menu Toggle ──────────────────────────────────
+    let menuOpen = false;
+    let menuTl   = null;
+
+    gsap.set('.menu-link', { opacity: 0, y: 35 });
+
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      const menu = document.getElementById('full-menu');
+      hamburger.setAttribute('aria-expanded', menuOpen);
+
+      if (menuOpen) {
+        // Lines → X: both lines move to center and cross
+        // y offset = (gap 7px + line height 1.5px) / 2 = 4.25px
+        // y offset = (gap 8px + line height 1.8px) / 2 = 4.9px
+        // y offset = (gap 8px + line height 2px) / 2 = 5px
+        gsap.to(hbTop,    { y: 5, rotation: 45,  width: '34px', duration: 0.42, ease: 'power3.out' });
+        gsap.to(hbBottom, { y: -5, rotation: -45, width: '34px', duration: 0.42, ease: 'power3.out', delay: 0.03 });
+
+        menu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+
+        menuTl = gsap.timeline();
+        menuTl.to('.menu-link', {
+          opacity: 1, y: 0,
+          duration: 0.65, stagger: 0.07, ease: 'power4.out', delay: 0.15
+        });
+
+      } else {
+        // X → 2 asymmetric lines
+        gsap.to(hbTop,    { y: 0, rotation: 0, duration: 0.42, ease: 'power3.out' });
+        gsap.to(hbBottom, { y: 0, rotation: 0, width: '22px', duration: 0.42, ease: 'power3.out', delay: 0.03 });
+
+        if (menuTl) menuTl.kill();
+        gsap.to('.menu-link', {
+          opacity: 0, y: -15,
+          duration: 0.22, stagger: 0.03, ease: 'power2.in',
+          onComplete: () => {
+            menu.classList.remove('open');
+            document.body.style.overflow = '';
+            gsap.set('.menu-link', { y: 35 });
+          }
+        });
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menuOpen) toggleMenu();
+    });
+
+
+    // ── Intro Reveal Timeline ────────────────────────────
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const SKIP_INTRO = prefersReducedMotion ? true : false; // bypass intro for reduced motion or during dev
+
+    const introOverlay = document.getElementById('intro-overlay');
+
+    // Lock scroll during intro
+    document.body.style.overflow = 'hidden';
+
+    // Failsafe: if intro hasn't completed within 5s, force-show page
+    const introFailsafe = setTimeout(() => {
+      if (introOverlay && introOverlay.style.display !== 'none') {
+        introOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+        if (typeof heroTl !== 'undefined' && heroTl.paused()) heroTl.play();
+      }
+    }, 5000);
+
+    const introTl = gsap.timeline({
+      defaults: { ease: 'power3.out' },
+      onComplete: () => {
+        clearTimeout(introFailsafe);
+        introOverlay.style.display = 'none';
+        introOverlay.style.pointerEvents = 'none';
+        document.body.style.overflow = '';
+        heroTl.play();
+      }
+    });
+
+    if (SKIP_INTRO) {
+      introOverlay.style.display = 'none';
+      document.body.style.overflow = '';
+      clearTimeout(introFailsafe);
+    } else {
+      const introDots = document.querySelectorAll('.intro-dot');
+
+      // Scatter dots to random positions around the viewport center
+      const scatterPositions = [
+        { x: -120, y: -80 },
+        { x: 60, y: 100 },
+        { x: 140, y: -40 }
+      ];
+      introDots.forEach((dot, i) => {
+        gsap.set(dot, { x: scatterPositions[i].x, y: scatterPositions[i].y, scale: 0, opacity: 0 });
+      });
+
+      introTl
+        // Dots appear scattered, then converge to their home positions
+        .to(introDots, {
+          opacity: 1, scale: 1,
+          duration: 0.5, stagger: 0.1, ease: 'back.out(2)'
+        }, 0)
+        .to(introDots, {
+          x: 0, y: 0,
+          duration: 0.7, stagger: 0.06, ease: 'power4.out'
+        }, 0.3)
+
+        // Wordmark clips in from left as dots land
+        .to('#intro-wordmark', {
+          clipPath: 'inset(0 0% 0 0)',
+          duration: 0.7, ease: 'power4.out'
+        }, 0.55)
+
+        // Brief hold — full logo visible
+        // ~1.25s to 1.7s
+
+        // Exit — logo scales up and fades, overlay follows
+        .to('#intro-logo', {
+          scale: 1.15, opacity: 0,
+          duration: 0.5, ease: 'power3.in'
+        }, 1.7)
+        .to(introOverlay, {
+          opacity: 0,
+          duration: 0.35, ease: 'power3.in'
+        }, 1.95);
+    }
+
+    // ── Hero Entrance Timeline ────────────────────────────
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' }, paused: !SKIP_INTRO });
+
+    heroTl.to('#hero-video', {
+      scale: 1, opacity: 0.6, duration: 1.6, ease: 'power4.out'
+    }, 0);
+
+    heroTl.to('#logo', {
+      opacity: 1, y: 0, duration: 0.7
+    }, 0.2);
+
+    heroTl.to('#nav-cta', { opacity: 1, duration: 0.6 }, 0.45);
+    heroTl.to('#hamburger', { opacity: 1, duration: 0.6 }, 0.5);
+
+    // Logo dots — arc-drift entrance
+    const logoDots = document.querySelectorAll('.logo-dot');
+    const dotStartPos = [
+      { x: -28, y: -18 }, { x: 0, y: -32 }, { x: 28, y: -18 }
+    ];
+    logoDots.forEach((dot, i) => {
+      gsap.set(dot, { x: dotStartPos[i].x, y: dotStartPos[i].y, scale: 0, opacity: 0 });
+      heroTl.to(dot, {
+        x: 0, y: 0, scale: 1, opacity: 1,
+        duration: 0.8, ease: 'back.out(2.5)'
+      }, 0.28 + i * 0.1);
+    });
+
+    heroTl.to('#headline-1', { clipPath: 'inset(0% 0 0 0)', duration: 0.9, ease: 'power4.out' }, 0.62);
+    heroTl.to('#headline-2', { clipPath: 'inset(0% 0 0 0)', duration: 0.9, ease: 'power4.out' }, 0.77);
+    heroTl.fromTo('#hero-sub',  { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8 }, 0.92);
+    heroTl.fromTo('#hero-cta',  { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7 }, 1.07);
+    heroTl.to('#scroll-indicator', { opacity: 1, duration: 0.6 }, 1.42);
+
+
+    // ── Logo Dots — Breathing Scale Pulse ────────────────
+    logoDots.forEach((dot, i) => {
+      gsap.fromTo(dot,
+        { scale: 0.85 },
+        {
+          scale: 1.15,
+          duration: 1.1,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+          delay: 1.65 + i * 0.38
+        }
+      );
+    });
+
+
+    // ── Scroll Dots — Cascade Loop ────────────────────────
+    const scrollDots = document.querySelectorAll('.scroll-dot');
+    const scrollDotLoop = gsap.timeline({ repeat: -1, delay: 2 });
+
+    scrollDots.forEach((dot, i) => {
+      scrollDotLoop.fromTo(dot, { y: 0, opacity: 1 }, {
+        y: 18, opacity: 0, duration: 0.6, ease: 'power2.in'
+      }, i * 0.15);
+      scrollDotLoop.set(dot, { y: -8, opacity: 0 }, 0.6 + i * 0.15);
+      scrollDotLoop.to(dot, { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.7 + i * 0.15);
+    });
+    scrollDotLoop.to({}, { duration: 0.8 });
+
+
+    // ── Scroll Behaviors ──────────────────────────────────
+
+    // Nav: hide on scroll down, reveal on scroll up — always transparent
+    let navVisible = true;
+    let lastScrollY = 0;
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+
+      if (y < 80) {
+        // Near top — always show
+        if (!navVisible) {
+          gsap.to('#main-nav', { y: 0, duration: 0.45, ease: 'power3.out' });
+          navVisible = true;
+        }
+      } else if (y > lastScrollY && navVisible) {
+        // Scrolling down — hide
+        gsap.to('#main-nav', { y: '-110%', duration: 0.35, ease: 'power3.in' });
+        navVisible = false;
+      } else if (y < lastScrollY && !navVisible) {
+        // Scrolling up — reveal
+        gsap.to('#main-nav', { y: 0, duration: 0.45, ease: 'power3.out' });
+        navVisible = true;
+      }
+
+      lastScrollY = y;
+    }, { passive: true });
+
+    // Headline parallax
+    gsap.to('#hero-content', {
+      y: -50, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+    });
+
+    // Video subtle zoom on scroll
+    gsap.to('#hero-video', {
+      scale: 1.04, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1 }
+    });
+
+    // Scroll indicator fades
+    gsap.to('#scroll-indicator', {
+      opacity: 0, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: '80px top', end: '200px top', scrub: true }
+    });
+
+    const teamSection = document.getElementById('team');
+
+    if (teamSection) {
+      const teamCopy = gsap.utils.toArray('[data-team-copy]');
+      const teamDesktopCards = gsap.utils.toArray('#team .team-stage-frame .team-card');
+      const teamMobileCards = gsap.utils.toArray('[data-mobile-card]');
+      const teamCaptions = gsap.utils.toArray('#team .team-stage-frame .team-caption');
+      const teamSignalPaths = gsap.utils.toArray('#team .team-signal path');
+      const teamSignalDots = gsap.utils.toArray('#team .team-signal circle');
+
+      teamSignalPaths.forEach((path) => {
+        const length = path.getTotalLength();
+        gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: length,
+          opacity: 0.16
+        });
+      });
+
+      gsap.set(teamSignalDots, { opacity: 0.18, scale: 0.7, transformOrigin: 'center center' });
+
+      const mm = gsap.matchMedia();
+      mm.add(
+        {
+          desktop: '(min-width: 1024px)',
+          mobile: '(max-width: 1023px)',
+          reduceMotion: '(prefers-reduced-motion: reduce)'
+        },
+        (context) => {
+          const { desktop, mobile, reduceMotion } = context.conditions;
+
+          if (reduceMotion) {
+            gsap.set(teamCopy, { clearProps: 'all' });
+            gsap.set(teamDesktopCards, { clearProps: 'all' });
+            gsap.set(teamCaptions, { clearProps: 'all' });
+            gsap.set(teamSignalPaths, { clearProps: 'all' });
+            gsap.set(teamSignalDots, { clearProps: 'all' });
+            return;
+          }
+
+          if (desktop) {
+            gsap.set(teamCopy, { opacity: 0, y: 28 });
+            gsap.set(teamCaptions, { opacity: 0.48, y: 18 });
+
+            teamDesktopCards.forEach((card) => {
+              gsap.set(card, {
+                x: Number(card.dataset.startX || 0),
+                y: Number(card.dataset.startY || 0),
+                scale: Number(card.dataset.startScale || 1)
+              });
+            });
+
+            const teamTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: teamSection,
+                start: 'top 72%',
+                end: 'bottom 32%',
+                scrub: 0.85
+              }
+            });
+
+            teamTl
+              .to(teamCopy, {
+                opacity: 1,
+                y: 0,
+                duration: 0.75,
+                stagger: 0.08,
+                ease: 'power3.out'
+              }, 0)
+              .to(teamDesktopCards, {
+                x: 0,
+                y: 0,
+                scale: 1,
+                duration: 1.05,
+                stagger: 0.05,
+                ease: 'power3.out'
+              }, 0.08)
+              .to(teamCaptions, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                stagger: 0.04,
+                ease: 'power2.out'
+              }, 0.32)
+              .to(teamSignalPaths, {
+                strokeDashoffset: 0,
+                opacity: 1,
+                duration: 0.9,
+                stagger: 0.08,
+                ease: 'power2.out'
+              }, 0.4)
+              .to(teamSignalDots, {
+                opacity: 0.86,
+                scale: 1,
+                duration: 0.45,
+                stagger: 0.05,
+                ease: 'power2.out'
+              }, 0.7);
+
+            return () => {
+              teamTl.scrollTrigger?.kill();
+              teamTl.kill();
+            };
+          }
+
+          if (mobile) {
+            gsap.set(teamCopy, { opacity: 0, y: 26 });
+            gsap.set(teamMobileCards, { opacity: 0, y: 24 });
+
+            const copyTween = gsap.to(teamCopy, {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              stagger: 0.08,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: teamSection,
+                start: 'top 82%',
+                once: true
+              }
+            });
+
+            const cardTween = gsap.to(teamMobileCards, {
+              opacity: 1,
+              y: 0,
+              duration: 0.65,
+              stagger: 0.09,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: teamSection,
+                start: 'top 72%',
+                once: true
+              }
+            });
+
+            return () => {
+              copyTween.scrollTrigger?.kill();
+              cardTween.scrollTrigger?.kill();
+              copyTween.kill();
+              cardTween.kill();
+            };
+          }
+        }
+      );
+    }
+
+  </script>
+</body>
+</html>
+
