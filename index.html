@@ -5,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BloomDots — Make Your Brand Unskippable</title>
   <noscript><style>#intro-overlay{display:none!important}</style></noscript>
-  <meta name="theme-color" content="#0b0b0d">
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://spark-labs.org" crossorigin>
-  <link rel="preconnect" href="https://hoirqrkdgbmvpwutwuwj.supabase.co" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -31,10 +25,6 @@
 
   <style>
     /* ── CSS Variables ──────────────────────────────────────── */
-    html {
-      color-scheme: dark;
-    }
-
     :root {
       --bg: #0b0b0d;
       --bg-soft: #121317;
@@ -55,62 +45,62 @@
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-Thin-Trial.otf') format('opentype');
-      font-weight: 100; font-style: normal; font-display: swap;
+      font-weight: 100; font-style: normal;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-ThinItalic-Trial.otf') format('opentype');
-      font-weight: 100; font-style: italic; font-display: swap;
+      font-weight: 100; font-style: italic;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-Light-Trial.otf') format('opentype');
-      font-weight: 300; font-style: normal; font-display: swap;
+      font-weight: 300; font-style: normal;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-LightItalic-Trial.otf') format('opentype');
-      font-weight: 300; font-style: italic; font-display: swap;
+      font-weight: 300; font-style: italic;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-Regular-Trial.otf') format('opentype');
-      font-weight: 400; font-style: normal; font-display: swap;
+      font-weight: 400; font-style: normal;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-RegularItalic-Trial.otf') format('opentype');
-      font-weight: 400; font-style: italic; font-display: swap;
+      font-weight: 400; font-style: italic;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-Medium-Trial.otf') format('opentype');
-      font-weight: 500; font-style: normal; font-display: swap;
+      font-weight: 500; font-style: normal;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-MediumItalic-Trial.otf') format('opentype');
-      font-weight: 500; font-style: italic; font-display: swap;
+      font-weight: 500; font-style: italic;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-Bold-Trial.otf') format('opentype');
-      font-weight: 700; font-style: normal; font-display: swap;
+      font-weight: 700; font-style: normal;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-BoldItalic-Trial.otf') format('opentype');
-      font-weight: 700; font-style: italic; font-display: swap;
+      font-weight: 700; font-style: italic;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-Black-Trial.otf') format('opentype');
-      font-weight: 900; font-style: normal; font-display: swap;
+      font-weight: 900; font-style: normal;
     }
     @font-face {
       font-family: 'Canela';
       src: url('Canela_Collection/Canela Family/Canela-BlackItalic-Trial.otf') format('opentype');
-      font-weight: 900; font-style: italic; font-display: swap;
+      font-weight: 900; font-style: italic;
     }
 
     /* ── Satoshi (body / UI) ──────────────────────────────── */
@@ -118,61 +108,61 @@
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Light.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Light.woff') format('woff');
-      font-weight: 300; font-style: normal; font-display: swap;
+      font-weight: 300; font-style: normal;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-LightItalic.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-LightItalic.woff') format('woff');
-      font-weight: 300; font-style: italic; font-display: swap;
+      font-weight: 300; font-style: italic;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
-      font-weight: 400; font-style: normal; font-display: swap;
+      font-weight: 400; font-style: normal;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.woff') format('woff');
-      font-weight: 400; font-style: italic; font-display: swap;
+      font-weight: 400; font-style: italic;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
-      font-weight: 500; font-style: normal; font-display: swap;
+      font-weight: 500; font-style: normal;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-MediumItalic.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-MediumItalic.woff') format('woff');
-      font-weight: 500; font-style: italic; font-display: swap;
+      font-weight: 500; font-style: italic;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
-      font-weight: 700; font-style: normal; font-display: swap;
+      font-weight: 700; font-style: normal;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BoldItalic.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BoldItalic.woff') format('woff');
-      font-weight: 700; font-style: italic; font-display: swap;
+      font-weight: 700; font-style: italic;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Black.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Black.woff') format('woff');
-      font-weight: 900; font-style: normal; font-display: swap;
+      font-weight: 900; font-style: normal;
     }
     @font-face {
       font-family: 'Satoshi';
       src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BlackItalic.woff2') format('woff2'),
            url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BlackItalic.woff') format('woff');
-      font-weight: 900; font-style: italic; font-display: swap;
+      font-weight: 900; font-style: italic;
     }
 
     /* ── Base ──────────────────────────────────────────────── */
@@ -181,47 +171,9 @@
       background: var(--bg);
       color: var(--text);
     }
-    a,
-    button {
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: rgba(244,196,48,0.18);
-    }
-    button {
-      background: transparent;
-      color: inherit;
-    }
-    img {
-      display: block;
-      max-width: 100%;
-    }
     h1, h2, h3, h4, h5, h6,
     .font-instrument-serif {
       font-family: 'Canela', serif;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: 1rem;
-      top: 1rem;
-      z-index: 100;
-      transform: translateY(-200%);
-      padding: 0.85rem 1rem;
-      background: var(--text);
-      color: var(--bg);
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: transform 0.25s ease;
-    }
-
-    .skip-link:focus-visible {
-      transform: translateY(0);
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--yellow);
-      outline-offset: 4px;
     }
 
     /* ── Grain Overlay ────────────────────────────────────── */
@@ -293,123 +245,514 @@
       will-change: transform, opacity;
     }
 
+    /* ── Team Section ────────────────────────────────────── */
     #team {
-      scroll-margin-top: 5.5rem;
-    }
-
-    .team-grid-overlay {
-      background-image:
-        linear-gradient(rgba(245,241,232,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245,241,232,0.04) 1px, transparent 1px);
-      background-size: 124px 124px;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
-      opacity: 0.18;
-    }
-
-    .team-proof-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(245,241,232,0.62);
-    }
-
-    .team-proof-item::before {
-      content: "";
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 999px;
-      background: currentColor;
-      opacity: 0.75;
-      flex-shrink: 0;
-    }
-
-    .team-stage-frame {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)),
-        rgba(10, 11, 14, 0.42);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 30px 80px rgba(0,0,0,0.32);
-      backdrop-filter: blur(14px);
-    }
-
-    .team-card {
-      will-change: transform, opacity;
-    }
-
-    .team-avatar {
       position: relative;
+      height: 250vh;
       overflow: hidden;
-      border-radius: 999px;
-      border: 1px solid rgba(245,241,232,0.12);
-      box-shadow:
-        0 20px 50px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
+      background: #09090B;
     }
 
-    .team-avatar::after {
-      content: "";
+    #team-inner {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .team-intro {
+      position: relative;
+      z-index: 10;
+      padding: 4.5rem 2rem 2rem;
+    }
+    @media (min-width: 768px) {
+      .team-intro { padding: 5rem 3.5rem 2.5rem; }
+    }
+    @media (min-width: 1024px) {
+      .team-intro { padding: 5.5rem 4.5rem 3rem; }
+    }
+
+    #team-stage {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      padding: 0 3% 3rem;
+    }
+
+    .team-dot {
       position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to top, rgba(11,11,13,0.64), rgba(11,11,13,0.08) 48%, transparent 78%),
-        radial-gradient(circle at 30% 18%, rgba(255,255,255,0.28), transparent 34%);
-      pointer-events: none;
+      will-change: transform, opacity, filter;
+      z-index: 2;
+      transform: translate(-50%, -50%);
     }
 
-    .team-avatar img {
+    .dot-circle {
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      transition: border-color 0.4s ease;
+    }
+    .dot-circle img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: saturate(0.92) contrast(1.04);
-      transition: transform 0.45s ease, filter 0.45s ease;
+      object-position: top center;
+      display: block;
+      filter: saturate(0.7);
+      transition: filter 0.5s ease;
+    }
+    .team-dot:hover .dot-circle img {
+      filter: saturate(1);
+    }
+    .team-dot:hover .dot-circle {
+      border-color: var(--line-strong);
     }
 
-    .team-card:hover .team-avatar img {
-      transform: scale(1.035);
-      filter: saturate(1) contrast(1.08);
+    .dot-label {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(100% + 6px);
+      white-space: nowrap;
+      text-align: center;
+      pointer-events: none;
+      will-change: opacity, transform;
+    }
+    .dot-name {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 500;
+      font-size: 0.65rem;
+      color: var(--text);
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+    .dot-role {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 400;
+      font-size: 0.52rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      margin-top: 2px;
     }
 
-    .team-caption {
+    #team-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    #team-lines line {
+      stroke: var(--line);
+      vector-effect: non-scaling-stroke;
+      stroke-width: 1px;
+      will-change: stroke-dashoffset;
+      opacity: 0.45;
+    }
+
+    /* ── Team Mobile Grid ──────────────────────────────── */
+    .team-mobile {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      #team {
+        height: auto;
+        min-height: 100vh;
+      }
+      #team-inner {
+        height: auto;
+        min-height: auto;
+      }
+      #team-stage {
+        display: none !important;
+      }
+      .team-mobile {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem 1rem;
+        padding: 2rem 1rem 4rem;
+      }
+      .team-mobile-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.65rem;
+      }
+      .team-mobile-circle {
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        width: 68px;
+        height: 68px;
+      }
+      .team-mobile-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        filter: saturate(0.7);
+      }
+      .team-mobile-name {
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 500;
+        font-size: 0.75rem;
+        color: var(--text);
+        letter-spacing: 0.02em;
+      }
+      .team-mobile-role {
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 400;
+        font-size: 0.6rem;
+        color: var(--text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-top: -2px;
+      }
+      .team-intro {
+        padding: 4rem 1.5rem 0 !important;
+      }
+      .team-intro h2 {
+        font-size: 2.2rem !important;
+      }
+    }
+
+    /* ── Reduced Motion ────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .team-dot,
+      #team-lines line {
+        will-change: auto !important;
+        transition: none !important;
+      }
+    }
+
+
+    /* ── Logo Card Stack ─────────────────────────────────── */
+    #logo-stack {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    #logo-stack-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .stack-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+      pointer-events: none;
+      width: 90%;
+      max-width: 800px;
+    }
+    .tca-scroll-card-wrapper {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+    /* ── Logo Cards — compact, logo-dominant ────────────── */
+    .tca-scroll-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 140px;
+      height: 160px;
+      border-radius: 14px;
+      border: none;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 14px 14px;
+      box-shadow:
+        0 1px 3px rgba(0,0,0,0.08),
+        0 8px 24px rgba(0,0,0,0.16),
+        0 24px 48px rgba(0,0,0,0.12);
+      opacity: 0;
+      visibility: hidden;
+      transition: none !important;
       will-change: transform, opacity;
     }
-
-    .team-name {
-      font-family: 'Canela', serif;
-      font-size: 1.15rem;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      color: var(--text);
+    .tca-scroll-card svg {
+      width: 100%;
+      max-width: none;
+      height: auto;
+      flex: 1;
+      object-fit: contain;
     }
-
-    .team-role {
-      margin-top: 0.32rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
+    /* Brand-colored accent bar at card bottom */
+    .tca-scroll-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20%;
+      right: 20%;
+      height: 3px;
+      border-radius: 3px 3px 0 0;
+      background: var(--glow, rgba(0,0,0,0.08));
+      opacity: 0.7;
+    }
+    .card-brand-label {
+      position: relative;
+      z-index: 1;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.5rem;
+      font-weight: 600;
       text-transform: uppercase;
-      color: rgba(245,241,232,0.56);
+      letter-spacing: 0.18em;
+      color: rgba(11,11,13,0.32);
+      margin-top: auto;
+    }
+    @media (min-width: 768px) {
+      .tca-scroll-card {
+        width: 158px;
+        height: 180px;
+        border-radius: 16px;
+        padding: 20px 16px 16px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .tca-scroll-card {
+        width: 176px;
+        height: 200px;
+        gap: 12px;
+        padding: 22px 20px 18px;
+      }
     }
 
-    .team-signal path {
-      fill: none;
-      stroke: rgba(245,241,232,0.26);
-      stroke-width: 1.15;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    /* ── Services Section ──────────────────────────────────── */
+    #services {
+      position: relative;
+      background: var(--bg);
+      padding: 8rem 0;
+      overflow: hidden;
     }
 
-    .team-signal circle {
-      fill: rgba(245,241,232,0.3);
+    .services-intro {
+      position: relative;
+      z-index: 2;
+      padding: 0 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (min-width: 640px) { .services-intro { padding: 0 2rem; } }
+    @media (min-width: 1024px) { .services-intro { padding: 0 3rem; margin-bottom: 4.5rem; } }
+    @media (min-width: 1280px) { .services-intro { padding: 0 4rem; } }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding: 0 1.25rem;
+    }
+    @media (min-width: 640px) { .services-grid { padding: 0 2rem; } }
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto auto auto;
+        gap: 1rem;
+        padding: 0 3rem;
+      }
+    }
+    @media (min-width: 1280px) { .services-grid { padding: 0 4rem; } }
+
+    /* Tile base */
+    .svc-tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--bg-elevated);
+      cursor: pointer;
+      min-height: 200px;
+      will-change: clip-path, transform, opacity;
     }
 
-    .team-mobile-card {
-      background: linear-gradient(140deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border: 1px solid rgba(245,241,232,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    /* Desktop grid spans */
+    @media (min-width: 768px) {
+      .svc-tile--social    { grid-column: span 7; grid-row: span 2; min-height: 420px; }
+      .svc-tile--paid      { grid-column: span 5; min-height: 200px; }
+      .svc-tile--content   { grid-column: span 5; min-height: 200px; }
+      .svc-tile--podcast   { grid-column: span 5; min-height: 240px; }
+      .svc-tile--influencer { grid-column: span 7; min-height: 240px; }
+    }
+
+    /* Video layer */
+    .svc-tile__video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      /* Spotlight mask — centered offscreen by default */
+      -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+      mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    }
+    .svc-tile__video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Dark overlay on video */
+    .svc-tile__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 2;
+    }
+
+    /* Noise texture per tile */
+    .svc-tile__noise {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px 128px;
+    }
+
+    /* Content layer */
+    .svc-tile__content {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .svc-tile__content { padding: 2rem; }
+    }
+
+    /* Numbered label */
+    .svc-tile__num {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+    }
+
+    /* Service name */
+    .svc-tile__name {
+      font-family: 'Canela', serif;
+      font-size: 1.8rem;
+      line-height: 1.05;
+      color: var(--text);
+      will-change: transform;
+    }
+    @media (min-width: 768px) {
+      .svc-tile--social .svc-tile__name,
+      .svc-tile--influencer .svc-tile__name {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Outcome line */
+    .svc-tile__outcome {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-top: 0.5rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease 0.3s, transform 0.35s ease 0.3s;
+    }
+
+    /* Explore arrow */
+    .svc-tile__explore {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-soft);
+      align-self: flex-end;
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 0.3s ease 0.35s, transform 0.3s ease 0.35s;
+    }
+
+    /* Accent line at bottom */
+    .svc-tile__accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      z-index: 5;
+      transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hover states */
+    .svc-tile:hover .svc-tile__outcome {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .svc-tile:hover .svc-tile__explore {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .svc-tile:hover .svc-tile__accent {
+      width: 100%;
+    }
+    .svc-tile:hover {
+      border-color: var(--line-strong);
+    }
+
+    /* Mobile: videos at low opacity always */
+    @media (max-width: 767px) {
+      .svc-tile__video-wrap {
+        opacity: 0.15 !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+      }
+      .svc-tile__outcome {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .svc-tile__explore {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .svc-tile__accent {
+        width: 100% !important;
+        transition: none;
+      }
+      .services-intro {
+        margin-bottom: 2rem;
+      }
+      #services {
+        padding: 5rem 0;
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .svc-tile {
+        will-change: auto !important;
+      }
+      .svc-tile__video-wrap {
+        transition: none !important;
+      }
     }
 
     /* ── Selection ────────────────────────────────────────── */
@@ -426,7 +769,6 @@
 </head>
 
 <body class="antialiased relative overflow-x-hidden">
-  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- ════════════════════════════════════════════════════════
        INTRO REVEAL OVERLAY — Logo Reveal
@@ -465,7 +807,7 @@
   <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 px-5 py-5 md:px-12 md:py-8 flex justify-between items-center pointer-events-none" style="color: white;">
 
     <!-- Logo -->
-    <a href="#hero" id="logo" class="pointer-events-auto flex items-center opacity-0">
+    <a href="#" id="logo" class="pointer-events-auto flex items-center opacity-0">
       <span class="text-[2.1rem] md:text-[2.5rem] tracking-tight font-normal font-instrument-serif leading-none">Bloom</span>
       <span class="flex items-center gap-[6px] ml-2 relative" style="top: 2px;">
         <span class="logo-dot w-[11px] h-[11px] rounded-full inline-block" style="background: var(--yellow);"></span>
@@ -478,12 +820,12 @@
     <div class="flex items-center gap-5 md:gap-6 pointer-events-auto">
 
       <!-- CTA — hero-style underline link -->
-      <a href="#contact" id="nav-cta" class="group hidden sm:flex items-center gap-2 pb-0.5 border-b transition-colors duration-300 opacity-0"
+      <a href="#contact" id="nav-cta" class="group hidden sm:flex items-center gap-2 pb-0.5 border-b transition-all duration-300 opacity-0"
         style="color: white; border-color: rgba(255,255,255,0.28);"
         onmouseover="this.style.borderColor='white'"
         onmouseout="this.style.borderColor='rgba(255,255,255,0.28)'">
         <span class="text-[0.9rem] tracking-wide whitespace-nowrap">Start a Project</span>
-        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
       </a>
 
       <!-- Hamburger — 2 white lines, asymmetric -->
@@ -511,7 +853,7 @@
       <!-- Nav links -->
       <div class="flex flex-col">
 
-        <a href="#hero" class="menu-link group flex items-end gap-3 md:gap-5 py-3 md:py-4 border-b" style="border-color: var(--line);" onclick="toggleMenu()">
+        <a href="#" class="menu-link group flex items-end gap-3 md:gap-5 py-3 md:py-4 border-b" style="border-color: var(--line);" onclick="toggleMenu()">
           <span class="text-[10px] md:text-xs text-white/20 tracking-[0.2em] uppercase mb-1 md:mb-2 font-mono flex-shrink-0">01</span>
           <span class="menu-link-text text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] font-instrument-serif tracking-tight leading-none text-white group-hover:text-[#f4c430] transition-colors duration-300">Home</span>
         </a>
@@ -545,13 +887,13 @@
         <a href="#" class="text-[11px] uppercase tracking-[0.22em]" style="color: rgba(245,241,232,0.3);" onmouseover="this.style.color='rgba(245,241,232,0.75)'" onmouseout="this.style.color='rgba(245,241,232,0.3)'">Instagram</a>
         <a href="#" class="text-[11px] uppercase tracking-[0.22em]" style="color: rgba(245,241,232,0.3);" onmouseover="this.style.color='rgba(245,241,232,0.75)'" onmouseout="this.style.color='rgba(245,241,232,0.3)'">LinkedIn</a>
       </div>
-      <a href="#contact" class="group flex items-center gap-2 pb-0.5 border-b transition-colors duration-300"
+      <a href="#contact" class="group flex items-center gap-2 pb-0.5 border-b transition-all duration-300"
         style="color: white; border-color: rgba(255,255,255,0.28);"
         onmouseover="this.style.borderColor='white'"
         onmouseout="this.style.borderColor='rgba(255,255,255,0.28)'"
         onclick="toggleMenu()">
         <span class="text-sm tracking-wide">Start a Project</span>
-        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
       </a>
     </div>
 
@@ -560,7 +902,6 @@
   <!-- ════════════════════════════════════════════════════════
        HERO SECTION
        ════════════════════════════════════════════════════════ -->
-  <main id="main-content">
   <header id="hero" class="relative w-full h-screen overflow-hidden" style="background: var(--bg);">
 
     <!-- Video Background -->
@@ -581,7 +922,7 @@
       <div class="max-w-3xl" id="hero-content">
 
         <!-- Headline -->
-        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.92] tracking-tight font-instrument-serif mb-8 md:mb-10" style="text-wrap: balance;">
+        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.92] tracking-tight font-instrument-serif mb-8 md:mb-10">
           <span class="headline-line" id="headline-1">Make Your Brand</span>
           <span class="headline-line" id="headline-2" style="color: var(--text-soft);">Unskippable.</span>
         </h1>
@@ -595,9 +936,9 @@
           </p>
 
           <!-- CTA Link -->
-          <a href="#contact" id="hero-cta" class="group flex items-center gap-2 pb-1 border-b transition-colors duration-300 w-fit shrink-0 opacity-0 md:ml-6" style="color: var(--text); border-color: rgba(245,241,232,0.3);" onmouseover="this.style.borderColor='var(--text)'" onmouseout="this.style.borderColor='rgba(245,241,232,0.3)'">
+          <a href="#contact" id="hero-cta" class="group flex items-center gap-2 pb-1 border-b transition-all duration-300 w-fit shrink-0 opacity-0 md:ml-6" style="color: var(--text); border-color: rgba(245,241,232,0.3);" onmouseover="this.style.borderColor='var(--text)'" onmouseout="this.style.borderColor='rgba(245,241,232,0.3)'">
             <span class="whitespace-nowrap" style="font-size: 1.10rem;">Schedule a strategy session</span>
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
           </a>
         </div>
       </div>
@@ -614,223 +955,392 @@
     </div>
   </header>
 
-  <section id="team" class="relative flex min-h-screen items-center overflow-hidden"
-    style="background:
-      radial-gradient(circle at 10% 18%, rgba(244,196,48,0.09), transparent 28%),
-      radial-gradient(circle at 84% 18%, rgba(79,124,255,0.08), transparent 24%),
-      radial-gradient(circle at 74% 74%, rgba(255,122,26,0.06), transparent 22%),
-      linear-gradient(180deg, rgba(255,255,255,0.02), transparent 24%),
-      var(--bg-soft);">
-    <div class="absolute inset-0 team-grid-overlay pointer-events-none"></div>
+  <!-- ════════════════════════════════════════════════════════
+       SECTION TWO — PINNED CONSTELLATION THEATER
+       ════════════════════════════════════════════════════════ -->
+  <section id="team">
+    <!-- Blend gradient from hero bg into team bg -->
+    <div class="absolute top-0 left-0 w-full h-32 pointer-events-none z-[1]" style="background: linear-gradient(to bottom, var(--bg) 0%, #09090B 100%);"></div>
+    <div id="team-inner">
+
+      <!-- Editorial Intro Band -->
+      <div class="team-intro">
+        <span class="team-label block text-[10px] uppercase tracking-[0.35em] font-medium mb-3" style="color: var(--text-dim);">The Dots That Connect</span>
+        <h2 class="team-headline text-4xl md:text-5xl lg:text-[4rem] leading-[0.93] tracking-tight font-instrument-serif mb-3" style="clip-path: inset(100% 0 0 0);">
+          A Collective Built<br class="hidden sm:inline"> for Culture
+        </h2>
+        <p class="team-sub text-sm md:text-[0.92rem] leading-relaxed max-w-[36rem]" style="color: var(--text-soft); opacity: 0;">
+          We're strategists, cultural researchers, content creators, and performance marketers — united by firsthand experience navigating cultural complexity.
+        </p>
+      </div>
+
+      <!-- Desktop Constellation Stage — 20 members -->
+      <div id="team-stage">
+
+        <!--
+          Brick-stagger layout: 4 cols × 5 rows, offset every other row
+          Even rows: 12%, 36%, 60%, 84%
+          Odd rows:  24%, 48%, 72%  (3 dots, offset)
+          Row Y:     4%, 22%, 40%, 58%, 74%
+          All dots significantly smaller for breathing room
+        -->
+
+        <!-- Row 1 — 4 dots -->
+        <div class="team-dot" id="team-dot-5" style="left:12%; top:4%;">
+          <div class="dot-circle" style="width:56px; height:56px;"><img src="Team-members/Kalpana Pachhai.jpg" alt="Kalpana Pachhai"></div>
+          <div class="dot-label dot-label-secondary"><div class="dot-name">Kalpana Pachhai</div><div class="dot-role">Performance Marketing</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-7" style="left:36%; top:4%;">
+          <div class="dot-circle" style="width:54px; height:54px;"><img src="Team-members/Nimmi Thapa.jpg" alt="Nimmi Thapa"></div>
+          <div class="dot-label dot-label-secondary"><div class="dot-name">Nimmi Thapa</div><div class="dot-role">Social Strategist</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-1" style="left:60%; top:4%;">
+          <div class="dot-circle" style="width:72px; height:72px;"><img src="Team-members/Rakshak Karki.jpg" alt="Rakshak Karki"></div>
+          <div class="dot-label dot-label-primary"><div class="dot-name">Rakshak Karki</div><div class="dot-role">Creative Director</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-8" style="left:84%; top:4%;">
+          <div class="dot-circle" style="width:50px; height:50px;"><img src="Team-members/Shristi Kharel.jpg" alt="Shristi Kharel"></div>
+          <div class="dot-label dot-label-secondary"><div class="dot-name">Shristi Kharel</div><div class="dot-role">Producer</div></div>
+        </div>
+
+        <!-- Row 2 — 3 dots (offset) -->
+        <div class="team-dot" id="team-dot-18" style="left:24%; top:22%;">
+          <div class="dot-circle" style="width:42px; height:42px;"><img src="Team-members/Shristi Kharel.jpg" alt="Sabina Lama"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Sabina Lama</div><div class="dot-role">PR Specialist</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-0" style="left:48%; top:22%;">
+          <div class="dot-circle" style="width:80px; height:80px;"><img src="Team-members/Sanjay Thakuri.jpg" alt="Sanjay Thakuri"></div>
+          <div class="dot-label dot-label-primary"><div class="dot-name">Sanjay Thakuri</div><div class="dot-role">Founder & CEO</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-19" style="left:72%; top:22%;">
+          <div class="dot-circle" style="width:42px; height:42px;"><img src="Team-members/Yujan Silwal.jpg" alt="Prabesh KC"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Prabesh KC</div><div class="dot-role">SEO Lead</div></div>
+        </div>
+
+        <!-- Row 3 — 4 dots -->
+        <div class="team-dot" id="team-dot-17" style="left:10%; top:40%;">
+          <div class="dot-circle" style="width:44px; height:44px;"><img src="Team-members/Rahul Ghamal.jpg" alt="Bikash Maharjan"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Bikash Maharjan</div><div class="dot-role">Videographer</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-2" style="left:34%; top:40%;">
+          <div class="dot-circle" style="width:68px; height:68px;"><img src="Team-members/Adit Thapa.jpg" alt="Adit Thapa"></div>
+          <div class="dot-label dot-label-primary"><div class="dot-name">Adit Thapa</div><div class="dot-role">Strategy Lead</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-4" style="left:58%; top:40%;">
+          <div class="dot-circle" style="width:58px; height:58px;"><img src="Team-members/Bhavana Poudel.jpg" alt="Bhavana Poudel"></div>
+          <div class="dot-label dot-label-secondary"><div class="dot-name">Bhavana Poudel</div><div class="dot-role">Content Lead</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-12" style="left:82%; top:40%;">
+          <div class="dot-circle" style="width:44px; height:44px;"><img src="Team-members/Rakshak Karki.jpg" alt="Manish Rai"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Manish Rai</div><div class="dot-role">Developer</div></div>
+        </div>
+
+        <!-- Row 4 — 5 dots (offset, wider spread) -->
+        <div class="team-dot" id="team-dot-9" style="left:6%; top:58%;">
+          <div class="dot-circle" style="width:52px; height:52px;"><img src="Team-members/Yujan Silwal.jpg" alt="Yujan Silwal"></div>
+          <div class="dot-label dot-label-secondary"><div class="dot-name">Yujan Silwal</div><div class="dot-role">Motion Designer</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-11" style="left:24%; top:58%;">
+          <div class="dot-circle" style="width:44px; height:44px;"><img src="Team-members/Bhavana Poudel.jpg" alt="Priya Sharma"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Priya Sharma</div><div class="dot-role">Copywriter</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-3" style="left:46%; top:58%;">
+          <div class="dot-circle" style="width:66px; height:66px;"><img src="Team-members/Anjila Thapa.jpg" alt="Anjila Thapa"></div>
+          <div class="dot-label dot-label-primary"><div class="dot-name">Anjila Thapa</div><div class="dot-role">Community Manager</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-10" style="left:66%; top:58%;">
+          <div class="dot-circle" style="width:46px; height:46px;"><img src="Team-members/Sanjay Thakuri.jpg" alt="Bishal Gurung"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Bishal Gurung</div><div class="dot-role">Brand Strategist</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-16" style="left:86%; top:58%;">
+          <div class="dot-circle" style="width:42px; height:42px;"><img src="Team-members/Anjila Thapa.jpg" alt="Anita Bhandari"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Anita Bhandari</div><div class="dot-role">Account Manager</div></div>
+        </div>
+
+        <!-- Row 5 — 4 dots -->
+        <div class="team-dot" id="team-dot-13" style="left:16%; top:76%;">
+          <div class="dot-circle" style="width:44px; height:44px;"><img src="Team-members/Kalpana Pachhai.jpg" alt="Suman Adhikari"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Suman Adhikari</div><div class="dot-role">Media Buyer</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-6" style="left:38%; top:76%;">
+          <div class="dot-circle" style="width:54px; height:54px;"><img src="Team-members/Rahul Ghamal.jpg" alt="Rahul Ghamal"></div>
+          <div class="dot-label dot-label-secondary"><div class="dot-name">Rahul Ghamal</div><div class="dot-role">Art Director</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-14" style="left:60%; top:76%;">
+          <div class="dot-circle" style="width:42px; height:42px;"><img src="Team-members/Nimmi Thapa.jpg" alt="Dipika Tamang"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Dipika Tamang</div><div class="dot-role">Graphic Designer</div></div>
+        </div>
+        <div class="team-dot" id="team-dot-15" style="left:80%; top:76%;">
+          <div class="dot-circle" style="width:42px; height:42px;"><img src="Team-members/Adit Thapa.jpg" alt="Roshan Shrestha"></div>
+          <div class="dot-label dot-label-tertiary"><div class="dot-name">Roshan Shrestha</div><div class="dot-role">Analyst</div></div>
+        </div>
+
+        <!-- SVG Connection Lines -->
+        <svg id="team-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line class="team-connection" id="team-conn-0"  x1="48" y1="22" x2="60" y2="4"/>
+          <line class="team-connection" id="team-conn-1"  x1="48" y1="22" x2="34" y2="40"/>
+          <line class="team-connection" id="team-conn-2"  x1="48" y1="22" x2="46" y2="58"/>
+          <line class="team-connection" id="team-conn-3"  x1="60" y1="4"  x2="58" y2="40"/>
+          <line class="team-connection" id="team-conn-4"  x1="34" y1="40" x2="12" y2="4"/>
+          <line class="team-connection" id="team-conn-5"  x1="46" y1="58" x2="38" y2="76"/>
+          <line class="team-connection" id="team-conn-6"  x1="36" y1="4"  x2="84" y2="4"/>
+          <line class="team-connection" id="team-conn-7"  x1="60" y1="4"  x2="84" y2="4"/>
+          <line class="team-connection" id="team-conn-8"  x1="6"  y1="58" x2="10" y2="40"/>
+          <line class="team-connection" id="team-conn-9"  x1="46" y1="58" x2="66" y2="58"/>
+          <line class="team-connection" id="team-conn-10" x1="38" y1="76" x2="16" y2="76"/>
+          <line class="team-connection" id="team-conn-11" x1="58" y1="40" x2="82" y2="40"/>
+        </svg>
+      </div>
+
+      <!-- Mobile Fallback Grid — 20 members -->
+      <div class="team-mobile">
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Sanjay Thakuri.jpg" alt="Sanjay Thakuri"></div><span class="team-mobile-name">Sanjay Thakuri</span><span class="team-mobile-role">Founder & CEO</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Rakshak Karki.jpg" alt="Rakshak Karki"></div><span class="team-mobile-name">Rakshak Karki</span><span class="team-mobile-role">Creative Director</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Adit Thapa.jpg" alt="Adit Thapa"></div><span class="team-mobile-name">Adit Thapa</span><span class="team-mobile-role">Strategy Lead</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Anjila Thapa.jpg" alt="Anjila Thapa"></div><span class="team-mobile-name">Anjila Thapa</span><span class="team-mobile-role">Community Manager</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Bhavana Poudel.jpg" alt="Bhavana Poudel"></div><span class="team-mobile-name">Bhavana Poudel</span><span class="team-mobile-role">Content Lead</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Kalpana Pachhai.jpg" alt="Kalpana Pachhai"></div><span class="team-mobile-name">Kalpana Pachhai</span><span class="team-mobile-role">Performance Marketing</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Rahul Ghamal.jpg" alt="Rahul Ghamal"></div><span class="team-mobile-name">Rahul Ghamal</span><span class="team-mobile-role">Art Director</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Nimmi Thapa.jpg" alt="Nimmi Thapa"></div><span class="team-mobile-name">Nimmi Thapa</span><span class="team-mobile-role">Social Strategist</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Shristi Kharel.jpg" alt="Shristi Kharel"></div><span class="team-mobile-name">Shristi Kharel</span><span class="team-mobile-role">Producer</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Yujan Silwal.jpg" alt="Yujan Silwal"></div><span class="team-mobile-name">Yujan Silwal</span><span class="team-mobile-role">Motion Designer</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Sanjay Thakuri.jpg" alt="Bishal Gurung"></div><span class="team-mobile-name">Bishal Gurung</span><span class="team-mobile-role">Brand Strategist</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Bhavana Poudel.jpg" alt="Priya Sharma"></div><span class="team-mobile-name">Priya Sharma</span><span class="team-mobile-role">Copywriter</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Rakshak Karki.jpg" alt="Manish Rai"></div><span class="team-mobile-name">Manish Rai</span><span class="team-mobile-role">Developer</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Kalpana Pachhai.jpg" alt="Suman Adhikari"></div><span class="team-mobile-name">Suman Adhikari</span><span class="team-mobile-role">Media Buyer</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Nimmi Thapa.jpg" alt="Dipika Tamang"></div><span class="team-mobile-name">Dipika Tamang</span><span class="team-mobile-role">Graphic Designer</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Adit Thapa.jpg" alt="Roshan Shrestha"></div><span class="team-mobile-name">Roshan Shrestha</span><span class="team-mobile-role">Analyst</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Anjila Thapa.jpg" alt="Anita Bhandari"></div><span class="team-mobile-name">Anita Bhandari</span><span class="team-mobile-role">Account Manager</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Rahul Ghamal.jpg" alt="Bikash Maharjan"></div><span class="team-mobile-name">Bikash Maharjan</span><span class="team-mobile-role">Videographer</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Shristi Kharel.jpg" alt="Sabina Lama"></div><span class="team-mobile-name">Sabina Lama</span><span class="team-mobile-role">PR Specialist</span></div>
+        <div class="team-mobile-item"><div class="team-mobile-circle"><img src="Team-members/Yujan Silwal.jpg" alt="Prabesh KC"></div><span class="team-mobile-name">Prabesh KC</span><span class="team-mobile-role">SEO Lead</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 3 — LOGO CARD STACK (Scroll-Pinned Pile)
+       ═══════════════════════════════════════════════════════ -->
+  <section id="logo-stack">
+    <!-- Top divider -->
     <div class="absolute inset-x-0 top-0 h-px" style="background: var(--line);"></div>
-    <div class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 lg:block" style="background: linear-gradient(180deg, transparent, rgba(245,241,232,0.06) 18%, rgba(245,241,232,0.12) 52%, transparent);"></div>
 
-    <div class="relative mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-8 lg:px-12 xl:px-16">
-      <div class="grid items-center gap-14 lg:min-h-[100vh] lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] lg:gap-8 lg:py-14">
-        <div class="relative z-10 max-w-[440px]">
-          <p data-team-copy class="text-[11px] uppercase tracking-[0.28em]" style="color: rgba(245,241,232,0.46);">The Dots That Connect</p>
-          <div data-team-copy class="mt-5 h-px w-20" style="background: linear-gradient(90deg, rgba(245,241,232,0.55), rgba(245,241,232,0));"></div>
-          <h2 id="team-title" data-team-copy class="mt-8 font-instrument-serif text-[clamp(2.95rem,6vw,6rem)] leading-[0.9] tracking-[-0.03em]" style="text-wrap: balance;">
-            A Roster Built
-            <span class="block" style="color: rgba(245,241,232,0.72);">To Read The Room.</span>
-          </h2>
-          <p data-team-copy class="mt-7 max-w-[28rem] text-[1rem] leading-7 sm:text-[1.05rem]" style="color: rgba(245,241,232,0.62);">
-            Strategy, community, production, and performance sit close here on purpose. The structure stays clear so every face feels real, every role feels earned, and the work reads like one tight system instead of siloed specialists.
-          </p>
+    <div id="logo-stack-inner">
 
-          <div data-team-copy class="mt-10 grid gap-3 sm:max-w-[22rem]">
-            <div class="team-proof-item" style="color: rgba(244,196,48,0.82);">Culture Reading</div>
-            <div class="team-proof-item">Production Discipline</div>
-            <div class="team-proof-item" style="color: rgba(79,124,255,0.76);">Community Instincts</div>
-          </div>
+      <!-- Centered headline (cards pile on top of this) -->
+      <div class="stack-heading">
+        <p class="text-[13px] sm:text-[15px] uppercase tracking-[0.32em] font-sans font-medium mb-5" style="color: var(--text-dim);">The Brands We Move</p>
+        <h2 class="font-instrument-serif text-[clamp(3.5rem,8vw,7rem)] leading-[0.92] tracking-[-0.02em]" style="color: var(--text);">
+          Built on<br><span style="color: var(--text-soft);">Trust.</span>
+        </h2>
+      </div>
 
-          <p data-team-copy class="mt-10 text-[0.72rem] uppercase tracking-[0.26em]" style="color: rgba(245,241,232,0.34);">
-            7 voices arranged with intent, then tightened on scroll.
-          </p>
+      <!-- Card wrapper — pinned during scroll -->
+      <div class="tca-scroll-card-wrapper">
+
+        <!-- Card 1 — Spotify -->
+        <div class="tca-scroll-card" style="z-index: 10; margin-left: -70px; margin-top: -85px; --glow: #1DB954;">
+          <svg width="140" height="48" viewBox="0 0 100 30" fill="none"><circle cx="15" cy="15" r="14" fill="#1DB954"/><path d="M8.5 18.5c4.2-1.6 9-1.2 12.5.8" stroke="#000" stroke-width="1.6" stroke-linecap="round"/><path d="M7.5 15c5-2.2 11-1.5 15 1.2" stroke="#000" stroke-width="1.6" stroke-linecap="round"/><path d="M6.8 11.5c5.8-2.5 13-1.8 17.5 1.5" stroke="#000" stroke-width="1.6" stroke-linecap="round"/><text x="35" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#1DB954">Spotify</text></svg>
+          <span class="card-brand-label">Music & Culture</span>
         </div>
 
-        <div class="relative">
-          <div class="team-stage-frame relative hidden min-h-[620px] overflow-hidden rounded-[30px] border lg:block" style="border-color: rgba(245,241,232,0.09);">
-            <div class="absolute inset-x-10 top-10 flex items-center justify-between text-[10px] uppercase tracking-[0.24em]" style="color: rgba(245,241,232,0.3);">
-              <span>Collective Read</span>
-              <span>Section 02</span>
-            </div>
-
-            <svg class="team-signal pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 760 620" aria-hidden="true">
-              <path d="M140 130C210 122 268 140 332 214"></path>
-              <path d="M338 214C410 188 470 160 560 150"></path>
-              <path d="M168 356C232 334 286 314 340 240"></path>
-              <path d="M352 244C420 298 468 342 556 382"></path>
-              <path d="M334 242C330 310 334 358 374 452"></path>
-              <circle cx="140" cy="130" r="3"></circle>
-              <circle cx="338" cy="214" r="3"></circle>
-              <circle cx="560" cy="150" r="3"></circle>
-              <circle cx="168" cy="356" r="3"></circle>
-              <circle cx="556" cy="382" r="3"></circle>
-              <circle cx="374" cy="452" r="3"></circle>
-            </svg>
-
-            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_24%,rgba(255,255,255,0.08),transparent_26%),radial-gradient(circle_at_78%_18%,rgba(79,124,255,0.1),transparent_22%),radial-gradient(circle_at_68%_72%,rgba(244,196,48,0.08),transparent_20%)] opacity-80"></div>
-
-            <article class="team-card absolute left-[6%] top-[10%] w-[150px]" data-start-x="-26" data-start-y="18" data-start-scale="1.04">
-              <div class="team-avatar aspect-square">
-                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=720&q=80" alt="Maria Sol, Community Director" width="720" height="720" loading="lazy" style="object-position: center 22%;">
-              </div>
-              <div class="team-caption pl-2 pt-4">
-                <p class="team-name">Maria Sol</p>
-                <p class="team-role">Community Director</p>
-              </div>
-            </article>
-
-            <article class="team-card absolute left-[34%] top-[8%] w-[128px]" data-start-x="16" data-start-y="-16" data-start-scale="0.96">
-              <div class="team-avatar aspect-square">
-                <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=720&q=80" alt="Talia Reed, Content Systems" width="720" height="720" loading="lazy" style="object-position: center 26%;">
-              </div>
-              <div class="team-caption pl-1 pt-3">
-                <p class="team-name">Talia Reed</p>
-                <p class="team-role">Content Systems</p>
-              </div>
-            </article>
-
-            <article class="team-card absolute right-[7%] top-[11%] w-[154px]" data-start-x="22" data-start-y="14" data-start-scale="1.05">
-              <div class="team-avatar aspect-square">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=720&q=80" alt="Rohan Dey, Production Lead" width="720" height="720" loading="lazy" style="object-position: center 26%;">
-              </div>
-              <div class="team-caption pt-4 text-right pr-2">
-                <p class="team-name">Rohan Dey</p>
-                <p class="team-role">Production Lead</p>
-              </div>
-            </article>
-
-            <article class="team-card absolute left-[13%] top-[47%] w-[132px]" data-start-x="-18" data-start-y="18" data-start-scale="0.97">
-              <div class="team-avatar aspect-square">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=720&q=80" alt="Noah Park, Performance Lead" width="720" height="720" loading="lazy" style="object-position: center 18%;">
-              </div>
-              <div class="team-caption pl-2 pt-3">
-                <p class="team-name">Noah Park</p>
-                <p class="team-role">Performance Lead</p>
-              </div>
-            </article>
-
-            <article class="team-card absolute left-[38%] top-[23%] w-[202px]" data-start-x="-14" data-start-y="20" data-start-scale="1.06">
-              <div class="team-avatar aspect-square">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Aditi Khan, Founder and Strategy Lead" width="900" height="900" loading="lazy" style="object-position: center 18%;">
-              </div>
-              <div class="team-caption pl-3 pt-5">
-                <p class="team-name text-[1.38rem]">Aditi Khan</p>
-                <p class="team-role">Founder / Strategy Lead</p>
-              </div>
-            </article>
-
-            <article class="team-card absolute left-[34%] top-[63%] w-[162px]" data-start-x="10" data-start-y="20" data-start-scale="1.02">
-              <div class="team-avatar aspect-square">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=720&q=80" alt="Serena Vale, Partnerships Lead" width="720" height="720" loading="lazy" style="object-position: center 24%;">
-              </div>
-              <div class="team-caption pl-2 pt-4">
-                <p class="team-name">Serena Vale</p>
-                <p class="team-role">Partnerships Lead</p>
-              </div>
-            </article>
-
-            <article class="team-card absolute right-[9%] top-[53%] w-[142px]" data-start-x="20" data-start-y="-10" data-start-scale="0.98">
-              <div class="team-avatar aspect-square">
-                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=720&q=80" alt="Leila Hart, Cultural Strategist" width="720" height="720" loading="lazy" style="object-position: center 20%;">
-              </div>
-              <div class="team-caption pt-4 text-right pr-1">
-                <p class="team-name">Leila Hart</p>
-                <p class="team-role">Cultural Strategist</p>
-              </div>
-            </article>
-
-            <div class="absolute bottom-10 left-10 rounded-full border px-4 py-2 text-[10px] uppercase tracking-[0.24em]" style="border-color: rgba(245,241,232,0.14); color: rgba(245,241,232,0.36);">
-              Precision over noise
-            </div>
-          </div>
-
-          <div class="grid gap-4 sm:grid-cols-2 lg:hidden">
-            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
-              <div class="flex items-center gap-4">
-                <div class="team-avatar h-20 w-20 flex-shrink-0">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Aditi Khan, Founder and Strategy Lead" width="400" height="400" loading="lazy" style="object-position: center 18%;">
-                </div>
-                <div class="team-caption">
-                  <p class="team-name">Aditi Khan</p>
-                  <p class="team-role">Founder / Strategy Lead</p>
-                </div>
-              </div>
-            </article>
-            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
-              <div class="flex items-center gap-4">
-                <div class="team-avatar h-20 w-20 flex-shrink-0">
-                  <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=400&q=80" alt="Maria Sol, Community Director" width="400" height="400" loading="lazy" style="object-position: center 22%;">
-                </div>
-                <div class="team-caption">
-                  <p class="team-name">Maria Sol</p>
-                  <p class="team-role">Community Director</p>
-                </div>
-              </div>
-            </article>
-            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
-              <div class="flex items-center gap-4">
-                <div class="team-avatar h-20 w-20 flex-shrink-0">
-                  <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80" alt="Talia Reed, Content Systems" width="400" height="400" loading="lazy" style="object-position: center 26%;">
-                </div>
-                <div class="team-caption">
-                  <p class="team-name">Talia Reed</p>
-                  <p class="team-role">Content Systems</p>
-                </div>
-              </div>
-            </article>
-            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
-              <div class="flex items-center gap-4">
-                <div class="team-avatar h-20 w-20 flex-shrink-0">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Rohan Dey, Production Lead" width="400" height="400" loading="lazy" style="object-position: center 26%;">
-                </div>
-                <div class="team-caption">
-                  <p class="team-name">Rohan Dey</p>
-                  <p class="team-role">Production Lead</p>
-                </div>
-              </div>
-            </article>
-            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
-              <div class="flex items-center gap-4">
-                <div class="team-avatar h-20 w-20 flex-shrink-0">
-                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Noah Park, Performance Lead" width="400" height="400" loading="lazy" style="object-position: center 18%;">
-                </div>
-                <div class="team-caption">
-                  <p class="team-name">Noah Park</p>
-                  <p class="team-role">Performance Lead</p>
-                </div>
-              </div>
-            </article>
-            <article class="team-card team-mobile-card rounded-[24px] p-4" data-mobile-card>
-              <div class="flex items-center gap-4">
-                <div class="team-avatar h-20 w-20 flex-shrink-0">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="Serena Vale, Partnerships Lead" width="400" height="400" loading="lazy" style="object-position: center 24%;">
-                </div>
-                <div class="team-caption">
-                  <p class="team-name">Serena Vale</p>
-                  <p class="team-role">Partnerships Lead</p>
-                </div>
-              </div>
-            </article>
-            <article class="team-card team-mobile-card rounded-[24px] p-4 sm:col-span-2" data-mobile-card>
-              <div class="flex items-center gap-4">
-                <div class="team-avatar h-20 w-20 flex-shrink-0">
-                  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=400&q=80" alt="Leila Hart, Cultural Strategist" width="400" height="400" loading="lazy" style="object-position: center 20%;">
-                </div>
-                <div class="team-caption">
-                  <p class="team-name">Leila Hart</p>
-                  <p class="team-role">Cultural Strategist</p>
-                </div>
-              </div>
-            </article>
-          </div>
+        <!-- Card 2 — Netflix -->
+        <div class="tca-scroll-card" style="z-index: 11; margin-left: -79px; margin-top: -90px; --glow: #E50914;">
+          <svg width="140" height="48" viewBox="0 0 100 30" fill="none"><path d="M5 4h5l7 17V4h5v22h-5L10 9v17H5V4z" fill="#E50914"/><text x="28" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#E50914">Netflix</text></svg>
+          <span class="card-brand-label">Entertainment</span>
         </div>
+
+        <!-- Card 3 — Figma -->
+        <div class="tca-scroll-card" style="z-index: 12; margin-left: -70px; margin-top: -100px; --glow: #A259FF;">
+          <svg width="130" height="48" viewBox="0 0 90 30" fill="none"><rect x="4" y="3" width="8" height="8" rx="4" fill="#F24E1E"/><rect x="12" y="3" width="8" height="8" rx="4" fill="#FF7262"/><rect x="4" y="11" width="8" height="8" rx="4" fill="#A259FF"/><circle cx="16" cy="15" r="4" fill="#1ABCFE"/><rect x="4" y="19" width="8" height="8" rx="4" fill="#0ACF83"/><text x="26" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#A259FF">Figma</text></svg>
+          <span class="card-brand-label">Design Tools</span>
+        </div>
+
+        <!-- Card 4 — Stripe -->
+        <div class="tca-scroll-card" style="z-index: 13; margin-left: -70px; margin-top: -100px; --glow: #635BFF;">
+          <svg width="130" height="48" viewBox="0 0 90 30" fill="none"><path d="M10 12c0-1.5 1.2-2.2 3.2-2.2 2.8 0 6.4.9 9.2 2.4V5.2c-3.1-1.2-6.2-1.7-9.2-1.7C7.2 3.5 3 6.8 3 12.2c0 8.4 11.5 7 11.5 10.7 0 1.8-1.6 2.4-3.8 2.4-3.2 0-7.4-1.3-10.7-3.1v7.2c3.6 1.6 7.3 2.2 10.7 2.2 6.2 0 10.5-3.1 10.5-8.5C21.2 14.2 10 15.8 10 12z" fill="#635BFF"/><text x="28" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#635BFF">Stripe</text></svg>
+          <span class="card-brand-label">Fintech</span>
+        </div>
+
+        <!-- Card 5 — Slack -->
+        <div class="tca-scroll-card" style="z-index: 14; margin-left: -70px; margin-top: -90px; --glow: #ECB22E;">
+          <svg width="130" height="48" viewBox="0 0 88 30" fill="none"><rect x="11" y="4" width="4" height="10" rx="2" fill="#E01E5A"/><rect x="4" y="10" width="4" height="4" rx="2" fill="#E01E5A"/><rect x="17" y="4" width="4" height="4" rx="2" fill="#36C5F0"/><rect x="17" y="10" width="10" height="4" rx="2" fill="#36C5F0"/><rect x="17" y="16" width="4" height="10" rx="2" fill="#2EB67D"/><rect x="23" y="16" width="4" height="4" rx="2" fill="#2EB67D"/><rect x="4" y="16" width="10" height="4" rx="2" fill="#ECB22E"/><rect x="11" y="22" width="4" height="4" rx="2" fill="#ECB22E"/><text x="32" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#ECB22E">Slack</text></svg>
+          <span class="card-brand-label">Communication</span>
+        </div>
+
+        <!-- Card 6 — Discord -->
+        <div class="tca-scroll-card" style="z-index: 15; margin-left: -79px; margin-top: -100px; --glow: #5865F2;">
+          <svg width="140" height="48" viewBox="0 0 104 30" fill="none"><path d="M22 7.5c-1.8-.8-3.7-1.4-5.7-1.5.3.5.5 1 .7 1.6-2-.3-4-.3-6 0 .2-.6.4-1.1.7-1.6-2 .2-3.9.7-5.7 1.5C2.7 12.8 1.8 18 2.2 23c2.2 1.6 4.3 2.5 6.3 3.1.5-.7 1-1.4 1.3-2.2-.7-.3-1.4-.6-2-1 .2-.1.3-.3.5-.4 3.5 1.6 7.4 1.6 10.9 0 .2.1.3.3.5.4-.6.4-1.3.7-2 1 .4.8.8 1.5 1.3 2.2 2.1-.6 4.2-1.5 6.3-3.1.5-5.7-1-10.6-4.3-15.5zM10 20c-1.3 0-2.4-1.2-2.4-2.7s1.1-2.7 2.4-2.7 2.5 1.2 2.4 2.7c0 1.5-1.1 2.7-2.4 2.7zm8.5 0c-1.3 0-2.4-1.2-2.4-2.7s1.1-2.7 2.4-2.7 2.5 1.2 2.4 2.7c0 1.5-1.1 2.7-2.4 2.7z" fill="#5865F2"/><text x="30" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#5865F2">Discord</text></svg>
+          <span class="card-brand-label">Community</span>
+        </div>
+
+        <!-- Card 7 — Adobe -->
+        <div class="tca-scroll-card" style="z-index: 16; margin-left: -70px; margin-top: -90px; --glow: #FF0000;">
+          <svg width="130" height="48" viewBox="0 0 96 30" fill="none"><path d="M4 26L15 4l11 22H19l-3.2-7H11.5L4 26z" fill="#FF0000"/><rect x="12.5" y="15" width="5.5" height="2" fill="#FF0000"/><text x="30" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#FF0000">Adobe</text></svg>
+          <span class="card-brand-label">Creative Suite</span>
+        </div>
+
+        <!-- Card 8 — Airbnb -->
+        <div class="tca-scroll-card" style="z-index: 17; margin-left: -79px; margin-top: -100px; --glow: #FF5A5F;">
+          <svg width="130" height="48" viewBox="0 0 96 30" fill="none"><path d="M14 24c-2.5-3-4-6.5-4-9.5 0-4.5 3-7.5 5-9 2 1.5 5 4.5 5 9 0 3-1.5 6.5-4 9.5-.8 1-1.2 1-2 0z" fill="#FF5A5F"/><circle cx="15" cy="11" r="2.5" fill="none" stroke="#FF5A5F" stroke-width="1.5"/><text x="26" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#FF5A5F">Airbnb</text></svg>
+          <span class="card-brand-label">Travel & Culture</span>
+        </div>
+
+        <!-- Card 9 — Linear -->
+        <div class="tca-scroll-card" style="z-index: 18; margin-left: -70px; margin-top: -90px; --glow: #5E6AD2;">
+          <svg width="130" height="48" viewBox="0 0 96 30" fill="none"><rect x="4" y="4" width="22" height="22" rx="6" fill="#5E6AD2"/><path d="M9 20L20 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M9 15L15 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M14 20L20 14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><text x="30" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#5E6AD2">Linear</text></svg>
+          <span class="card-brand-label">Product</span>
+        </div>
+
+        <!-- Card 10 — Vercel -->
+        <div class="tca-scroll-card" style="z-index: 19; margin-left: -79px; margin-top: -100px; --glow: #888888;">
+          <svg width="130" height="48" viewBox="0 0 96 30" fill="none"><path d="M15 5L27 25H3L15 5z" fill="#222"/><text x="32" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#222">Vercel</text></svg>
+          <span class="card-brand-label">Infrastructure</span>
+        </div>
+
+        <!-- Card 11 — Framer -->
+        <div class="tca-scroll-card" style="z-index: 20; margin-left: -70px; margin-top: -90px; --glow: #0055FF;">
+          <svg width="130" height="48" viewBox="0 0 100 30" fill="none"><path d="M5 4h18v8H14l9 9H5v-9h9L5 4z" fill="#0055FF"/><text x="28" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#0055FF">Framer</text></svg>
+          <span class="card-brand-label">Web Design</span>
+        </div>
+
+        <!-- Card 12 — Dropbox -->
+        <div class="tca-scroll-card" style="z-index: 21; margin-left: -79px; margin-top: -100px; --glow: #0061FF;">
+          <svg width="140" height="48" viewBox="0 0 106 30" fill="none"><path d="M10 4L4 8.5l6 4.5 6-4.5L10 4zM22 4l-6 4.5 6 4.5 6-4.5L22 4zM4 17.5l6 4.5 6-4.5-6-4.5-6 4.5zM22 13l-6 4.5 6 4.5 6-4.5L22 13zM16 18.5l-6 4.5-6-4.5" fill="#0061FF"/><text x="32" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#0061FF">Dropbox</text></svg>
+          <span class="card-brand-label">Storage</span>
+        </div>
+
       </div>
     </div>
   </section>
-  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 4 — SERVICES "LIVE MEDIA WALL"
+       ═══════════════════════════════════════════════════════ -->
+  <section id="services">
+    <!-- Top divider -->
+    <div class="absolute inset-x-0 top-0 h-px" style="background: var(--line);"></div>
+
+    <!-- Section intro -->
+    <div class="services-intro">
+      <span class="svc-label block text-[10px] uppercase tracking-[0.35em] font-medium mb-3" style="color: var(--text-dim);">What We Do</span>
+      <h2 class="svc-headline text-4xl md:text-5xl lg:text-[4rem] leading-[0.93] tracking-tight font-instrument-serif" style="clip-path: inset(100% 0 0 0);">
+        Services That<br class="hidden sm:inline"> Move Culture
+      </h2>
+      <p class="svc-sub text-sm md:text-[0.92rem] leading-relaxed max-w-[36rem] mt-4" style="color: var(--text-soft); opacity: 0;">
+        Strategy meets subculture. Execution meets outcomes.
+      </p>
+    </div>
+
+    <!-- Mosaic Grid -->
+    <div class="services-grid">
+
+      <!-- Tile 1: Social Media — anchor tile (col-span-7, row-span-2) -->
+      <div class="svc-tile svc-tile--social" data-accent="var(--blue)">
+        <div class="svc-tile__video-wrap">
+          <video src="videos/social-media.mp4" muted loop playsinline preload="none"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--blue);">01</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Social Media</h3>
+            <p class="svc-tile__outcome">Turn followers into brand advocates</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--blue);"></div>
+      </div>
+
+      <!-- Tile 2: Paid Media (col-span-5) -->
+      <div class="svc-tile svc-tile--paid" data-accent="var(--yellow)">
+        <div class="svc-tile__video-wrap">
+          <video src="videos/paid-media.mp4" muted loop playsinline preload="none"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--yellow);">02</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Paid Media</h3>
+            <p class="svc-tile__outcome">Precision targeting, measurable ROI</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--yellow);"></div>
+      </div>
+
+      <!-- Tile 3: Content (col-span-5) -->
+      <div class="svc-tile svc-tile--content" data-accent="var(--orange)">
+        <div class="svc-tile__video-wrap">
+          <video src="videos/content.mp4" muted loop playsinline preload="none"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--orange);">03</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Content</h3>
+            <p class="svc-tile__outcome">Stories that stop the scroll</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--orange);"></div>
+      </div>
+
+      <!-- Tile 4: Podcast (col-span-5) -->
+      <div class="svc-tile svc-tile--podcast" data-accent="var(--blue)">
+        <div class="svc-tile__video-wrap">
+          <video src="videos/podcast.mp4" muted loop playsinline preload="none"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--blue);">04</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Podcast</h3>
+            <p class="svc-tile__outcome">Voices that build authority</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--blue);"></div>
+      </div>
+
+      <!-- Tile 5: Influencer — anchor tile (col-span-7) -->
+      <div class="svc-tile svc-tile--influencer" data-accent="var(--yellow)">
+        <div class="svc-tile__video-wrap">
+          <video src="videos/influencer.mp4" muted loop playsinline preload="none"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--yellow);">05</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Influencer</h3>
+            <p class="svc-tile__outcome">Reach the right people, authentically</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--yellow);"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Spacer so scroll completes fully -->
+  <section class="h-screen" style="background: var(--bg);"></section>
 
 
   <!-- ════════════════════════════════════════════════════════
@@ -910,8 +1420,7 @@
 
 
     // ── Intro Reveal Timeline ────────────────────────────
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const SKIP_INTRO = prefersReducedMotion ? true : false; // bypass intro for reduced motion or during dev
+    const SKIP_INTRO = false; // set true to bypass intro during dev
 
     const introOverlay = document.getElementById('intro-overlay');
 
@@ -1096,153 +1605,456 @@
       scrollTrigger: { trigger: '#hero', start: '80px top', end: '200px top', scrub: true }
     });
 
-    const teamSection = document.getElementById('team');
 
-    if (teamSection) {
-      const teamCopy = gsap.utils.toArray('[data-team-copy]');
-      const teamDesktopCards = gsap.utils.toArray('#team .team-stage-frame .team-card');
-      const teamMobileCards = gsap.utils.toArray('[data-mobile-card]');
-      const teamCaptions = gsap.utils.toArray('#team .team-stage-frame .team-caption');
-      const teamSignalPaths = gsap.utils.toArray('#team .team-signal path');
-      const teamSignalDots = gsap.utils.toArray('#team .team-signal circle');
+    // ── Section Two — Pinned Constellation Theater ──────
+    (function() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isDesktop = window.innerWidth > 768;
 
-      teamSignalPaths.forEach((path) => {
-        const length = path.getTotalLength();
-        gsap.set(path, {
-          strokeDasharray: length,
-          strokeDashoffset: length,
-          opacity: 0.16
+      // Team member data with scatter offsets — 20 members, 3 tiers
+      const teamData = [
+        // Tier 1: Primary (core leadership)
+        { id: 0,  sx: -20, sy: -16, blur: 2,   tier: 1 },
+        { id: 1,  sx:  18, sy: -22, blur: 1.8, tier: 1 },
+        { id: 2,  sx: -26, sy:  12, blur: 1.8, tier: 1 },
+        { id: 3,  sx:  10, sy:  18, blur: 1.5, tier: 1 },
+        // Tier 2: Secondary (mid-level)
+        { id: 4,  sx:  24, sy: -8,  blur: 2.5, tier: 2 },
+        { id: 5,  sx: -28, sy: -18, blur: 2.5, tier: 2 },
+        { id: 6,  sx:  20, sy:  16, blur: 2,   tier: 2 },
+        { id: 7,  sx: -12, sy: -26, blur: 2.5, tier: 2 },
+        { id: 8,  sx:  30, sy: -14, blur: 3,   tier: 2 },
+        { id: 9,  sx: -32, sy:  14, blur: 2.5, tier: 2 },
+        // Tier 3: Tertiary (outer constellation)
+        { id: 10, sx:  22, sy:  20, blur: 3,   tier: 3 },
+        { id: 11, sx: -18, sy:  16, blur: 3,   tier: 3 },
+        { id: 12, sx:  34, sy: -6,  blur: 3.5, tier: 3 },
+        { id: 13, sx: -26, sy:  22, blur: 3,   tier: 3 },
+        { id: 14, sx:  16, sy:  24, blur: 3,   tier: 3 },
+        { id: 15, sx: -10, sy:  28, blur: 3.5, tier: 3 },
+        { id: 16, sx:  28, sy:  22, blur: 3,   tier: 3 },
+        { id: 17, sx: -36, sy: -6,  blur: 3.5, tier: 3 },
+        { id: 18, sx: -16, sy: -24, blur: 3,   tier: 3 },
+        { id: 19, sx:  36, sy: -4,  blur: 3.5, tier: 3 },
+      ];
+
+      // Tier-based opacity helpers
+      function tierOpacity(tier, phase) {
+        const map = {
+          1: { start: 0.5,  drift: 0.75, connect: 0.9  },
+          2: { start: 0.3,  drift: 0.5,  connect: 0.7  },
+          3: { start: 0.15, drift: 0.35, connect: 0.55 },
+        };
+        return map[tier][phase];
+      }
+
+      // ── Reduced Motion: show final state immediately ──
+      if (prefersReducedMotion) {
+        teamData.forEach(m => {
+          gsap.set(`#team-dot-${m.id}`, { scale: 1, filter: 'blur(0px)', opacity: 1 });
+        });
+        gsap.set('.dot-label', { opacity: 1, y: 0 });
+        document.querySelectorAll('.team-connection').forEach(line => {
+          line.style.strokeDashoffset = '0';
+        });
+        return;
+      }
+
+      // ── Editorial Intro Reveals (non-scrub, triggered on enter) ──
+      gsap.from('.team-label', {
+        opacity: 0, y: 14,
+        duration: 0.65, ease: 'power3.out',
+        scrollTrigger: { trigger: '#team', start: 'top 82%' }
+      });
+      gsap.to('.team-headline', {
+        clipPath: 'inset(0% 0 0 0)',
+        duration: 1, ease: 'power4.out',
+        scrollTrigger: { trigger: '#team', start: 'top 76%' }
+      });
+      gsap.to('.team-sub', {
+        opacity: 1, y: 0,
+        duration: 0.75, ease: 'power3.out',
+        scrollTrigger: { trigger: '#team', start: 'top 70%' }
+      });
+
+      // ── Desktop Constellation Choreography ──
+      if (isDesktop) {
+
+        // Initialize SVG connection lines
+        const connections = document.querySelectorAll('.team-connection');
+        connections.forEach(line => {
+          // With non-scaling-stroke, use getTotalLength for actual pixel length
+          const len = line.getTotalLength();
+          line.style.strokeDasharray = len;
+          line.style.strokeDashoffset = len;
+        });
+
+        // Set scattered initial states
+        teamData.forEach(m => {
+          const dot = document.getElementById(`team-dot-${m.id}`);
+          if (!dot) return;
+          const scatter = m.tier === 1 ? 2 : m.tier === 2 ? 2.4 : 2.8;
+          const startScale = m.tier === 1 ? 0.6 : m.tier === 2 ? 0.5 : 0.4;
+          gsap.set(dot, {
+            xPercent: m.sx * scatter,
+            yPercent: m.sy * scatter,
+            scale: startScale + Math.random() * 0.15,
+            filter: `blur(${m.blur}px)`,
+            opacity: tierOpacity(m.tier, 'start'),
+          });
+        });
+
+        // Hide all labels initially
+        gsap.set('.dot-label', { opacity: 0, y: 10 });
+
+        // Master scroll-scrubbed timeline
+        const teamTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#team',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1.4,
+            pin: '#team-inner',
+          }
+        });
+
+        // ── Beat 1: Drift (0 → 0.4) ──────────────────────
+        teamData.forEach((m, i) => {
+          teamTl.to(`#team-dot-${m.id}`, {
+            xPercent: m.sx * 0.65,
+            yPercent: m.sy * 0.65,
+            scale: m.tier === 1 ? 0.8 : m.tier === 2 ? 0.7 : 0.6,
+            filter: `blur(${m.blur * 0.45}px)`,
+            opacity: tierOpacity(m.tier, 'drift'),
+            ease: 'none',
+            duration: 0.4,
+          }, 0);
+        });
+
+        // ── Beat 2: Connect (0.4 → 0.7) ──────────────────
+        teamData.forEach((m, i) => {
+          teamTl.to(`#team-dot-${m.id}`, {
+            xPercent: m.sx * 0.12,
+            yPercent: m.sy * 0.12,
+            scale: m.tier === 1 ? 0.92 : m.tier === 2 ? 0.85 : 0.8,
+            filter: `blur(${m.blur * 0.12}px)`,
+            opacity: tierOpacity(m.tier, 'connect'),
+            ease: 'none',
+            duration: 0.3,
+          }, 0.4);
+        });
+
+        // SVG lines draw in (staggered)
+        connections.forEach((line, i) => {
+          teamTl.to(line, {
+            strokeDashoffset: 0,
+            duration: 0.22,
+            ease: 'none',
+          }, 0.44 + i * 0.018);
+        });
+
+        // ── Beat 3: Resolve (0.7 → 1.0) ──────────────────
+        teamData.forEach((m, i) => {
+          teamTl.to(`#team-dot-${m.id}`, {
+            xPercent: 0,
+            yPercent: 0,
+            scale: 1,
+            filter: 'blur(0px)',
+            opacity: 1,
+            ease: 'none',
+            duration: 0.3,
+          }, 0.7);
+        });
+
+        // Labels reveal in 3 waves: primary → secondary → tertiary
+        teamTl.to('.dot-label-primary', {
+          opacity: 1, y: 0, duration: 0.12, stagger: 0.02, ease: 'none',
+        }, 0.76);
+        teamTl.to('.dot-label-secondary', {
+          opacity: 1, y: 0, duration: 0.12, stagger: 0.015, ease: 'none',
+        }, 0.84);
+        teamTl.to('.dot-label-tertiary', {
+          opacity: 1, y: 0, duration: 0.1, stagger: 0.01, ease: 'none',
+        }, 0.91);
+
+      }
+
+      // ── Mobile: Staggered Reveal ──
+      if (!isDesktop) {
+        gsap.from('.team-mobile-item', {
+          opacity: 0, y: 28, scale: 0.93,
+          duration: 0.5, stagger: 0.04, ease: 'power3.out',
+          scrollTrigger: { trigger: '.team-mobile', start: 'top 80%' }
+        });
+      }
+
+    })();
+
+
+    // ══════════════════════════════════════════════════════════
+    // SECTION 3 — LOGO CARD STACK (Scroll-Pinned Pile)
+    // ══════════════════════════════════════════════════════════
+    (function () {
+      const stackSection = document.getElementById('logo-stack');
+      if (!stackSection) return;
+
+      const cards = gsap.utils.toArray('.tca-scroll-card');
+      if (!cards.length) return;
+
+      // Each card gets a unique final resting position and rotation
+      // to create the "messy scattered pile" look
+      // Spread cards wide so logos stay visible — no heavy overlap
+      const finalPositions = [
+        { x: -340, y: -180, rot: -8  },   // Spotify (top-left)
+        { x:  140, y: -200, rot:  6  },   // Netflix (top-center-right)
+        { x:  380, y: -100, rot: -5  },   // Figma (right)
+        { x: -180, y:  -40, rot:  10 },   // Stripe (center-left)
+        { x:  260, y:   20, rot: -7  },   // Slack (center-right)
+        { x: -380, y:   40, rot:  5  },   // Discord (far-left)
+        { x:   10, y: -120, rot: -4  },   // Adobe (top-center)
+        { x:  360, y:  160, rot:  8  },   // Airbnb (bottom-right)
+        { x: -280, y:  180, rot: -6  },   // Linear (bottom-left)
+        { x:  120, y:  140, rot:  4  },   // Vercel (bottom-center-right)
+        { x: -100, y:  200, rot:  7  },   // Framer (bottom-center-left)
+        { x:  -40, y:   60, rot: -3  },   // Dropbox (center)
+      ];
+
+      // Starting rotations (alternating left/right, varied)
+      const startRotations = [35, -40, 30, -35, 42, -28, 38, -45, 32, -36, 40, -30];
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced) {
+        // Show all cards in their final pile positions immediately
+        cards.forEach((card, i) => {
+          const fp = finalPositions[i] || { x: 0, y: 0, rot: 0 };
+          gsap.set(card, {
+            opacity: 1,
+            visibility: 'visible',
+            x: fp.x,
+            y: fp.y,
+            rotation: fp.rot,
+          });
+        });
+        return;
+      }
+
+      // Build the pinned scroll timeline
+      const stackTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#logo-stack',
+          start: '50% 50%',
+          end: '500% 50%',
+          scrub: true,
+          pin: true,
+        }
+      });
+
+      // Entry directions — cards fly in from all sides
+      const entryDirections = [
+        { x: 0,      y: '120vh'  },  // bottom
+        { x: '-120vw', y: 0      },  // left
+        { x: '120vw',  y: 0      },  // right
+        { x: 0,      y: '-120vh' },  // top
+        { x: '-100vw', y: '80vh' },  // bottom-left
+        { x: '100vw',  y: '-80vh'},  // top-right
+        { x: '100vw',  y: '80vh' },  // bottom-right
+        { x: '-100vw', y: '-80vh'},  // top-left
+        { x: 0,      y: '120vh'  },  // bottom
+        { x: '120vw',  y: 0      },  // right
+        { x: '-120vw', y: 0      },  // left
+        { x: 0,      y: '-120vh' },  // top
+      ];
+
+      // Pair cards — two fly in at the same time, directly to final positions
+      cards.forEach((card, i) => {
+        const fp = finalPositions[i] || { x: 0, y: 0, rot: 0 };
+        const startRot = startRotations[i] || 35;
+        const pairIndex = Math.floor(i / 2);
+        const entry = entryDirections[i] || { x: 0, y: '120vh' };
+
+        // Pre-set final position — cards land directly where they belong
+        gsap.set(card, { opacity: 1, visibility: 'visible', x: fp.x, y: fp.y, rotation: fp.rot });
+
+        const pairStart = pairIndex === 0 ? 0 : pairIndex * 1.2;
+
+        // Fly in from offscreen directly to final scattered position
+        stackTl.from(card, {
+          x: entry.x,
+          y: entry.y,
+          rotation: startRot,
+          ease: 'power4.out',
+          duration: 1,
+        }, pairStart);
+      });
+
+    })();
+
+    // ══════════════════════════════════════════════════════════
+    // SECTION 4 — SERVICES "LIVE MEDIA WALL"
+    // ══════════════════════════════════════════════════════════
+    (function () {
+      const section = document.getElementById('services');
+      if (!section) return;
+
+      const tiles = gsap.utils.toArray('.svc-tile');
+      if (!tiles.length) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isDesktop = window.innerWidth > 767;
+
+      // ── Reduced Motion: show everything immediately ──
+      if (prefersReduced) {
+        gsap.set('.svc-headline', { clipPath: 'inset(0% 0 0 0)' });
+        gsap.set('.svc-sub', { opacity: 1 });
+        gsap.set(tiles, { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, rotation: 0, scale: 1 });
+        return;
+      }
+
+      // ── Header Reveal ──
+      gsap.from('.svc-label', {
+        opacity: 0, y: 12,
+        duration: 0.4, ease: 'power3.out',
+        scrollTrigger: { trigger: '#services', start: 'top 75%' }
+      });
+
+      gsap.to('.svc-headline', {
+        clipPath: 'inset(0% 0 0 0)',
+        duration: 0.7, ease: 'power4.out',
+        scrollTrigger: { trigger: '#services', start: 'top 75%' }
+      });
+
+      gsap.to('.svc-sub', {
+        opacity: 1,
+        duration: 0.6, ease: 'power3.out',
+        scrollTrigger: { trigger: '#services', start: 'top 68%' }
+      });
+
+      // ── Tile Cascade — diagonal stagger ──
+      // Set initial states
+      tiles.forEach((tile, i) => {
+        const rot = i % 2 === 0 ? 1.5 : -1;
+        gsap.set(tile, {
+          clipPath: 'inset(8% 8% 8% 8%)',
+          opacity: 0.3,
+          rotation: rot,
+          scale: 0.97,
         });
       });
 
-      gsap.set(teamSignalDots, { opacity: 0.18, scale: 0.7, transformOrigin: 'center center' });
+      // Stagger delays: top-left to bottom-right
+      const staggerDelays = [0, 0.15, 0.3, 0.45, 0.6];
 
-      const mm = gsap.matchMedia();
-      mm.add(
-        {
-          desktop: '(min-width: 1024px)',
-          mobile: '(max-width: 1023px)',
-          reduceMotion: '(prefers-reduced-motion: reduce)'
-        },
-        (context) => {
-          const { desktop, mobile, reduceMotion } = context.conditions;
+      tiles.forEach((tile, i) => {
+        gsap.to(tile, {
+          clipPath: 'inset(0% 0% 0% 0%)',
+          opacity: 1,
+          rotation: 0,
+          scale: 1,
+          duration: 0.7,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: '#services',
+            start: 'top 65%',
+            once: true,
+          },
+          delay: staggerDelays[i] || 0,
+        });
+      });
 
-          if (reduceMotion) {
-            gsap.set(teamCopy, { clearProps: 'all' });
-            gsap.set(teamDesktopCards, { clearProps: 'all' });
-            gsap.set(teamCaptions, { clearProps: 'all' });
-            gsap.set(teamSignalPaths, { clearProps: 'all' });
-            gsap.set(teamSignalDots, { clearProps: 'all' });
-            return;
+      // ── Phase 3: Accent line trace on entrance ──
+      const accents = gsap.utils.toArray('.svc-tile__accent');
+      accents.forEach((line, i) => {
+        gsap.fromTo(line,
+          { width: '0%' },
+          {
+            width: '30%',
+            duration: 0.6,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '#services',
+              start: 'top 55%',
+              once: true,
+            },
+            delay: 0.8 + i * 0.12,
+            onComplete: () => {
+              // Reset to 0 so hover can take over
+              gsap.to(line, { width: '0%', duration: 0.4, ease: 'power3.in' });
+            }
           }
+        );
+      });
 
-          if (desktop) {
-            gsap.set(teamCopy, { opacity: 0, y: 28 });
-            gsap.set(teamCaptions, { opacity: 0.48, y: 18 });
+      // ── Cursor Spotlight Hover (desktop only) ──
+      if (isDesktop) {
+        tiles.forEach(tile => {
+          const videoWrap = tile.querySelector('.svc-tile__video-wrap');
+          const video = tile.querySelector('video');
+          const nameEl = tile.querySelector('.svc-tile__name');
 
-            teamDesktopCards.forEach((card) => {
-              gsap.set(card, {
-                x: Number(card.dataset.startX || 0),
-                y: Number(card.dataset.startY || 0),
-                scale: Number(card.dataset.startScale || 1)
-              });
-            });
+          if (!videoWrap || !video) return;
 
-            const teamTl = gsap.timeline({
-              scrollTrigger: {
-                trigger: teamSection,
-                start: 'top 72%',
-                end: 'bottom 32%',
-                scrub: 0.85
-              }
-            });
+          // Spotlight size
+          const spotSize = 280;
 
-            teamTl
-              .to(teamCopy, {
-                opacity: 1,
-                y: 0,
-                duration: 0.75,
-                stagger: 0.08,
-                ease: 'power3.out'
-              }, 0)
-              .to(teamDesktopCards, {
-                x: 0,
-                y: 0,
-                scale: 1,
-                duration: 1.05,
-                stagger: 0.05,
-                ease: 'power3.out'
-              }, 0.08)
-              .to(teamCaptions, {
-                opacity: 1,
-                y: 0,
-                duration: 0.7,
-                stagger: 0.04,
-                ease: 'power2.out'
-              }, 0.32)
-              .to(teamSignalPaths, {
-                strokeDashoffset: 0,
-                opacity: 1,
-                duration: 0.9,
-                stagger: 0.08,
-                ease: 'power2.out'
-              }, 0.4)
-              .to(teamSignalDots, {
-                opacity: 0.86,
-                scale: 1,
-                duration: 0.45,
-                stagger: 0.05,
-                ease: 'power2.out'
-              }, 0.7);
+          tile.addEventListener('mouseenter', () => {
+            // Play video
+            video.play().catch(() => {});
 
-            return () => {
-              teamTl.scrollTrigger?.kill();
-              teamTl.kill();
-            };
+            // Fade in video layer
+            gsap.to(videoWrap, { opacity: 1, duration: 0.4, ease: 'power3.out' });
+
+            // Shift title up
+            gsap.to(nameEl, { y: -4, duration: 0.35, ease: 'power3.out' });
+          });
+
+          tile.addEventListener('mousemove', (e) => {
+            const rect = tile.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Update radial mask position
+            videoWrap.style.maskImage = `radial-gradient(circle ${spotSize}px at ${x}px ${y}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%)`;
+            videoWrap.style.webkitMaskImage = videoWrap.style.maskImage;
+          });
+
+          tile.addEventListener('mouseleave', () => {
+            // Shrink spotlight and fade out
+            gsap.to(videoWrap, { opacity: 0, duration: 0.3, ease: 'power3.out' });
+
+            // Reset mask
+            videoWrap.style.maskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
+            videoWrap.style.webkitMaskImage = videoWrap.style.maskImage;
+
+            // Pause video
+            video.pause();
+
+            // Reset title position
+            gsap.to(nameEl, { y: 0, duration: 0.3, ease: 'power3.out' });
+          });
+        });
+      }
+
+      // ── Mobile: Tap Toggle ──
+      if (!isDesktop) {
+        // Autoplay videos at low opacity on mobile
+        tiles.forEach(tile => {
+          const video = tile.querySelector('video');
+          if (video) {
+            video.play().catch(() => {});
           }
+        });
 
-          if (mobile) {
-            gsap.set(teamCopy, { opacity: 0, y: 26 });
-            gsap.set(teamMobileCards, { opacity: 0, y: 24 });
+        // Simple fade-in entrance for mobile
+        gsap.from(tiles, {
+          opacity: 0, y: 30,
+          duration: 0.5, stagger: 0.08, ease: 'power3.out',
+          scrollTrigger: { trigger: '#services', start: 'top 80%' }
+        });
+      }
 
-            const copyTween = gsap.to(teamCopy, {
-              opacity: 1,
-              y: 0,
-              duration: 0.7,
-              stagger: 0.08,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: teamSection,
-                start: 'top 82%',
-                once: true
-              }
-            });
-
-            const cardTween = gsap.to(teamMobileCards, {
-              opacity: 1,
-              y: 0,
-              duration: 0.65,
-              stagger: 0.09,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: teamSection,
-                start: 'top 72%',
-                once: true
-              }
-            });
-
-            return () => {
-              copyTween.scrollTrigger?.kill();
-              cardTween.scrollTrigger?.kill();
-              copyTween.kill();
-              cardTween.kill();
-            };
-          }
-        }
-      );
-    }
+    })();
 
   </script>
 </body>
 </html>
-
