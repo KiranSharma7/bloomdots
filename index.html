@@ -571,21 +571,35 @@
     .svc-tile {
       position: relative;
       overflow: hidden;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: var(--bg-elevated);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0E0F11;
       cursor: pointer;
-      min-height: 200px;
+      min-height: 220px;
       will-change: clip-path, transform, opacity;
+      transition: border-color 0.5s;
+    }
+    @media (min-width: 768px) {
+      .svc-tile--tiktok,
+      .svc-tile--content { border-radius: 8px; }
+      .svc-tile--cultural { border-radius: 16px; }
     }
 
-    /* Desktop grid spans */
+    /* Desktop grid spans — asymmetric mosaic */
     @media (min-width: 768px) {
-      .svc-tile--social    { grid-column: span 7; grid-row: span 2; min-height: 420px; }
-      .svc-tile--paid      { grid-column: span 5; min-height: 200px; }
-      .svc-tile--content   { grid-column: span 5; min-height: 200px; }
-      .svc-tile--podcast   { grid-column: span 5; min-height: 240px; }
-      .svc-tile--influencer { grid-column: span 7; min-height: 240px; }
+      .svc-tile--tiktok      { grid-column: span 7; min-height: 440px; }
+      .svc-tile--influencer  { grid-column: span 5; min-height: 440px; }
+      .svc-tile--social      { grid-column: span 5; min-height: 360px; }
+      .svc-tile--content     { grid-column: span 7; min-height: 360px; }
+      .svc-tile--community   { grid-column: span 5; min-height: 300px; }
+      .svc-tile--cultural    { grid-column: span 3; min-height: 300px; }
+      .svc-tile--digital     { grid-column: span 4; min-height: 300px; }
+    }
+    @media (min-width: 1024px) {
+      .svc-tile--tiktok      { min-height: 480px; }
+      .svc-tile--influencer  { min-height: 480px; }
+      .svc-tile--social      { min-height: 380px; }
+      .svc-tile--content     { min-height: 380px; }
     }
 
     /* Video layer */
@@ -594,10 +608,7 @@
       inset: 0;
       z-index: 1;
       opacity: 0;
-      transition: opacity 0.4s ease;
-      /* Spotlight mask — centered offscreen by default */
-      -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-      mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+      transition: opacity 0.5s ease;
     }
     .svc-tile__video-wrap video {
       width: 100%;
@@ -640,13 +651,27 @@
       .svc-tile__content { padding: 2rem; }
     }
 
-    /* Numbered label */
+    /* Thumbnail poster */
+    .svc-tile__thumb {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.42;
+      transition: opacity 0.5s ease;
+    }
+    .svc-tile__thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .svc-tile:hover .svc-tile__thumb {
+      opacity: 0;
+    }
+
+    /* Numbered label — hidden */
     .svc-tile__num {
-      font-family: 'Satoshi', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
+      display: none;
     }
 
     /* Service name */
@@ -658,10 +683,32 @@
       will-change: transform;
     }
     @media (min-width: 768px) {
-      .svc-tile--social .svc-tile__name,
-      .svc-tile--influencer .svc-tile__name {
-        font-size: 2.5rem;
+      .svc-tile--tiktok .svc-tile__name {
+        font-size: 2.8rem;
       }
+      .svc-tile--content .svc-tile__name {
+        font-size: 2.4rem;
+      }
+      .svc-tile--influencer .svc-tile__name,
+      .svc-tile--social .svc-tile__name {
+        font-size: 2.2rem;
+      }
+      /* Compact tiles */
+      .svc-tile--cultural .svc-tile__name {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Service tag (hero tiles only) */
+    .svc-tile__tag {
+      display: block;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+      opacity: 0.7;
     }
 
     /* Outcome line */
@@ -670,9 +717,8 @@
       font-size: 13px;
       color: var(--text-soft);
       margin-top: 0.5rem;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.35s ease 0.3s, transform 0.35s ease 0.3s;
+      opacity: 1;
+      transform: none;
     }
 
     /* Explore arrow */
@@ -700,10 +746,27 @@
       transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    /* Glow blob */
+    .svc-tile__glow {
+      position: absolute;
+      top: -6rem;
+      right: -6rem;
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.5s;
+    }
+    .svc-tile:hover .svc-tile__glow {
+      opacity: 0.20;
+    }
+
     /* Hover states */
-    .svc-tile:hover .svc-tile__outcome {
-      opacity: 1;
-      transform: translateY(0);
+    .svc-tile:hover .svc-tile__video-wrap {
+      opacity: 0.80;
     }
     .svc-tile:hover .svc-tile__explore {
       opacity: 1;
@@ -713,15 +776,16 @@
       width: 100%;
     }
     .svc-tile:hover {
-      border-color: var(--line-strong);
+      border-color: rgba(255,255,255,0.20);
     }
 
-    /* Mobile: videos at low opacity always */
+    /* Mobile */
     @media (max-width: 767px) {
       .svc-tile__video-wrap {
-        opacity: 0.15 !important;
-        -webkit-mask-image: none !important;
-        mask-image: none !important;
+        display: none; /* no autoplay on mobile — saves bandwidth */
+      }
+      .svc-tile__thumb {
+        opacity: 0.22 !important;
       }
       .svc-tile__outcome {
         opacity: 1;
@@ -1226,60 +1290,77 @@
     <div class="services-intro">
       <span class="svc-label block text-[10px] uppercase tracking-[0.35em] font-medium mb-3" style="color: var(--text-dim);">What We Do</span>
       <h2 class="svc-headline text-4xl md:text-5xl lg:text-[4rem] leading-[0.93] tracking-tight font-instrument-serif" style="clip-path: inset(100% 0 0 0);">
-        Services That<br class="hidden sm:inline"> Move Culture
+        Services That Come<br class="hidden sm:inline"> With Outcomes.
       </h2>
       <p class="svc-sub text-sm md:text-[0.92rem] leading-relaxed max-w-[36rem] mt-4" style="color: var(--text-soft); opacity: 0;">
-        Strategy meets subculture. Execution meets outcomes.
+        TikTok-first creative that earns attention&mdash;and turns it into action.
       </p>
     </div>
 
     <!-- Mosaic Grid -->
     <div class="services-grid">
 
-      <!-- Tile 1: Social Media — anchor tile (col-span-7, row-span-2) -->
-      <div class="svc-tile svc-tile--social" data-accent="var(--blue)">
-        <div class="svc-tile__video-wrap">
-          <video src="videos/social-media.mp4" muted loop playsinline preload="none"></video>
-          <div class="svc-tile__overlay"></div>
-        </div>
-        <div class="svc-tile__noise"></div>
-        <div class="svc-tile__content">
-          <div>
-            <span class="svc-tile__num" style="color: var(--blue);">01</span>
-          </div>
-          <div>
-            <h3 class="svc-tile__name">Social Media</h3>
-            <p class="svc-tile__outcome">Turn followers into brand advocates</p>
-            <span class="svc-tile__explore">Explore →</span>
-          </div>
-        </div>
-        <div class="svc-tile__accent" style="background: var(--blue);"></div>
-      </div>
+      <!-- Row 1: Wide + Narrow ───────────────────────────── -->
 
-      <!-- Tile 2: Paid Media (col-span-5) -->
-      <div class="svc-tile svc-tile--paid" data-accent="var(--yellow)">
+      <!-- Tile 1: TikTok Marketing (col-7, hero) -->
+      <div class="svc-tile svc-tile--tiktok" data-accent="var(--yellow)">
+        <div class="svc-tile__glow" style="background: #f4c430;"></div>
+        <div class="svc-tile__thumb">
+          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80&auto=format" alt="TikTok Marketing" loading="lazy">
+        </div>
         <div class="svc-tile__video-wrap">
-          <video src="videos/paid-media.mp4" muted loop playsinline preload="none"></video>
+          <video src="videos/social-media.mp4" muted loop playsinline preload="metadata"></video>
           <div class="svc-tile__overlay"></div>
         </div>
         <div class="svc-tile__noise"></div>
         <div class="svc-tile__content">
           <div>
-            <span class="svc-tile__num" style="color: var(--yellow);">02</span>
+            <span class="svc-tile__num" style="color: var(--yellow);">01</span>
           </div>
           <div>
-            <h3 class="svc-tile__name">Paid Media</h3>
-            <p class="svc-tile__outcome">Precision targeting, measurable ROI</p>
+            <span class="svc-tile__tag" style="color: var(--yellow);">Primary Service</span>
+            <h3 class="svc-tile__name">TikTok Marketing</h3>
+            <p class="svc-tile__outcome">Built for retention + action</p>
             <span class="svc-tile__explore">Explore →</span>
           </div>
         </div>
         <div class="svc-tile__accent" style="background: var(--yellow);"></div>
       </div>
 
-      <!-- Tile 3: Content (col-span-5) -->
-      <div class="svc-tile svc-tile--content" data-accent="var(--orange)">
+      <!-- Tile 2: Influencer Marketing (col-4, narrow) -->
+      <div class="svc-tile svc-tile--influencer" data-accent="var(--blue)">
+        <div class="svc-tile__glow" style="background: #4f7cff;"></div>
+        <div class="svc-tile__thumb">
+          <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?w=800&q=80&auto=format" alt="Influencer Marketing" loading="lazy">
+        </div>
         <div class="svc-tile__video-wrap">
-          <video src="videos/content.mp4" muted loop playsinline preload="none"></video>
+          <video src="videos/influencer.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--blue);">02</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Influencer Marketing</h3>
+            <p class="svc-tile__outcome">Trust + reach + content library</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--blue);"></div>
+      </div>
+
+      <!-- Row 2: Narrow + Wide (mirrored) ────────────────── -->
+
+      <!-- Tile 3: Social Media Management (col-4, narrow) -->
+      <div class="svc-tile svc-tile--social" data-accent="var(--orange)">
+        <div class="svc-tile__glow" style="background: #ff7a1a;"></div>
+        <div class="svc-tile__thumb">
+          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80&auto=format" alt="Social Media Management" loading="lazy">
+        </div>
+        <div class="svc-tile__video-wrap">
+          <video src="videos/podcast.mp4" muted loop playsinline preload="metadata"></video>
           <div class="svc-tile__overlay"></div>
         </div>
         <div class="svc-tile__noise"></div>
@@ -1288,48 +1369,106 @@
             <span class="svc-tile__num" style="color: var(--orange);">03</span>
           </div>
           <div>
-            <h3 class="svc-tile__name">Content</h3>
-            <p class="svc-tile__outcome">Stories that stop the scroll</p>
+            <h3 class="svc-tile__name">Social Media Management</h3>
+            <p class="svc-tile__outcome">Consistency + community growth</p>
             <span class="svc-tile__explore">Explore →</span>
           </div>
         </div>
         <div class="svc-tile__accent" style="background: var(--orange);"></div>
       </div>
 
-      <!-- Tile 4: Podcast (col-span-5) -->
-      <div class="svc-tile svc-tile--podcast" data-accent="var(--blue)">
+      <!-- Tile 4: Content Marketing (col-8, wide) -->
+      <div class="svc-tile svc-tile--content" data-accent="var(--yellow)">
+        <div class="svc-tile__glow" style="background: #f4c430;"></div>
+        <div class="svc-tile__thumb">
+          <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&q=80&auto=format" alt="Content Marketing" loading="lazy">
+        </div>
         <div class="svc-tile__video-wrap">
-          <video src="videos/podcast.mp4" muted loop playsinline preload="none"></video>
+          <video src="videos/content.mp4" muted loop playsinline preload="metadata"></video>
           <div class="svc-tile__overlay"></div>
         </div>
         <div class="svc-tile__noise"></div>
         <div class="svc-tile__content">
           <div>
-            <span class="svc-tile__num" style="color: var(--blue);">04</span>
+            <span class="svc-tile__num" style="color: var(--yellow);">04</span>
           </div>
           <div>
-            <h3 class="svc-tile__name">Podcast</h3>
-            <p class="svc-tile__outcome">Voices that build authority</p>
+            <h3 class="svc-tile__name">Content Marketing</h3>
+            <p class="svc-tile__outcome">Platform-native visibility + conversion-optimized storytelling</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--yellow);"></div>
+      </div>
+
+      <!-- Row 3: Equal thirds ────────────────────────────── -->
+
+      <!-- Tile 5: Community Marketing (col-4) -->
+      <div class="svc-tile svc-tile--community" data-accent="var(--blue)">
+        <div class="svc-tile__glow" style="background: #4f7cff;"></div>
+        <div class="svc-tile__thumb">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&auto=format" alt="Community Marketing" loading="lazy">
+        </div>
+        <div class="svc-tile__video-wrap">
+          <video src="videos/paid-media.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--blue);">05</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Community Marketing</h3>
+            <p class="svc-tile__outcome">Deep audience connection + organic advocacy</p>
             <span class="svc-tile__explore">Explore →</span>
           </div>
         </div>
         <div class="svc-tile__accent" style="background: var(--blue);"></div>
       </div>
 
-      <!-- Tile 5: Influencer — anchor tile (col-span-7) -->
-      <div class="svc-tile svc-tile--influencer" data-accent="var(--yellow)">
+      <!-- Tile 6: Cultural Marketing (col-4) -->
+      <div class="svc-tile svc-tile--cultural" data-accent="var(--orange)">
+        <div class="svc-tile__glow" style="background: #ff7a1a;"></div>
+        <div class="svc-tile__thumb">
+          <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format" alt="Cultural Marketing" loading="lazy">
+        </div>
         <div class="svc-tile__video-wrap">
-          <video src="videos/influencer.mp4" muted loop playsinline preload="none"></video>
+          <video src="videos/social-media.mp4" muted loop playsinline preload="metadata"></video>
           <div class="svc-tile__overlay"></div>
         </div>
         <div class="svc-tile__noise"></div>
         <div class="svc-tile__content">
           <div>
-            <span class="svc-tile__num" style="color: var(--yellow);">05</span>
+            <span class="svc-tile__num" style="color: var(--orange);">06</span>
           </div>
           <div>
-            <h3 class="svc-tile__name">Influencer</h3>
-            <p class="svc-tile__outcome">Reach the right people, authentically</p>
+            <h3 class="svc-tile__name">Cultural Marketing</h3>
+            <p class="svc-tile__outcome">Authentic cultural resonance + market expansion</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--orange);"></div>
+      </div>
+
+      <!-- Tile 7: Digital Marketing (col-4) -->
+      <div class="svc-tile svc-tile--digital" data-accent="var(--yellow)">
+        <div class="svc-tile__glow" style="background: #f4c430;"></div>
+        <div class="svc-tile__thumb">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format" alt="Digital Marketing" loading="lazy">
+        </div>
+        <div class="svc-tile__video-wrap">
+          <video src="videos/paid-media.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--yellow);">07</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Digital Marketing</h3>
+            <p class="svc-tile__outcome">Multi-channel optimization + scalable growth</p>
             <span class="svc-tile__explore">Explore →</span>
           </div>
         </div>
@@ -1943,7 +2082,7 @@
       });
 
       // Stagger delays: top-left to bottom-right
-      const staggerDelays = [0, 0.15, 0.3, 0.45, 0.6];
+      const staggerDelays = [0, 0.12, 0.24, 0.18, 0.36, 0.42, 0.48];
 
       tiles.forEach((tile, i) => {
         gsap.to(tile, {
@@ -1985,7 +2124,7 @@
         );
       });
 
-      // ── Cursor Spotlight Hover (desktop only) ──
+      // ── Hover: Play video on hover, show thumbnail at rest (desktop only) ──
       if (isDesktop) {
         tiles.forEach(tile => {
           const videoWrap = tile.querySelector('.svc-tile__video-wrap');
@@ -1994,42 +2133,17 @@
 
           if (!videoWrap || !video) return;
 
-          // Spotlight size
-          const spotSize = 280;
-
           tile.addEventListener('mouseenter', () => {
-            // Play video
             video.play().catch(() => {});
-
-            // Fade in video layer
-            gsap.to(videoWrap, { opacity: 1, duration: 0.4, ease: 'power3.out' });
-
-            // Shift title up
+            gsap.to(videoWrap, { opacity: 0.82, duration: 0.5, ease: 'power3.out' });
             gsap.to(nameEl, { y: -4, duration: 0.35, ease: 'power3.out' });
           });
 
-          tile.addEventListener('mousemove', (e) => {
-            const rect = tile.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            // Update radial mask position
-            videoWrap.style.maskImage = `radial-gradient(circle ${spotSize}px at ${x}px ${y}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%)`;
-            videoWrap.style.webkitMaskImage = videoWrap.style.maskImage;
-          });
-
           tile.addEventListener('mouseleave', () => {
-            // Shrink spotlight and fade out
-            gsap.to(videoWrap, { opacity: 0, duration: 0.3, ease: 'power3.out' });
-
-            // Reset mask
-            videoWrap.style.maskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
-            videoWrap.style.webkitMaskImage = videoWrap.style.maskImage;
-
-            // Pause video
-            video.pause();
-
-            // Reset title position
+            gsap.to(videoWrap, {
+              opacity: 0, duration: 0.4, ease: 'power3.in',
+              onComplete: () => { video.pause(); video.currentTime = 0; }
+            });
             gsap.to(nameEl, { y: 0, duration: 0.3, ease: 'power3.out' });
           });
         });
@@ -2037,14 +2151,6 @@
 
       // ── Mobile: Tap Toggle ──
       if (!isDesktop) {
-        // Autoplay videos at low opacity on mobile
-        tiles.forEach(tile => {
-          const video = tile.querySelector('video');
-          if (video) {
-            video.play().catch(() => {});
-          }
-        });
-
         // Simple fade-in entrance for mobile
         gsap.from(tiles, {
           opacity: 0, y: 30,
