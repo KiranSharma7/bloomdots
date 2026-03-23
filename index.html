@@ -22,6 +22,8 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
 
   <style>
     /* ── CSS Variables ──────────────────────────────────────── */
@@ -1165,6 +1167,659 @@
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 3px; }
+
+    /* ── Section 6 — Portfolio / Case Studies ─────────────── */
+
+    .portfolio-intro {
+      position: relative;
+      background: var(--bg);
+      padding: 10rem 1.25rem 5rem;
+      text-align: center;
+    }
+    @media (min-width: 640px) { .portfolio-intro { padding-left: 2rem; padding-right: 2rem; } }
+    @media (min-width: 1024px) { .portfolio-intro { padding-left: 3rem; padding-right: 3rem; } }
+
+    .port-label {
+      display: inline-block;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1.5rem;
+    }
+    .port-headline {
+      font-family: 'Canela', serif;
+      font-size: clamp(2rem, 4.5vw, 3.75rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--text);
+      max-width: 52rem;
+      margin: 0 auto 1.25rem;
+    }
+    .port-sub {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+      color: var(--text-soft);
+      max-width: 40rem;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Each panel is its own pinned section */
+    .port-panel {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+    }
+    /* Effect wrapper — animated by GSAP (shrink/rotate) */
+    .port-panel__effect {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      padding: 4rem 0;
+    }
+
+    /* ── Per-panel background colors (on effect wrapper only, so it shrinks/rotates with content) ── */
+    .port-panel { background: var(--bg); }
+    .port-panel--1 .port-panel__effect { background: #f0ecdb; }
+    .port-panel--2 .port-panel__effect { background: #c8e6ec; }
+    .port-panel--3 .port-panel__effect { background: #e8d8ec; }
+    .port-panel--4 .port-panel__effect { background: #dce8d4; }
+
+    /* Dark text overrides for light panels */
+    .port-panel .port-panel__title,
+    .port-panel .port-panel__num { color: #0b0b0d; }
+    .port-panel .port-panel__challenge { color: rgba(11,11,13,0.6); }
+    .port-panel .port-chip { color: rgba(11,11,13,0.55); border-color: rgba(11,11,13,0.18); }
+    .port-panel .port-metric { background: rgba(11,11,13,0.06); border-color: rgba(11,11,13,0.12); }
+    .port-panel .port-metric__value { color: #0b0b0d; }
+    .port-panel .port-metric__label { color: rgba(11,11,13,0.5); }
+    .port-panel .port-panel__cta { color: #0b0b0d; }
+    .port-panel .port-panel__cta:hover { opacity: 0.65; }
+    /* Uniform grid: text left (1-5), image right (7-12) */
+    .port-panel__inner {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2rem;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      align-items: center;
+    }
+    @media (min-width: 640px) { .port-panel__inner { padding: 0 2rem; } }
+    @media (min-width: 1024px) { .port-panel__inner { padding: 0 3rem; gap: 3rem; } }
+
+    .port-panel__text {
+      grid-column: 1 / 6;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .port-panel__visuals {
+      grid-column: 7 / 13;
+    }
+
+    /* Big title */
+    .port-panel__title {
+      font-family: 'Canela', serif;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+    }
+    /* Number */
+    .port-panel__num {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1;
+      opacity: 0.9;
+      margin-top: 1rem;
+    }
+    /* Challenge / description */
+    .port-panel__challenge {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(0.875rem, 1.1vw, 1rem);
+      line-height: 1.6;
+      max-width: 28rem;
+    }
+
+    /* Service chips */
+    .port-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .port-chip {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid;
+      border-radius: 100px;
+    }
+
+    /* Metric chips */
+    .port-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .port-metric {
+      border: 1px solid;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      min-width: 5.5rem;
+    }
+    .port-metric__value {
+      font-family: 'Canela', serif;
+      font-size: 1.375rem;
+      font-weight: 300;
+      display: block;
+      line-height: 1.2;
+    }
+    .port-metric__label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    /* Panel CTA */
+    .port-panel__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: opacity 0.3s ease;
+    }
+    .port-panel__cta .cta-arrow {
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .port-panel__cta:hover .cta-arrow { transform: translateX(4px); }
+
+    /* Single large image with rounded corners */
+    .port-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      background: rgba(0,0,0,0.06);
+    }
+    .port-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .port-img:hover img { transform: scale(1.04); }
+
+    /* Exit CTA block */
+    .portfolio-exit {
+      display: flex;
+      justify-content: center;
+      padding: 5rem 1.25rem 8rem;
+      background: var(--bg);
+    }
+    .port-exit-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--bg);
+      background: var(--yellow);
+      padding: 1rem 2.25rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    }
+    .port-exit-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(244, 196, 48, 0.2);
+    }
+
+    /* ── Portfolio mobile ── */
+    @media (max-width: 768px) {
+      .portfolio-intro { padding: 6rem 1.25rem 3rem; }
+      .port-panel { min-height: auto; }
+      .port-panel__effect { min-height: auto; padding: 3rem 0; }
+      .port-panel__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .port-panel__title { font-size: clamp(2rem, 8vw, 3rem); }
+      .port-img { aspect-ratio: 4 / 3; }
+      .portfolio-exit { padding: 4rem 1.25rem 6rem; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTION 7 — PROCESS  "HOW WE DO IT"
+       ═══════════════════════════════════════════════════════ */
+    #process {
+      position: relative;
+      background: var(--bg);
+      overflow: clip;
+      overflow-clip-margin: 30px;
+      padding: 0 0 6rem;
+    }
+
+    /* ── Intro ── */
+    .process-intro {
+      padding: 7rem 1.25rem 3.5rem;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px)  { .process-intro { padding: 9rem 2rem 4rem; } }
+    @media (min-width: 1024px) { .process-intro { padding: 10rem 3rem 4.5rem; } }
+    @media (min-width: 1280px) { .process-intro { padding: 10rem 4rem 4.5rem; } }
+
+    .process-label {
+      display: block;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-weight: 500;
+      color: var(--text-dim);
+      margin-bottom: 0.75rem;
+    }
+    .process-headline {
+      font-family: 'Canela', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 0.93;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      clip-path: inset(100% 0 0 0);
+    }
+    .process-sub {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+      max-width: 36rem;
+      margin-top: 1rem;
+      opacity: 0;
+    }
+
+    /* ── Timeline wrapper ── */
+    .process-timeline {
+      position: relative;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+    @media (min-width: 640px)  { .process-timeline { padding: 0 2rem 5rem; } }
+    @media (min-width: 1024px) { .process-timeline { padding: 0 3rem 6rem; } }
+    @media (min-width: 1280px) { .process-timeline { padding: 0 4rem 6rem; } }
+
+    /* ── SVG line (desktop only) ── */
+    .process-line-wrap {
+      position: relative;
+      height: 40px;
+      margin-bottom: 2.5rem;
+      display: none;
+    }
+    @media (min-width: 1024px) { .process-line-wrap { display: block; } }
+
+    .process-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 20px;
+      overflow: visible;
+    }
+    .process-line__track {
+      stroke: var(--line);
+      stroke-width: 1;
+    }
+    .process-line__progress {
+      stroke: var(--yellow);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+
+    /* ── Traveling dot ── */
+    .process-dot-indicator {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 24px rgba(244,196,48,0.6), 0 0 8px rgba(244,196,48,0.3);
+      z-index: 5;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+    @media (min-width: 1024px) { .process-dot-indicator { display: block; } }
+
+    /* ── Phases grid ── */
+    .process-phases {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    @media (min-width: 1024px) {
+      .process-phases {
+        flex-direction: row;
+        gap: 0;
+      }
+    }
+
+    /* ── Single phase ── */
+    .process-phase {
+      flex: 1;
+      position: relative;
+      padding: 2.5rem 0 2.5rem 2rem;
+      border-left: 2px solid var(--line);
+    }
+    .process-phase:first-child { border-left-color: transparent; padding-left: 0; }
+
+    @media (min-width: 1024px) {
+      .process-phase {
+        padding: 0 2.5rem;
+        border-left: 1px solid var(--line);
+      }
+      .process-phase:first-child { border-left: none; padding-left: 0; }
+    }
+
+    /* ── Oversized number ── */
+    .process-phase__num {
+      font-family: 'Canela', serif;
+      font-size: clamp(4.5rem, 10vw, 9rem);
+      font-weight: 300;
+      line-height: 0.8;
+      color: var(--text);
+      opacity: 0.06;
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1);
+      display: block;
+      user-select: none;
+    }
+    .process-phase.is-active .process-phase__num {
+      opacity: 0.22;
+    }
+
+    /* ── Accent dot ── */
+    .process-phase__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 1.25rem;
+      opacity: 0.3;
+      transition: opacity 0.6s ease, box-shadow 0.6s ease, transform 0.6s ease;
+    }
+    .process-phase.is-active .process-phase__dot {
+      opacity: 1;
+      transform: scale(1.4);
+    }
+
+    /* ── Phase content ── */
+    .process-phase__title {
+      font-family: 'Canela', serif;
+      font-size: 1.6rem;
+      color: var(--text);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+    .process-phase__desc {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.65;
+      color: var(--text-soft);
+      max-width: 20rem;
+    }
+
+    /* ── Micro-label list ── */
+    .process-phase__list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+    }
+    .process-phase__list li {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.4s ease;
+    }
+    .process-phase__list li:last-child { border-bottom: none; }
+    .process-phase.is-active .process-phase__list li {
+      color: var(--text-soft);
+    }
+
+    /* ── Active glow on dot (per color) ── */
+    .process-phase.is-active .process-phase__dot[style*="yellow"] {
+      box-shadow: 0 0 22px rgba(244,196,48,0.55);
+    }
+    .process-phase.is-active .process-phase__dot[style*="blue"] {
+      box-shadow: 0 0 22px rgba(79,124,255,0.55);
+    }
+    .process-phase.is-active .process-phase__dot[style*="orange"] {
+      box-shadow: 0 0 22px rgba(255,122,26,0.55);
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .process-headline { clip-path: none !important; }
+      .process-sub { opacity: 1 !important; }
+      .process-phase__num { opacity: 0.15 !important; }
+      .process-phase__dot { opacity: 0.7 !important; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTION 8 — FOUNDER NOTE
+       ═══════════════════════════════════════════════════════ */
+    #founder {
+      position: relative;
+      background: var(--bg-soft);
+      overflow: hidden;
+    }
+
+    .founder-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 100vh;
+    }
+    @media (min-width: 768px) {
+      .founder-inner {
+        grid-template-columns: 5fr 7fr;
+        min-height: auto;
+      }
+    }
+
+    /* ── Portrait side ── */
+    .founder-portrait {
+      position: relative;
+      overflow: hidden;
+      min-height: 60vh;
+    }
+    @media (min-width: 768px) {
+      .founder-portrait { min-height: 85vh; }
+    }
+
+    .founder-portrait__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(0.35) contrast(1.08);
+    }
+
+    /* Mask overlay for wipe reveal */
+    .founder-portrait__mask {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-soft);
+      transform-origin: right center;
+      z-index: 2;
+    }
+
+    /* Subtle grain on portrait */
+    .founder-portrait__grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      background-size: 200px;
+      z-index: 3;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    /* ── Content side ── */
+    .founder-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 1.25rem 5rem;
+      position: relative;
+    }
+    @media (min-width: 640px)  { .founder-content { padding: 5rem 2.5rem 6rem; } }
+    @media (min-width: 768px)  { .founder-content { padding: 6rem 3.5rem 6rem 4rem; } }
+    @media (min-width: 1024px) { .founder-content { padding: 7rem 4.5rem 7rem 5rem; } }
+    @media (min-width: 1280px) { .founder-content { padding: 8rem 6rem 8rem 6rem; } }
+
+    .founder-label {
+      display: block;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-weight: 500;
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Pull quote — the signature moment */
+    .founder-pullquote {
+      font-family: 'Canela', serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+      position: relative;
+      max-width: 38rem;
+    }
+    .founder-pullquote::before {
+      content: '\201C';
+      position: absolute;
+      left: -0.5em;
+      top: -0.15em;
+      font-size: 3em;
+      line-height: 1;
+      color: var(--yellow);
+      opacity: 0.25;
+      font-family: 'Canela', serif;
+      pointer-events: none;
+    }
+
+    .founder-body {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-soft);
+      max-width: 34rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Thin divider before signature ── */
+    .founder-divider {
+      width: 3rem;
+      height: 1px;
+      background: var(--line-strong);
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Name block ── */
+    .founder-name {
+      font-family: 'Canela', serif;
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.01em;
+    }
+    .founder-role {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── SVG signature ── */
+    .founder-signature {
+      width: 120px;
+      height: auto;
+      opacity: 0.5;
+    }
+    .founder-signature path {
+      fill: none;
+      stroke: var(--text);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Decorative dots ── */
+    .founder-dots {
+      position: absolute;
+      bottom: 3rem;
+      right: 3rem;
+      display: flex;
+      gap: 8px;
+      opacity: 0;
+    }
+    .founder-dots__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .founder-portrait__mask { display: none !important; }
+      .founder-pullquote, .founder-body,
+      .founder-name, .founder-role,
+      .founder-signature, .founder-label,
+      .founder-divider, .founder-dots { opacity: 1 !important; }
+    }
   </style>
 </head>
 
@@ -1926,6 +2581,292 @@
 
   </section>
 
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 6 — PORTFOLIO / CASE STUDIES
+       Perspective stacking transition on scroll
+       ════════════════════════════════════════════════════════ -->
+
+  <!-- Portfolio Intro -->
+  <section class="portfolio-intro" style="background: var(--bg);">
+    <div class="absolute inset-x-0 top-0 h-px" style="background: var(--line);"></div>
+    <span class="port-label">Selected Work</span>
+    <h2 class="port-headline">Work that resonates across cultures.<br>Results that speak for themselves.</h2>
+    <p class="port-sub">Culturally intelligent campaigns designed to capture attention, build trust, and drive measurable business outcomes.</p>
+  </section>
+
+  <!-- Panel 1 — Cream (#f0ecdb) -->
+  <section class="port-panel pinned port-panel--1">
+    <div class="port-panel__effect myeffect">
+      <div class="port-panel__inner">
+        <div class="port-panel__text">
+          <h3 class="port-panel__title">Ramadan Unfiltered</h3>
+          <span class="port-panel__num">01</span>
+          <p class="port-panel__challenge">Community Marketing, Content Creation, Influencer Strategy</p>
+          <div class="port-metrics">
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">24M+</span>
+              <span class="port-metric__label">Impressions</span>
+            </div>
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">340%</span>
+              <span class="port-metric__label">Engagement Lift</span>
+            </div>
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">18</span>
+              <span class="port-metric__label">Creators</span>
+            </div>
+          </div>
+          <a class="port-panel__cta">View Case Study <span class="cta-arrow">&rarr;</span></a>
+        </div>
+        <div class="port-panel__visuals">
+          <div class="port-img"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=800&fit=crop" alt="Ramadan Unfiltered campaign" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panel 2 — Light Blue (#c8e6ec) -->
+  <section class="port-panel pinned port-panel--2">
+    <div class="port-panel__effect myeffect">
+      <div class="port-panel__inner">
+        <div class="port-panel__text">
+          <h3 class="port-panel__title">Sound of the City</h3>
+          <span class="port-panel__num">02</span>
+          <p class="port-panel__challenge">Cultural Marketing, Event Activation, Social Content</p>
+          <div class="port-metrics">
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">56M+</span>
+              <span class="port-metric__label">Views</span>
+            </div>
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">3</span>
+              <span class="port-metric__label">Cities</span>
+            </div>
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">412%</span>
+              <span class="port-metric__label">ROI</span>
+            </div>
+          </div>
+          <a class="port-panel__cta">View Case Study <span class="cta-arrow">&rarr;</span></a>
+        </div>
+        <div class="port-panel__visuals">
+          <div class="port-img"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&h=800&fit=crop" alt="Sound of the City event" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panel 3 — Lavender (#e8d8ec) -->
+  <section class="port-panel pinned port-panel--3">
+    <div class="port-panel__effect myeffect">
+      <div class="port-panel__inner">
+        <div class="port-panel__text">
+          <h3 class="port-panel__title">Gen-Z Playbook</h3>
+          <span class="port-panel__num">03</span>
+          <p class="port-panel__challenge">Digital Marketing, TikTok Strategy, UGC Campaigns</p>
+          <div class="port-metrics">
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">89M+</span>
+              <span class="port-metric__label">Reach</span>
+            </div>
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">2.4x</span>
+              <span class="port-metric__label">Conversion</span>
+            </div>
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">47</span>
+              <span class="port-metric__label">Creators</span>
+            </div>
+          </div>
+          <a class="port-panel__cta">View Case Study <span class="cta-arrow">&rarr;</span></a>
+        </div>
+        <div class="port-panel__visuals">
+          <div class="port-img"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=800&fit=crop" alt="Gen-Z social campaign" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panel 4 — Sage Green (#dce8d4) — last panel, no stacking -->
+  <section class="port-panel last-pinned port-panel--4">
+    <div class="port-panel__effect">
+      <div class="port-panel__inner">
+        <div class="port-panel__text">
+          <h3 class="port-panel__title">The Homegrown Edit</h3>
+          <span class="port-panel__num">04</span>
+          <p class="port-panel__challenge">Community Marketing, Cultural Marketing, Content Marketing</p>
+          <div class="port-metrics">
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">120M+</span>
+              <span class="port-metric__label">Impressions</span>
+            </div>
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">28</span>
+              <span class="port-metric__label">Markets</span>
+            </div>
+            <div class="port-metric" data-metric>
+              <span class="port-metric__value">5.2x</span>
+              <span class="port-metric__label">Engagement</span>
+            </div>
+          </div>
+          <a class="port-panel__cta">View Case Study <span class="cta-arrow">&rarr;</span></a>
+        </div>
+        <div class="port-panel__visuals">
+          <div class="port-img"><img src="https://images.unsplash.com/photo-1523294587484-bae6cc870010?w=600&h=800&fit=crop" alt="Homegrown Edit campaign" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Exit CTA -->
+  <section class="portfolio-exit" style="background: var(--bg);">
+    <a class="port-exit-cta">View All Case Studies <span>&rarr;</span></a>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 7 — PROCESS  "HOW WE DO IT"
+       ═══════════════════════════════════════════════════════ -->
+  <section id="process">
+
+    <!-- Top divider -->
+    <div class="absolute inset-x-0 top-0 h-px" style="background: var(--line);"></div>
+
+    <!-- Section intro -->
+    <div class="process-intro">
+      <span class="process-label">How We Do It</span>
+      <h2 class="process-headline">Three Moves.<br>No Wasted Motion.</h2>
+      <p class="process-sub">Strategy, execution, and growth &mdash; distilled into a system that actually works.</p>
+    </div>
+
+    <!-- Timeline area -->
+    <div class="process-timeline">
+
+      <!-- SVG progress line (desktop) -->
+      <div class="process-line-wrap">
+        <svg class="process-line" viewBox="0 0 1200 20" preserveAspectRatio="none">
+          <line class="process-line__track" x1="0" y1="10" x2="1200" y2="10" />
+          <line class="process-line__progress" x1="0" y1="10" x2="1200" y2="10"
+                stroke-dasharray="1200" stroke-dashoffset="1200" />
+        </svg>
+        <!-- Traveling glow dot -->
+        <div class="process-dot-indicator"></div>
+      </div>
+
+      <!-- Three phases -->
+      <div class="process-phases">
+
+        <!-- Phase 1: Insight -->
+        <div class="process-phase" data-phase="1">
+          <div class="process-phase__marker">
+            <span class="process-phase__num">01</span>
+            <div class="process-phase__dot" style="background: var(--yellow);"></div>
+          </div>
+          <div class="process-phase__content">
+            <h3 class="process-phase__title">Insight</h3>
+            <p class="process-phase__desc">We listen, research, and decode your audience &mdash; finding the cultural signals that matter.</p>
+            <ul class="process-phase__list">
+              <li>Audience Analysis</li>
+              <li>Cultural Mapping</li>
+              <li>Competitive Audit</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phase 2: Build -->
+        <div class="process-phase" data-phase="2">
+          <div class="process-phase__marker">
+            <span class="process-phase__num">02</span>
+            <div class="process-phase__dot" style="background: var(--blue);"></div>
+          </div>
+          <div class="process-phase__content">
+            <h3 class="process-phase__title">Build</h3>
+            <p class="process-phase__desc">We create content, campaigns, and communities that connect &mdash; built to move culture.</p>
+            <ul class="process-phase__list">
+              <li>Content Production</li>
+              <li>Community Building</li>
+              <li>Campaign Launch</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phase 3: Optimize -->
+        <div class="process-phase" data-phase="3">
+          <div class="process-phase__marker">
+            <span class="process-phase__num">03</span>
+            <div class="process-phase__dot" style="background: var(--orange);"></div>
+          </div>
+          <div class="process-phase__content">
+            <h3 class="process-phase__title">Optimize</h3>
+            <p class="process-phase__desc">We refine, scale, and turn momentum into measurable results &mdash; no guesswork, just growth.</p>
+            <ul class="process-phase__list">
+              <li>Performance Analysis</li>
+              <li>Iteration Cycles</li>
+              <li>Scale Playbook</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /process-phases -->
+    </div><!-- /process-timeline -->
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 8 — FOUNDER NOTE
+       ═══════════════════════════════════════════════════════ -->
+  <section id="founder">
+
+    <!-- Top divider -->
+    <div class="absolute inset-x-0 top-0 h-px" style="background: var(--line);"></div>
+
+    <div class="founder-inner">
+
+      <!-- Portrait side -->
+      <div class="founder-portrait">
+        <img class="founder-portrait__img" src="Team-members/Adit Thapa.jpg" alt="Adit Thapa — Founder of BloomDots" />
+        <div class="founder-portrait__mask"></div>
+        <div class="founder-portrait__grain"></div>
+      </div>
+
+      <!-- Content side -->
+      <div class="founder-content">
+
+        <span class="founder-label">A Word From the Founder</span>
+
+        <blockquote class="founder-pullquote">
+          We don&rsquo;t just build campaigns. We build the cultural bridges that make brands part of the conversation.
+        </blockquote>
+
+        <p class="founder-body">
+          BloomDots started with one belief: the brands that win aren&rsquo;t the loudest &mdash; they&rsquo;re the most culturally connected. Every project we take on is a chance to prove that strategy rooted in real communities creates outcomes no media buy can replicate. We&rsquo;re not chasing trends. We&rsquo;re building relevance that compounds.
+        </p>
+
+        <div class="founder-divider"></div>
+
+        <p class="founder-name">Adit Thapa</p>
+        <p class="founder-role">Founder &amp; Creative Director</p>
+
+        <!-- SVG signature (stylized handwriting path) -->
+        <svg class="founder-signature" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 30 C8 10, 16 8, 20 22 S28 34, 32 18 C36 4, 42 6, 44 20 S50 32, 56 16 C60 6, 64 10, 62 24 M68 28 C70 12, 78 8, 82 22 S88 30, 94 14 C98 4, 104 10, 108 26 Q112 34, 116 28" />
+        </svg>
+
+        <!-- Three brand dots -->
+        <div class="founder-dots">
+          <div class="founder-dots__dot" style="background: var(--yellow);"></div>
+          <div class="founder-dots__dot" style="background: var(--blue);"></div>
+          <div class="founder-dots__dot" style="background: var(--orange);"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
   <!-- Spacer so scroll completes fully -->
   <section class="h-screen" style="background: var(--bg);"></section>
 
@@ -1935,6 +2876,16 @@
        ════════════════════════════════════════════════════════ -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
+
+    // ── Lenis Smooth Scroll ─────────────────────────────
+    const lenis = new Lenis({
+      smooth: true,
+      normalizeWheel: true,
+      lerp: 0.07,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    function lenisRaf(time) { lenis.raf(time); requestAnimationFrame(lenisRaf); }
+    requestAnimationFrame(lenisRaf);
 
     // ── Hamburger — 2 white lines ────────────────────────
     const hamburger = document.getElementById('hamburger');
@@ -2785,6 +3736,474 @@
       }
 
     })();
+
+
+    // ── Section 6 — Portfolio Stacking Transition ────────
+    ;(function initPortfolioStack() {
+
+      const lastCard = document.querySelector('.last-pinned');
+      const sections = gsap.utils.toArray('.pinned');
+      if (!sections.length) return;
+
+      const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+
+      /* ── Intro reveals ── */
+      const introSection = document.querySelector('.portfolio-intro');
+      if (introSection) {
+        const introLabel = introSection.querySelector('.port-label');
+        const introHeadline = introSection.querySelector('.port-headline');
+        const introSub = introSection.querySelector('.port-sub');
+
+        if (introLabel) {
+          gsap.from(introLabel, {
+            opacity: 0, y: 20,
+            duration: 0.6, ease: 'power3.out',
+            scrollTrigger: { trigger: introSection, start: 'top 80%' }
+          });
+        }
+        if (introHeadline) {
+          gsap.from(introHeadline, {
+            opacity: 0, y: 30, clipPath: 'inset(100% 0 0 0)',
+            duration: 0.9, ease: 'power4.out',
+            scrollTrigger: { trigger: introSection, start: 'top 75%' }
+          });
+        }
+        if (introSub) {
+          gsap.from(introSub, {
+            opacity: 0, y: 20,
+            duration: 0.7, ease: 'power3.out', delay: 0.15,
+            scrollTrigger: { trigger: introSection, start: 'top 70%' }
+          });
+        }
+      }
+
+      /* ── Desktop: Stacking perspective animation ── */
+      if (isDesktop) {
+
+        sections.forEach((section, index) => {
+          if (section === lastCard) return;
+
+          const effect = section.querySelector('.myeffect');
+          const nextSection = sections[index + 1] || lastCard;
+          const distance = nextSection.offsetTop - section.offsetTop;
+
+          // Pin the section
+          ScrollTrigger.create({
+            trigger: section,
+            start: 'top top',
+            end: '+=' + distance,
+            pin: true,
+            pinSpacing: false,
+            scrub: true,
+          });
+
+          // Alternate rotation direction
+          const rotation = index % 2 === 0 ? -20 : 20;
+
+          // Shrink + rotate as next section approaches
+          gsap.fromTo(
+            effect,
+            { scale: 1, y: 0 },
+            {
+              scale: 0.3,
+              rotation: rotation,
+              y: 400,
+              ease: 'power1.inOut',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: '+=' + distance,
+                scrub: true,
+                onUpdate: (self) => {
+                  section.style.visibility = self.progress > 0.9 ? 'hidden' : 'visible';
+                }
+              }
+            }
+          );
+
+          /* ── Per-panel content reveals ── */
+          const metrics = section.querySelectorAll('[data-metric]');
+          const title = section.querySelector('.port-panel__title');
+          const challenge = section.querySelector('.port-panel__challenge');
+          const chips = section.querySelectorAll('.port-chip');
+          const images = section.querySelectorAll('.port-img');
+          const cta = section.querySelector('.port-panel__cta');
+          const num = section.querySelector('.port-panel__num');
+
+          const panelTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 60%',
+              toggleActions: 'play none none reverse',
+            }
+          });
+
+          if (num) panelTl.from(num, { opacity: 0, y: 30, duration: 0.5, ease: 'power3.out' }, 0);
+          if (title) panelTl.from(title, { opacity: 0, y: 25, clipPath: 'inset(100% 0 0 0)', duration: 0.7, ease: 'power4.out' }, 0.08);
+          if (challenge) panelTl.from(challenge, { opacity: 0, y: 15, duration: 0.5, ease: 'power3.out' }, 0.18);
+          if (chips.length) panelTl.from(chips, { opacity: 0, y: 10, stagger: 0.04, duration: 0.4, ease: 'power3.out' }, 0.25);
+          if (metrics.length) panelTl.from(metrics, { opacity: 0, y: 20, scale: 0.92, stagger: 0.06, duration: 0.5, ease: 'power3.out' }, 0.3);
+          if (images.length) {
+            images.forEach((img, j) => {
+              panelTl.from(img, { opacity: 0, y: 35 + j * 10, scale: 1.04, duration: 0.6, ease: 'power3.out' }, 0.15 + j * 0.05);
+            });
+          }
+          if (cta) panelTl.from(cta, { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, 0.45);
+        });
+
+        /* ── Last panel content reveal (no stacking, just reveal) ── */
+        if (lastCard) {
+          const metrics = lastCard.querySelectorAll('[data-metric]');
+          const title = lastCard.querySelector('.port-panel__title');
+          const challenge = lastCard.querySelector('.port-panel__challenge');
+          const chips = lastCard.querySelectorAll('.port-chip');
+          const images = lastCard.querySelectorAll('.port-img');
+          const cta = lastCard.querySelector('.port-panel__cta');
+          const num = lastCard.querySelector('.port-panel__num');
+
+          const lastTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: lastCard,
+              start: 'top 60%',
+              toggleActions: 'play none none reverse',
+            }
+          });
+
+          if (num) lastTl.from(num, { opacity: 0, y: 30, duration: 0.5, ease: 'power3.out' }, 0);
+          if (title) lastTl.from(title, { opacity: 0, y: 25, duration: 0.7, ease: 'power4.out' }, 0.08);
+          if (challenge) lastTl.from(challenge, { opacity: 0, y: 15, duration: 0.5, ease: 'power3.out' }, 0.18);
+          if (chips.length) lastTl.from(chips, { opacity: 0, y: 10, stagger: 0.04, duration: 0.4, ease: 'power3.out' }, 0.25);
+          if (metrics.length) lastTl.from(metrics, { opacity: 0, y: 20, scale: 0.92, stagger: 0.06, duration: 0.5, ease: 'power3.out' }, 0.3);
+          if (images.length) {
+            images.forEach((img, j) => {
+              lastTl.from(img, { opacity: 0, y: 35 + j * 10, scale: 1.04, duration: 0.6, ease: 'power3.out' }, 0.15 + j * 0.05);
+            });
+          }
+          if (cta) lastTl.from(cta, { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, 0.45);
+        }
+
+      } else {
+        /* ── Mobile: simple fade-up reveals ── */
+        sections.forEach((panel) => {
+          gsap.from(panel, {
+            opacity: 0, y: 40,
+            duration: 0.6, ease: 'power3.out',
+            scrollTrigger: { trigger: panel, start: 'top 80%' }
+          });
+          const metrics = panel.querySelectorAll('[data-metric]');
+          if (metrics.length) {
+            gsap.from(metrics, {
+              opacity: 0, y: 15, stagger: 0.06,
+              duration: 0.4, ease: 'power3.out',
+              scrollTrigger: { trigger: panel, start: 'top 70%' }
+            });
+          }
+        });
+
+        if (lastCard) {
+          gsap.from(lastCard, {
+            opacity: 0, y: 40,
+            duration: 0.6, ease: 'power3.out',
+            scrollTrigger: { trigger: lastCard, start: 'top 80%' }
+          });
+        }
+      }
+
+      /* ── Exit CTA reveal ── */
+      const exitCta = document.querySelector('.portfolio-exit');
+      if (exitCta) {
+        gsap.from(exitCta.querySelector('.port-exit-cta'), {
+          opacity: 0, y: 20, scale: 0.96,
+          duration: 0.6, ease: 'power3.out',
+          scrollTrigger: { trigger: exitCta, start: 'top 85%' }
+        });
+      }
+
+    })();
+
+
+    // ══════════════════════════════════════════════════════════
+    // SECTION 7 — PROCESS  "HOW WE DO IT"
+    // ══════════════════════════════════════════════════════════
+    ;(function initProcess() {
+      const section = document.getElementById('process');
+      if (!section) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+
+      const phases   = section.querySelectorAll('.process-phase');
+      const nums     = section.querySelectorAll('.process-phase__num');
+      const dots     = section.querySelectorAll('.process-phase__dot');
+      const titles   = section.querySelectorAll('.process-phase__title');
+      const descs    = section.querySelectorAll('.process-phase__desc');
+      const lists    = section.querySelectorAll('.process-phase__list');
+      const progressLine = section.querySelector('.process-line__progress');
+      const dotIndicator = section.querySelector('.process-dot-indicator');
+      const lineWrap     = section.querySelector('.process-line-wrap');
+
+      const COLORS = {
+        yellow: { hex: '#f4c430', rgb: '244,196,48' },
+        blue:   { hex: '#4f7cff', rgb: '79,124,255' },
+        orange: { hex: '#ff7a1a', rgb: '255,122,26' }
+      };
+
+      // ── Reduced motion: show everything immediately ──
+      if (prefersReduced) {
+        section.querySelector('.process-headline').style.clipPath = 'inset(0% 0 0 0)';
+        section.querySelector('.process-sub').style.opacity = '1';
+        phases.forEach(p => p.classList.add('is-active'));
+        if (progressLine) progressLine.style.strokeDashoffset = '0';
+        return;
+      }
+
+      // ── Phase A: Intro reveal ──
+      gsap.from('.process-label', {
+        opacity: 0, y: 14,
+        duration: 0.5, ease: 'power3.out',
+        scrollTrigger: { trigger: '#process', start: 'top 78%' }
+      });
+
+      gsap.to('.process-headline', {
+        clipPath: 'inset(0% 0 0 0)',
+        duration: 0.8, ease: 'power4.out',
+        scrollTrigger: { trigger: '#process', start: 'top 74%' }
+      });
+
+      gsap.to('.process-sub', {
+        opacity: 1,
+        duration: 0.65, ease: 'power3.out',
+        scrollTrigger: { trigger: '#process', start: 'top 68%' }
+      });
+
+      // ── Phase B–E: Desktop — scrub-driven timeline ──
+      if (isDesktop && progressLine && lineWrap) {
+
+        // Set initial states for phase content
+        gsap.set(nums, { opacity: 0, y: 40, scale: 0.9 });
+        gsap.set(dots, { scale: 0, opacity: 0 });
+        gsap.set(titles, { opacity: 0, y: 18 });
+        gsap.set(descs, { opacity: 0, y: 14 });
+        lists.forEach(list => {
+          gsap.set(list.querySelectorAll('li'), { opacity: 0, x: -10 });
+        });
+
+        // Master timeline driven by scroll
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.process-timeline',
+            start: 'top 72%',
+            end: 'bottom 30%',
+            scrub: 0.6,
+            onUpdate: function(self) {
+              const p = self.progress;
+
+              // Color shift on progress line
+              let color;
+              if (p < 0.33)      color = COLORS.yellow;
+              else if (p < 0.66) color = COLORS.blue;
+              else               color = COLORS.orange;
+
+              progressLine.style.stroke = color.hex;
+
+              if (dotIndicator) {
+                const wrapWidth = lineWrap.offsetWidth;
+                dotIndicator.style.left = (p * wrapWidth) + 'px';
+                dotIndicator.style.background = color.hex;
+                dotIndicator.style.boxShadow = '0 0 22px rgba(' + color.rgb + ',0.55)';
+              }
+
+              // Active phase toggle
+              phases.forEach((phase, i) => {
+                const start = i / 3;
+                const end = (i + 1) / 3;
+                if (p >= start && p < end) {
+                  phase.classList.add('is-active');
+                } else if (p >= 1 && i === 2) {
+                  phase.classList.add('is-active');
+                } else {
+                  phase.classList.remove('is-active');
+                }
+              });
+            }
+          }
+        });
+
+        // SVG line draws
+        tl.to(progressLine, {
+          strokeDashoffset: 0,
+          duration: 1,
+          ease: 'none'
+        }, 0);
+
+        // Phase 1 reveals
+        tl.to(nums[0], { opacity: 0.06, y: 0, scale: 1, duration: 0.15, ease: 'power4.out' }, 0.02);
+        tl.to(dots[0], { scale: 1, opacity: 0.3, duration: 0.1, ease: 'power3.out' }, 0.05);
+        tl.to(titles[0], { opacity: 1, y: 0, duration: 0.1, ease: 'power3.out' }, 0.08);
+        tl.to(descs[0], { opacity: 1, y: 0, duration: 0.1, ease: 'power3.out' }, 0.1);
+        tl.to(lists[0].querySelectorAll('li'), { opacity: 1, x: 0, duration: 0.08, stagger: 0.02, ease: 'power3.out' }, 0.12);
+
+        // Phase 2 reveals
+        tl.to(nums[1], { opacity: 0.06, y: 0, scale: 1, duration: 0.15, ease: 'power4.out' }, 0.3);
+        tl.to(dots[1], { scale: 1, opacity: 0.3, duration: 0.1, ease: 'power3.out' }, 0.33);
+        tl.to(titles[1], { opacity: 1, y: 0, duration: 0.1, ease: 'power3.out' }, 0.36);
+        tl.to(descs[1], { opacity: 1, y: 0, duration: 0.1, ease: 'power3.out' }, 0.38);
+        tl.to(lists[1].querySelectorAll('li'), { opacity: 1, x: 0, duration: 0.08, stagger: 0.02, ease: 'power3.out' }, 0.4);
+
+        // Phase 3 reveals
+        tl.to(nums[2], { opacity: 0.06, y: 0, scale: 1, duration: 0.15, ease: 'power4.out' }, 0.6);
+        tl.to(dots[2], { scale: 1, opacity: 0.3, duration: 0.1, ease: 'power3.out' }, 0.63);
+        tl.to(titles[2], { opacity: 1, y: 0, duration: 0.1, ease: 'power3.out' }, 0.66);
+        tl.to(descs[2], { opacity: 1, y: 0, duration: 0.1, ease: 'power3.out' }, 0.68);
+        tl.to(lists[2].querySelectorAll('li'), { opacity: 1, x: 0, duration: 0.08, stagger: 0.02, ease: 'power3.out' }, 0.7);
+
+      } else {
+
+        // ── Phase F: Mobile — simple staggered reveals ──
+        phases.forEach((phase, i) => {
+          const num   = phase.querySelector('.process-phase__num');
+          const dot   = phase.querySelector('.process-phase__dot');
+          const title = phase.querySelector('.process-phase__title');
+          const desc  = phase.querySelector('.process-phase__desc');
+          const items = phase.querySelectorAll('.process-phase__list li');
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: phase,
+              start: 'top 82%',
+              once: true
+            }
+          });
+
+          tl.from(num, { opacity: 0, y: 30, scale: 0.9, duration: 0.6, ease: 'power4.out' })
+            .from(dot, { scale: 0, opacity: 0, duration: 0.35, ease: 'power3.out' }, '-=0.3')
+            .from(title, { opacity: 0, y: 14, duration: 0.45, ease: 'power3.out' }, '-=0.15')
+            .from(desc, { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
+            .from(items, { opacity: 0, x: -8, duration: 0.3, stagger: 0.06, ease: 'power3.out' }, '-=0.15');
+
+          // Set active after reveal
+          tl.call(() => phase.classList.add('is-active'));
+        });
+      }
+
+    })();
+
+
+    // ══════════════════════════════════════════════════════════
+    // SECTION 8 — FOUNDER NOTE
+    // ══════════════════════════════════════════════════════════
+    ;(function initFounder() {
+      const section = document.getElementById('founder');
+      if (!section) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      const mask       = section.querySelector('.founder-portrait__mask');
+      const label      = section.querySelector('.founder-label');
+      const pullquote  = section.querySelector('.founder-pullquote');
+      const body       = section.querySelector('.founder-body');
+      const divider    = section.querySelector('.founder-divider');
+      const name       = section.querySelector('.founder-name');
+      const role       = section.querySelector('.founder-role');
+      const signature  = section.querySelector('.founder-signature');
+      const dots       = section.querySelector('.founder-dots');
+      const dotEls     = section.querySelectorAll('.founder-dots__dot');
+      const sigPath    = signature ? signature.querySelector('path') : null;
+
+      // ── Prepare signature path for draw-in ──
+      if (sigPath) {
+        const len = sigPath.getTotalLength();
+        gsap.set(sigPath, {
+          strokeDasharray: len,
+          strokeDashoffset: len
+        });
+      }
+
+      // ── Set initial states ──
+      gsap.set(label, { opacity: 0, y: 10 });
+      gsap.set(pullquote, { opacity: 0, y: 24 });
+      gsap.set(body, { opacity: 0, y: 18 });
+      gsap.set(divider, { scaleX: 0, transformOrigin: 'left center' });
+      gsap.set(name, { opacity: 0, y: 10 });
+      gsap.set(role, { opacity: 0, y: 8 });
+      gsap.set(signature, { opacity: 0 });
+      gsap.set(dots, { opacity: 0 });
+      gsap.set(dotEls, { scale: 0 });
+
+      // ── Portrait mask wipe reveal ──
+      if (mask) {
+        gsap.to(mask, {
+          scaleX: 0,
+          duration: 1.2,
+          ease: 'power4.inOut',
+          scrollTrigger: {
+            trigger: '#founder',
+            start: 'top 70%',
+          }
+        });
+      }
+
+      // ── Content stagger timeline ──
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.founder-content',
+          start: 'top 72%',
+        }
+      });
+
+      tl.to(label, {
+        opacity: 1, y: 0,
+        duration: 0.45, ease: 'power3.out'
+      })
+      .to(pullquote, {
+        opacity: 1, y: 0,
+        duration: 0.7, ease: 'power4.out'
+      }, '-=0.15')
+      .to(body, {
+        opacity: 1, y: 0,
+        duration: 0.6, ease: 'power3.out'
+      }, '-=0.3')
+      .to(divider, {
+        scaleX: 1,
+        duration: 0.5, ease: 'power3.out'
+      }, '-=0.2')
+      .to(name, {
+        opacity: 1, y: 0,
+        duration: 0.4, ease: 'power3.out'
+      }, '-=0.15')
+      .to(role, {
+        opacity: 1, y: 0,
+        duration: 0.35, ease: 'power3.out'
+      }, '-=0.15');
+
+      // ── Signature draw-in ──
+      if (sigPath) {
+        tl.to(signature, {
+          opacity: 0.5,
+          duration: 0.3, ease: 'power2.out'
+        }, '-=0.1')
+        .to(sigPath, {
+          strokeDashoffset: 0,
+          duration: 1.2,
+          ease: 'power2.inOut'
+        }, '-=0.25');
+      }
+
+      // ── Three dots pop in ──
+      tl.to(dots, {
+        opacity: 1,
+        duration: 0.2
+      }, '-=0.4')
+      .to(dotEls, {
+        scale: 1,
+        duration: 0.3,
+        stagger: 0.08,
+        ease: 'back.out(2.5)'
+      }, '-=0.2');
+
+    })();
+
 
   </script>
 </body>
