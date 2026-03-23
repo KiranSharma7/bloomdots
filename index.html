@@ -1191,12 +1191,13 @@
     }
     .port-headline {
       font-family: 'Canela', serif;
-      font-size: clamp(2rem, 4.5vw, 3.75rem);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
       font-weight: 300;
-      line-height: 1.15;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
       color: var(--text);
       max-width: 52rem;
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.5rem;
     }
     .port-sub {
       font-family: 'Satoshi', sans-serif;
@@ -1339,18 +1340,41 @@
       display: block;
     }
 
-    /* Panel CTA */
+    /* Panel CTA — bordered button */
     .port-panel__cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.625rem;
       font-family: 'Satoshi', sans-serif;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       cursor: pointer;
-      margin-top: 0.5rem;
-      transition: opacity 0.3s ease;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      border: 1.5px solid rgba(11,11,13,0.3);
+      border-radius: 6px;
+      background: transparent;
+      color: #0b0b0d;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .port-panel__cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #0b0b0d;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .port-panel__cta:hover { border-color: #0b0b0d; color: #f5f1e8; }
+    .port-panel__cta:hover::before { transform: translateY(0); }
+    .port-panel__cta .cta-arrow,
+    .port-panel__cta span {
+      position: relative;
+      z-index: 1;
     }
     .port-panel__cta .cta-arrow {
       display: inline-block;
@@ -1415,6 +1439,82 @@
       .portfolio-exit { padding: 4rem 1.25rem 6rem; }
     }
 
+    /* ── Portfolio card content additions ── */
+    .port-logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: 0.25rem;
+    }
+    .port-logo-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 8px;
+      background: rgba(11,11,13,0.07);
+      border: 1px solid rgba(11,11,13,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .port-client-name {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.5625rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(11,11,13,0.4);
+    }
+    .port-services-label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.5625rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(11,11,13,0.35);
+      margin-bottom: 0.375rem;
+      display: block;
+    }
+    .port-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .port-bullets li {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(11,11,13,0.58);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      line-height: 1.4;
+    }
+    .port-bullets li::before {
+      content: '';
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(11,11,13,0.28);
+      flex-shrink: 0;
+    }
+    /* 2×2 image grid */
+    .port-img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.625rem;
+    }
+    .port-img-grid .port-img {
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+    }
+    @media (max-width: 768px) {
+      .port-img-grid { gap: 0.5rem; }
+    }
+
     /* ═══════════════════════════════════════════════════════
        SECTION 7 — PROCESS  "HOW WE DO IT"
        ═══════════════════════════════════════════════════════ */
@@ -1448,8 +1548,8 @@
     }
     .process-headline {
       font-family: 'Canela', serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: 0.93;
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      line-height: 0.92;
       letter-spacing: -0.02em;
       color: var(--text);
       clip-path: inset(100% 0 0 0);
@@ -1820,6 +1920,781 @@
       .founder-signature, .founder-label,
       .founder-divider, .founder-dots { opacity: 1 !important; }
     }
+
+    /* ════════════════════════════════════════════════════════
+       SECTION 9 — READY TO BLOOM? (CONTACT)
+       ════════════════════════════════════════════════════════ */
+    #contact {
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+      padding: clamp(6rem, 10vw, 10rem) 0 clamp(8rem, 12vw, 14rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .contact-noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px;
+      pointer-events: none;
+      opacity: 0.4;
+      mix-blend-mode: overlay;
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 4rem);
+    }
+
+    /* Header */
+    .contact-header {
+      margin-bottom: clamp(3rem, 5vw, 5rem);
+    }
+
+    .contact-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--yellow);
+    }
+
+    .contact-title {
+      font-family: 'Canela', serif;
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 0.92;
+      color: var(--text);
+      margin: 0 0 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-title__line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .contact-title em {
+      font-style: italic;
+    }
+
+    .contact-sub {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: var(--text-soft);
+      max-width: 42ch;
+      line-height: 1.65;
+    }
+
+    /* Grid layout */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: clamp(3rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    /* Form */
+    .contact-form {
+      position: relative;
+    }
+
+    .contact-form__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .contact-field {
+      margin-bottom: 2.25rem;
+      opacity: 0;
+    }
+
+    .contact-field__label {
+      display: block;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.875rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-field:focus-within .contact-field__label {
+      color: var(--yellow);
+    }
+
+    .contact-field__input,
+    .contact-field__textarea,
+    .contact-field__select {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--line-strong);
+      outline: none;
+      padding: 0.625rem 0 0.875rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text);
+      transition: border-color 0.3s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .contact-field__input::placeholder,
+    .contact-field__textarea::placeholder {
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    .contact-field__input:focus,
+    .contact-field__textarea:focus,
+    .contact-field__select:focus {
+      border-bottom-color: var(--yellow);
+    }
+
+    .contact-field__textarea {
+      resize: none;
+      display: block;
+      line-height: 1.6;
+    }
+
+    .contact-select-wrap {
+      position: relative;
+    }
+
+    .contact-select-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      color: var(--text-dim);
+      pointer-events: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-field:focus-within .contact-select-icon {
+      color: var(--yellow);
+    }
+
+    .contact-field__select option {
+      background: #17191f;
+      color: var(--text);
+    }
+
+    /* Submit button */
+    .contact-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.875rem;
+      background: var(--yellow);
+      color: #0b0b0d;
+      border: none;
+      padding: 1.125rem 2.25rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.08);
+      transform: translateX(-101%);
+      transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .contact-submit:hover::before {
+      transform: translateX(0);
+    }
+
+    .contact-submit__icon {
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-submit__icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .contact-submit:hover .contact-submit__icon {
+      transform: translateX(4px);
+    }
+
+    /* Sidebar */
+    .contact-sidebar {
+      position: sticky;
+      top: 6rem;
+      opacity: 0;
+    }
+
+    .contact-call-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      padding: 2.25rem;
+      margin-bottom: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-call-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--blue), transparent 70%);
+    }
+
+    .contact-call-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 0%, rgba(79,124,255,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .contact-card-dots {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-card-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .contact-call-card__title {
+      font-family: 'Canela', serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .contact-call-card__text {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-call-card__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .contact-call-card__btn:hover {
+      color: var(--text);
+    }
+
+    .contact-call-card__btn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .contact-call-card__btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* Contact info panel */
+    .contact-info-panel {
+      border: 1px solid var(--line);
+      padding: 1.75rem 2.25rem;
+    }
+
+    .contact-info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-info-row:first-child { padding-top: 0; }
+    .contact-info-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .contact-info-row__label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .contact-info-row__val {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    a.contact-info-row__val:hover { color: var(--text); }
+
+    .contact-socials {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 0.25rem;
+    }
+
+    .contact-social-link {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .contact-social-link:hover { color: var(--yellow); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .contact-sidebar {
+        position: static;
+      }
+      .contact-call-card {
+        max-width: 480px;
+      }
+      .contact-title {
+        font-size: clamp(2.4rem, 9vw, 4rem);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-form__row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .contact-title {
+        font-size: clamp(2.2rem, 11vw, 3.5rem);
+      }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       FOOTER — ENHANCED
+       ════════════════════════════════════════════════════════ */
+    #site-footer {
+      position: relative;
+      background: var(--bg-soft);
+      overflow: hidden;
+    }
+
+    /* Ghost wordmark */
+    .footer-wordmark {
+      position: absolute;
+      bottom: -0.08em;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Canela', serif;
+      font-size: 22vw;
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      white-space: nowrap;
+      color: rgba(245,241,232,0.022);
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .footer-wordmark em {
+      font-style: italic;
+      color: rgba(244,196,48,0.035);
+    }
+
+    /* Top accent line */
+    .footer-accent-line {
+      position: relative;
+      z-index: 1;
+      width: 38%;
+      max-width: 520px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--yellow) 0%, rgba(244,196,48,0.15) 80%, transparent 100%);
+      margin-left: clamp(1.25rem, 4vw, 4rem);
+    }
+
+    /* ── Top editorial row ── */
+    .footer-top {
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid var(--line);
+      padding: clamp(2.5rem, 4vw, 3.5rem) 0;
+    }
+
+    .footer-top__inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 4rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-top__brand {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .footer-top__name {
+      font-family: 'Canela', serif;
+      font-size: clamp(1.75rem, 4vw, 3.25rem);
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .footer-top__dots {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .footer-top__dots span {
+      display: block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .footer-top__email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(0.8rem, 1.5vw, 1rem);
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.25s ease;
+      position: relative;
+    }
+
+    .footer-top__email::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 1.75rem;
+      height: 1px;
+      background: var(--line);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .footer-top__email:hover { color: var(--text); }
+    .footer-top__email:hover::after { transform: scaleX(1); }
+
+    .footer-top__email svg {
+      width: 18px;
+      height: 18px;
+      color: var(--yellow);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-top__email:hover svg {
+      transform: translate(3px, -3px);
+    }
+
+    /* ── Rule ── */
+    .footer-rule {
+      position: relative;
+      z-index: 1;
+      height: 1px;
+      background: var(--line);
+      display: none; /* handled by border-bottom on .footer-top */
+    }
+
+    /* ── Body grid ── */
+    .footer-body {
+      position: relative;
+      z-index: 1;
+      padding: clamp(3rem, 5vw, 4.5rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .footer-body__inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 4rem);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+
+    .footer-col__heading {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Col 1 — about */
+    .footer-col--about .footer-about-text {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 32ch;
+      margin-bottom: 1.75rem;
+    }
+
+    .footer-social-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    .footer-social-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.825rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .footer-social-item:hover { color: var(--text); }
+
+    .footer-social-item__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      flex-shrink: 0;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .footer-social-item__icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .footer-social-item:hover .footer-social-item__icon {
+      border-color: var(--line-strong);
+      background: var(--surface);
+    }
+
+    /* Nav columns */
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-nav-link {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.22s ease;
+      position: relative;
+      width: fit-content;
+    }
+
+    .footer-nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--yellow);
+      transition: width 0.28s ease;
+    }
+
+    .footer-nav-link:hover { color: var(--text); }
+    .footer-nav-link:hover::before { width: 100%; }
+
+    /* Location + legal */
+    .footer-location {
+      font-style: normal;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-legal-link {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.22s ease;
+    }
+
+    .footer-legal-link:hover { color: var(--text); }
+
+    .footer-legal-sep {
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      opacity: 0.4;
+    }
+
+    /* ── Bottom bar ── */
+    .footer-bottom {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem 0;
+    }
+
+    .footer-bottom__inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 4rem);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-bottom__dots {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom__dots span {
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .footer-bottom__copy {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+      flex: 1;
+    }
+
+    .footer-bottom__craft {
+      font-family: 'Canela', serif;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--text-dim);
+      opacity: 0.6;
+    }
+
+    /* ── Footer responsive ── */
+    @media (max-width: 960px) {
+      .footer-body__inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem 3rem;
+      }
+      .footer-col--about { grid-column: 1 / -1; }
+      .footer-col--about .footer-about-text { max-width: 100%; }
+      .footer-social-list { flex-direction: row; flex-wrap: wrap; gap: 1.25rem; }
+    }
+
+    @media (max-width: 640px) {
+      .footer-top__inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .footer-body__inner { grid-template-columns: 1fr; }
+      .footer-col--about { grid-column: auto; }
+      .footer-wordmark { font-size: 32vw; }
+      .footer-bottom__inner { flex-wrap: wrap; gap: 0.75rem; }
+    }
+
+    /* Form success state */
+    .contact-submit.is-sent {
+      background: #22c55e;
+      pointer-events: none;
+    }
+
+    /* Reduced motion for contact */
+    @media (prefers-reduced-motion: reduce) {
+      .contact-field { opacity: 1 !important; }
+      .contact-sidebar { opacity: 1 !important; }
+      .contact-title__line { clip-path: none !important; }
+    }
   </style>
 </head>
 
@@ -2021,8 +2896,9 @@
       <!-- Editorial Intro Band -->
       <div class="team-intro">
         <span class="team-label block text-[10px] uppercase tracking-[0.35em] font-medium mb-3" style="color: var(--text-dim);">The Dots That Connect</span>
-        <h2 class="team-headline text-4xl md:text-5xl lg:text-[4rem] leading-[0.93] tracking-tight font-instrument-serif mb-3" style="clip-path: inset(100% 0 0 0);">
-          A Collective Built<br class="hidden sm:inline"> for Culture
+        <h2 class="team-headline text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.92] tracking-tight font-instrument-serif mb-3" style="clip-path: inset(100% 0 0 0);">
+          <span>A Collective Built</span><br class="hidden sm:inline">
+          <span style="color: var(--text-soft);">for Culture</span>
         </h2>
         <p class="team-sub text-sm md:text-[0.92rem] leading-relaxed max-w-[36rem]" style="color: var(--text-soft); opacity: 0;">
           We're strategists, cultural researchers, content creators, and performance marketers — united by firsthand experience navigating cultural complexity.
@@ -2280,8 +3156,9 @@
     <!-- Section intro -->
     <div class="services-intro">
       <span class="svc-label block text-[10px] uppercase tracking-[0.35em] font-medium mb-3" style="color: var(--text-dim);">What We Do</span>
-      <h2 class="svc-headline text-4xl md:text-5xl lg:text-[4rem] leading-[0.93] tracking-tight font-instrument-serif" style="clip-path: inset(100% 0 0 0);">
-        Services That Come<br class="hidden sm:inline"> With Outcomes.
+      <h2 class="svc-headline text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.92] tracking-tight font-instrument-serif" style="clip-path: inset(100% 0 0 0);">
+        <span>Services That Come</span><br class="hidden sm:inline">
+        <span style="color: var(--text-soft);">With Outcomes.</span>
       </h2>
       <p class="svc-sub text-sm md:text-[0.92rem] leading-relaxed max-w-[36rem] mt-4" style="color: var(--text-soft); opacity: 0;">
         TikTok-first creative that earns attention&mdash;and turns it into action.
@@ -2591,7 +3468,10 @@
   <section class="portfolio-intro" style="background: var(--bg);">
     <div class="absolute inset-x-0 top-0 h-px" style="background: var(--line);"></div>
     <span class="port-label">Selected Work</span>
-    <h2 class="port-headline">Work that resonates across cultures.<br>Results that speak for themselves.</h2>
+    <h2 class="port-headline">
+      <span>Work that resonates</span><br>
+      <span style="color: var(--text-soft);">across cultures.<br>Results that speak for themselves.</span>
+    </h2>
     <p class="port-sub">Culturally intelligent campaigns designed to capture attention, build trust, and drive measurable business outcomes.</p>
   </section>
 
@@ -2600,9 +3480,22 @@
     <div class="port-panel__effect myeffect">
       <div class="port-panel__inner">
         <div class="port-panel__text">
-          <h3 class="port-panel__title">Ramadan Unfiltered</h3>
+          <div class="port-logo-area">
+            <div class="port-logo-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="rgba(11,11,13,0.5)" stroke-width="1.5"/><path d="M8 3v5l3 2" stroke="rgba(11,11,13,0.5)" stroke-width="1.25" stroke-linecap="round"/></svg>
+            </div>
+            <span class="port-client-name">Ramadan Campaign · 2024</span>
+          </div>
           <span class="port-panel__num">01</span>
-          <p class="port-panel__challenge">Community Marketing, Content Creation, Influencer Strategy</p>
+          <h3 class="port-panel__title">Ramadan Unfiltered</h3>
+          <div>
+            <span class="port-services-label">Services</span>
+            <ul class="port-bullets">
+              <li>Community Marketing</li>
+              <li>Content Creation</li>
+              <li>Influencer Strategy</li>
+            </ul>
+          </div>
           <div class="port-metrics">
             <div class="port-metric" data-metric>
               <span class="port-metric__value">24M+</span>
@@ -2617,10 +3510,15 @@
               <span class="port-metric__label">Creators</span>
             </div>
           </div>
-          <a class="port-panel__cta">View Case Study <span class="cta-arrow">&rarr;</span></a>
+          <a class="port-panel__cta"><span>View Case Study</span><span class="cta-arrow">&rarr;</span></a>
         </div>
         <div class="port-panel__visuals">
-          <div class="port-img"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=800&fit=crop" alt="Ramadan Unfiltered campaign" loading="lazy"></div>
+          <div class="port-img-grid">
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop" alt="Ramadan food spread" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop" alt="Community gathering" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop" alt="Cultural food" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?w=400&h=300&fit=crop" alt="Content creation" loading="lazy"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -2631,9 +3529,22 @@
     <div class="port-panel__effect myeffect">
       <div class="port-panel__inner">
         <div class="port-panel__text">
-          <h3 class="port-panel__title">Sound of the City</h3>
+          <div class="port-logo-area">
+            <div class="port-logo-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 10V6l4-2 4 2 4-2v4l-4 2-4-2-4 2z" stroke="rgba(11,11,13,0.5)" stroke-width="1.25" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="port-client-name">Event Series · 2024</span>
+          </div>
           <span class="port-panel__num">02</span>
-          <p class="port-panel__challenge">Cultural Marketing, Event Activation, Social Content</p>
+          <h3 class="port-panel__title">Sound of the City</h3>
+          <div>
+            <span class="port-services-label">Services</span>
+            <ul class="port-bullets">
+              <li>Cultural Marketing</li>
+              <li>Event Activation</li>
+              <li>Social Content</li>
+            </ul>
+          </div>
           <div class="port-metrics">
             <div class="port-metric" data-metric>
               <span class="port-metric__value">56M+</span>
@@ -2648,10 +3559,15 @@
               <span class="port-metric__label">ROI</span>
             </div>
           </div>
-          <a class="port-panel__cta">View Case Study <span class="cta-arrow">&rarr;</span></a>
+          <a class="port-panel__cta"><span>View Case Study</span><span class="cta-arrow">&rarr;</span></a>
         </div>
         <div class="port-panel__visuals">
-          <div class="port-img"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&h=800&fit=crop" alt="Sound of the City event" loading="lazy"></div>
+          <div class="port-img-grid">
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&h=300&fit=crop" alt="Concert crowd" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&h=300&fit=crop" alt="Live music" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&h=300&fit=crop" alt="DJ performance" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=400&h=300&fit=crop" alt="Event activation" loading="lazy"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -2662,9 +3578,22 @@
     <div class="port-panel__effect myeffect">
       <div class="port-panel__inner">
         <div class="port-panel__text">
-          <h3 class="port-panel__title">Gen-Z Playbook</h3>
+          <div class="port-logo-area">
+            <div class="port-logo-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="3" width="4" height="4" rx="1" stroke="rgba(11,11,13,0.5)" stroke-width="1.25"/><rect x="9" y="3" width="4" height="4" rx="1" stroke="rgba(11,11,13,0.5)" stroke-width="1.25"/><rect x="3" y="9" width="4" height="4" rx="1" stroke="rgba(11,11,13,0.5)" stroke-width="1.25"/><rect x="9" y="9" width="4" height="4" rx="1" stroke="rgba(11,11,13,0.5)" stroke-width="1.25"/></svg>
+            </div>
+            <span class="port-client-name">Digital Campaign · 2025</span>
+          </div>
           <span class="port-panel__num">03</span>
-          <p class="port-panel__challenge">Digital Marketing, TikTok Strategy, UGC Campaigns</p>
+          <h3 class="port-panel__title">Gen-Z Playbook</h3>
+          <div>
+            <span class="port-services-label">Services</span>
+            <ul class="port-bullets">
+              <li>Digital Marketing</li>
+              <li>TikTok Strategy</li>
+              <li>UGC Campaigns</li>
+            </ul>
+          </div>
           <div class="port-metrics">
             <div class="port-metric" data-metric>
               <span class="port-metric__value">89M+</span>
@@ -2679,10 +3608,15 @@
               <span class="port-metric__label">Creators</span>
             </div>
           </div>
-          <a class="port-panel__cta">View Case Study <span class="cta-arrow">&rarr;</span></a>
+          <a class="port-panel__cta"><span>View Case Study</span><span class="cta-arrow">&rarr;</span></a>
         </div>
         <div class="port-panel__visuals">
-          <div class="port-img"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=800&fit=crop" alt="Gen-Z social campaign" loading="lazy"></div>
+          <div class="port-img-grid">
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop" alt="Social media content" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=300&fit=crop" alt="Creator setup" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop" alt="Phone content" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=300&fit=crop" alt="Gen Z culture" loading="lazy"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -2693,9 +3627,22 @@
     <div class="port-panel__effect">
       <div class="port-panel__inner">
         <div class="port-panel__text">
-          <h3 class="port-panel__title">The Homegrown Edit</h3>
+          <div class="port-logo-area">
+            <div class="port-logo-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5 2 2 5 2 8s3 6 6 6 6-3 6-6c0-1-.3-2-.8-2.8" stroke="rgba(11,11,13,0.5)" stroke-width="1.25" stroke-linecap="round"/><path d="M11 2l1 3-3 1" stroke="rgba(11,11,13,0.5)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="port-client-name">Multi-Market · 2025</span>
+          </div>
           <span class="port-panel__num">04</span>
-          <p class="port-panel__challenge">Community Marketing, Cultural Marketing, Content Marketing</p>
+          <h3 class="port-panel__title">The Homegrown Edit</h3>
+          <div>
+            <span class="port-services-label">Services</span>
+            <ul class="port-bullets">
+              <li>Community Marketing</li>
+              <li>Cultural Marketing</li>
+              <li>Content Marketing</li>
+            </ul>
+          </div>
           <div class="port-metrics">
             <div class="port-metric" data-metric>
               <span class="port-metric__value">120M+</span>
@@ -2710,10 +3657,15 @@
               <span class="port-metric__label">Engagement</span>
             </div>
           </div>
-          <a class="port-panel__cta">View Case Study <span class="cta-arrow">&rarr;</span></a>
+          <a class="port-panel__cta"><span>View Case Study</span><span class="cta-arrow">&rarr;</span></a>
         </div>
         <div class="port-panel__visuals">
-          <div class="port-img"><img src="https://images.unsplash.com/photo-1523294587484-bae6cc870010?w=600&h=800&fit=crop" alt="Homegrown Edit campaign" loading="lazy"></div>
+          <div class="port-img-grid">
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1523294587484-bae6cc870010?w=400&h=300&fit=crop" alt="Local market" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=400&h=300&fit=crop" alt="Local produce" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop" alt="Community market" loading="lazy"></div>
+            <div class="port-img"><img src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?w=400&h=300&fit=crop" alt="Homegrown culture" loading="lazy"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -2736,7 +3688,10 @@
     <!-- Section intro -->
     <div class="process-intro">
       <span class="process-label">How We Do It</span>
-      <h2 class="process-headline">Three Moves.<br>No Wasted Motion.</h2>
+      <h2 class="process-headline">
+        <span>Three Moves.</span><br>
+        <span style="color: var(--text-soft);">No Wasted Motion.</span>
+      </h2>
       <p class="process-sub">Strategy, execution, and growth &mdash; distilled into a system that actually works.</p>
     </div>
 
@@ -2867,8 +3822,251 @@
   </section>
 
 
-  <!-- Spacer so scroll completes fully -->
-  <section class="h-screen" style="background: var(--bg);"></section>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 9 — READY TO BLOOM? (CONTACT FORM)
+       ════════════════════════════════════════════════════════ -->
+  <section id="contact">
+
+    <!-- Ambient animated dot field -->
+    <canvas id="contact-canvas" class="contact-canvas" aria-hidden="true"></canvas>
+
+    <!-- Grain overlay -->
+    <div class="contact-noise" aria-hidden="true"></div>
+
+    <div class="contact-inner">
+
+      <!-- ── Header ── -->
+      <div class="contact-header">
+        <span class="contact-eyebrow">Let's Work Together</span>
+
+        <h2 class="contact-title">
+          <span class="contact-title__line">Ready to</span>
+          <span class="contact-title__line"><em>Bloom?</em></span>
+        </h2>
+
+        <p class="contact-sub">Tell us what you're building. We'll tell you how to make it unskippable.</p>
+      </div>
+
+      <!-- ── Grid: Form + Sidebar ── -->
+      <div class="contact-grid">
+
+        <!-- Contact Form -->
+        <form class="contact-form" id="contact-form" novalidate>
+
+          <div class="contact-form__row">
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-name">Full Name</label>
+              <input id="cf-name" type="text" class="contact-field__input" placeholder="Your name" autocomplete="name" required>
+            </div>
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-email">Email Address</label>
+              <input id="cf-email" type="email" class="contact-field__input" placeholder="hello@company.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label class="contact-field__label" for="cf-company">Company / Brand</label>
+            <input id="cf-company" type="text" class="contact-field__input" placeholder="Where do you work?" autocomplete="organization">
+          </div>
+
+          <div class="contact-form__row">
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-service">Service</label>
+              <div class="contact-select-wrap">
+                <select id="cf-service" class="contact-field__select">
+                  <option value="" disabled selected>What are you after?</option>
+                  <option value="community">Community Marketing</option>
+                  <option value="cultural">Cultural Marketing</option>
+                  <option value="content">Content Marketing</option>
+                  <option value="digital">Digital Marketing</option>
+                  <option value="full">Full Service</option>
+                </select>
+                <svg class="contact-select-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-budget">Budget Range</label>
+              <div class="contact-select-wrap">
+                <select id="cf-budget" class="contact-field__select">
+                  <option value="" disabled selected>Estimated budget</option>
+                  <option>Under $5,000</option>
+                  <option>$5,000 – $15,000</option>
+                  <option>$15,000 – $50,000</option>
+                  <option>$50,000 – $100,000</option>
+                  <option>$100,000+</option>
+                </select>
+                <svg class="contact-select-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label class="contact-field__label" for="cf-message">Tell us about your project</label>
+            <textarea id="cf-message" class="contact-field__textarea" rows="4" placeholder="What are you building? What's the goal? Any timeline?"></textarea>
+          </div>
+
+          <button type="submit" class="contact-submit" id="contact-submit-btn">
+            <span class="contact-submit__text">Send Message</span>
+            <span class="contact-submit__icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+
+        </form>
+
+        <!-- Sidebar -->
+        <aside class="contact-sidebar">
+
+          <!-- Book a Call card -->
+          <div class="contact-call-card">
+            <div class="contact-card-dots" aria-hidden="true">
+              <span style="background:var(--yellow)"></span>
+              <span style="background:var(--blue)"></span>
+              <span style="background:var(--orange)"></span>
+            </div>
+            <h3 class="contact-call-card__title">Prefer a&nbsp;call?</h3>
+            <p class="contact-call-card__text">Skip the form. Book a 30-minute intro call and let's talk strategy directly.</p>
+            <a href="#" class="contact-call-card__btn">
+              Book a Call
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+        </aside>
+
+      </div><!-- /.contact-grid -->
+    </div><!-- /.contact-inner -->
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════════ -->
+  <footer id="site-footer">
+
+    <!-- Ghost wordmark — massive, bottom-anchored -->
+    <div class="footer-wordmark" aria-hidden="true">Bloom<em>Dots</em></div>
+
+    <!-- Top accent line -->
+    <div class="footer-accent-line" aria-hidden="true"></div>
+
+    <!-- ── Editorial top row ── -->
+    <div class="footer-top">
+      <div class="footer-top__inner">
+        <div class="footer-top__brand">
+          <span class="footer-top__name">BloomDots</span>
+          <div class="footer-top__dots" aria-hidden="true">
+            <span style="background:var(--yellow)"></span>
+            <span style="background:var(--blue)"></span>
+            <span style="background:var(--orange)"></span>
+          </div>
+        </div>
+        <a href="mailto:hello@bloomdots.com" class="footer-top__email" aria-label="Email BloomDots">
+          <span>hello@bloomdots.com</span>
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Divider ── -->
+    <div class="footer-rule" aria-hidden="true"></div>
+
+    <!-- ── Main body grid ── -->
+    <div class="footer-body">
+      <div class="footer-body__inner">
+
+        <!-- Col 1: About + tagline -->
+        <div class="footer-col footer-col--about">
+          <p class="footer-about-text">
+            Community-led. Culture-smart. Performance-backed. We build brands that become part of the conversation.
+          </p>
+          <div class="footer-social-list">
+            <a href="#" class="footer-social-item">
+              <span class="footer-social-item__icon">
+                <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/><circle cx="14.2" cy="5.8" r="0.9" fill="currentColor"/></svg>
+              </span>
+              Instagram
+            </a>
+            <a href="#" class="footer-social-item">
+              <span class="footer-social-item__icon">
+                <svg viewBox="0 0 20 20" fill="none"><path d="M16 3H13.5L10 8.5 6.5 3H4l5 7.5L3.5 17H6l4-5.5 4 5.5h2.5l-5.5-7.5L16 3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+              </span>
+              Twitter / X
+            </a>
+            <a href="#" class="footer-social-item">
+              <span class="footer-social-item__icon">
+                <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 9v5M10 9v5M10 9a3 3 0 1 1 3 3v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="7" cy="7" r="0.8" fill="currentColor"/></svg>
+              </span>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div class="footer-col">
+          <h4 class="footer-col__heading">Services</h4>
+          <nav class="footer-nav" aria-label="Services">
+            <a href="#services" class="footer-nav-link">Community Marketing</a>
+            <a href="#services" class="footer-nav-link">Cultural Marketing</a>
+            <a href="#services" class="footer-nav-link">Content Marketing</a>
+            <a href="#services" class="footer-nav-link">Digital Marketing</a>
+          </nav>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div class="footer-col">
+          <h4 class="footer-col__heading">Company</h4>
+          <nav class="footer-nav" aria-label="Company">
+            <a href="#team" class="footer-nav-link">Our Team</a>
+            <a href="#portfolio" class="footer-nav-link">Work</a>
+            <a href="#process" class="footer-nav-link">Process</a>
+            <a href="#founder" class="footer-nav-link">About</a>
+            <a href="#contact" class="footer-nav-link">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Col 4: Location + legal -->
+        <div class="footer-col footer-col--legal">
+          <h4 class="footer-col__heading">Find Us</h4>
+          <address class="footer-location">
+            <p>Vancouver, BC</p>
+            <p>Canada &mdash; Global</p>
+          </address>
+          <div class="footer-legal-links">
+            <a href="#" class="footer-legal-link">Privacy</a>
+            <span class="footer-legal-sep" aria-hidden="true">/</span>
+            <a href="#" class="footer-legal-link">Terms</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Bottom bar ── -->
+    <div class="footer-bottom">
+      <div class="footer-bottom__inner">
+        <div class="footer-bottom__dots" aria-hidden="true">
+          <span style="background:var(--yellow)"></span>
+          <span style="background:var(--blue)"></span>
+          <span style="background:var(--orange)"></span>
+        </div>
+        <p class="footer-bottom__copy">&copy; 2025 BloomDots Creative Agency. All rights reserved.</p>
+        <p class="footer-bottom__craft">Made with intention.</p>
+      </div>
+    </div>
+
+  </footer>
 
 
   <!-- ════════════════════════════════════════════════════════
@@ -4201,6 +5399,244 @@
         stagger: 0.08,
         ease: 'back.out(2.5)'
       }, '-=0.2');
+
+    })();
+
+
+    // ══════════════════════════════════════════════════════════
+    // SECTION 9 — READY TO BLOOM? (CONTACT + FOOTER)
+    // ══════════════════════════════════════════════════════════
+    ;(function initContact() {
+      const section = document.getElementById('contact');
+      if (!section) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ── Ambient dot canvas ──────────────────────────────────
+      const canvas = document.getElementById('contact-canvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let raf;
+        const COLORS = [
+          'rgba(244,196,48,0.55)',
+          'rgba(79,124,255,0.5)',
+          'rgba(255,122,26,0.45)',
+          'rgba(245,241,232,0.18)',
+          'rgba(244,196,48,0.25)',
+          'rgba(79,124,255,0.25)',
+        ];
+
+        function resize() {
+          canvas.width  = section.offsetWidth;
+          canvas.height = section.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Build particles
+        const particles = Array.from({ length: 70 }, () => ({
+          x:  Math.random() * canvas.width,
+          y:  Math.random() * canvas.height,
+          r:  Math.random() * 1.8 + 0.4,
+          c:  COLORS[Math.floor(Math.random() * COLORS.length)],
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+        }));
+
+        function tick() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0)            p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0)            p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = p.c;
+            ctx.fill();
+          });
+          raf = requestAnimationFrame(tick);
+        }
+        tick();
+      }
+
+      if (prefersReduced) return;
+
+      // ── Headline clip-path wipe reveal ──────────────────────
+      const titleLines = section.querySelectorAll('.contact-title__line');
+      if (titleLines.length) {
+        gsap.set(titleLines, { clipPath: 'inset(0 100% 0 0)', y: 12 });
+        gsap.to(titleLines, {
+          clipPath: 'inset(0 0% 0 0)',
+          y: 0,
+          duration: 1.0,
+          ease: 'power4.out',
+          stagger: 0.14,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 70%',
+          }
+        });
+      }
+
+      // ── Eyebrow + subtitle reveal ────────────────────────────
+      const eyebrow = section.querySelector('.contact-eyebrow');
+      const sub     = section.querySelector('.contact-sub');
+      gsap.set([eyebrow, sub], { opacity: 0, y: 14 });
+      gsap.to([eyebrow, sub], {
+        opacity: 1, y: 0,
+        duration: 0.65,
+        ease: 'power3.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 73%',
+        }
+      });
+
+      // ── Form fields stagger in ───────────────────────────────
+      const fields = section.querySelectorAll('.contact-field');
+      gsap.set(fields, { opacity: 0, y: 18 });
+      gsap.to(fields, {
+        opacity: 1, y: 0,
+        duration: 0.55,
+        ease: 'power3.out',
+        stagger: 0.065,
+        scrollTrigger: {
+          trigger: '.contact-form',
+          start: 'top 78%',
+        }
+      });
+
+      // ── Submit button reveal ─────────────────────────────────
+      const submitBtn = document.getElementById('contact-submit-btn');
+      if (submitBtn) {
+        gsap.set(submitBtn, { opacity: 0, y: 14 });
+        gsap.to(submitBtn, {
+          opacity: 1, y: 0,
+          duration: 0.5,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: submitBtn,
+            start: 'top 90%',
+          }
+        });
+      }
+
+      // ── Sidebar slide in from right ──────────────────────────
+      const sidebar = section.querySelector('.contact-sidebar');
+      if (sidebar) {
+        gsap.set(sidebar, { opacity: 0, x: 28 });
+        gsap.to(sidebar, {
+          opacity: 1, x: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.contact-grid',
+            start: 'top 75%',
+          }
+        });
+      }
+
+      // ── Submit button hover (GSAP) ───────────────────────────
+      if (submitBtn) {
+        submitBtn.addEventListener('mouseenter', () => {
+          gsap.to(submitBtn, { scale: 1.02, duration: 0.22, ease: 'power2.out' });
+        });
+        submitBtn.addEventListener('mouseleave', () => {
+          gsap.to(submitBtn, { scale: 1.0, duration: 0.28, ease: 'power2.out' });
+        });
+      }
+
+      // ── Form submit feedback ─────────────────────────────────
+      const form = document.getElementById('contact-form');
+      if (form && submitBtn) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const textEl = submitBtn.querySelector('.contact-submit__text');
+          gsap.timeline()
+            .to(submitBtn, { scale: 0.96, duration: 0.1, ease: 'power2.in' })
+            .to(submitBtn, { scale: 1.0,  duration: 0.2, ease: 'power3.out' })
+            .call(() => {
+              submitBtn.classList.add('is-sent');
+              if (textEl) textEl.textContent = 'Message Sent ✓';
+            });
+        });
+      }
+
+      // ── Footer: ghost wordmark ───────────────────────────────
+      const wordmark = document.querySelector('.footer-wordmark');
+      if (wordmark) {
+        gsap.set(wordmark, { opacity: 0 });
+        gsap.to(wordmark, {
+          opacity: 1,
+          duration: 1.8,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: '#site-footer', start: 'top 85%' }
+        });
+      }
+
+      // ── Footer: accent line draw in ──────────────────────────
+      const accentLine = document.querySelector('.footer-accent-line');
+      if (accentLine) {
+        gsap.set(accentLine, { scaleX: 0, transformOrigin: 'left center' });
+        gsap.to(accentLine, {
+          scaleX: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '#site-footer', start: 'top 82%' }
+        });
+      }
+
+      // ── Footer: top row reveal ───────────────────────────────
+      const footerTopBrand = document.querySelector('.footer-top__brand');
+      const footerTopEmail = document.querySelector('.footer-top__email');
+      if (footerTopBrand) {
+        gsap.set(footerTopBrand, { opacity: 0, y: 18 });
+        gsap.to(footerTopBrand, {
+          opacity: 1, y: 0,
+          duration: 0.65,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '.footer-top', start: 'top 85%' }
+        });
+      }
+      if (footerTopEmail) {
+        gsap.set(footerTopEmail, { opacity: 0, x: 16 });
+        gsap.to(footerTopEmail, {
+          opacity: 1, x: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          delay: 0.1,
+          scrollTrigger: { trigger: '.footer-top', start: 'top 85%' }
+        });
+      }
+
+      // ── Footer: nav columns stagger ──────────────────────────
+      const footerCols = document.querySelectorAll('.footer-col');
+      if (footerCols.length) {
+        gsap.set(footerCols, { opacity: 0, y: 20 });
+        gsap.to(footerCols, {
+          opacity: 1, y: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+          stagger: 0.08,
+          scrollTrigger: { trigger: '.footer-body', start: 'top 85%' }
+        });
+      }
+
+      // ── Footer: bottom bar ───────────────────────────────────
+      const footerBottom = document.querySelector('.footer-bottom');
+      if (footerBottom) {
+        gsap.set(footerBottom, { opacity: 0 });
+        gsap.to(footerBottom, {
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: '.footer-bottom', start: 'top 95%' }
+        });
+      }
 
     })();
 
