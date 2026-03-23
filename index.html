@@ -819,6 +819,342 @@
       }
     }
 
+    /* ── Stats Section — "The Receipts" ──────────────────── */
+    #stats {
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    /* ── Marquee ticker ── */
+    .stats-marquee {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+      white-space: nowrap;
+    }
+    .stats-marquee__track {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      animation: marqueeScroll 30s linear infinite;
+    }
+    .stats-marquee__item {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--text-dim);
+      padding: 0 2.5rem;
+      flex-shrink: 0;
+    }
+    .stats-marquee__dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 2.5rem;
+      opacity: 0.6;
+    }
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .stats-marquee__track { animation: none; }
+    }
+
+    /* ── Stats body ── */
+    .stats-body {
+      position: relative;
+      padding: 6rem 0 8rem;
+    }
+    @media (max-width: 767px) {
+      .stats-body { padding: 4rem 0 5rem; }
+    }
+    .stats-inner {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1440px;
+      padding: 0 1.25rem;
+    }
+    @media (min-width: 640px) { .stats-inner { padding: 0 2rem; } }
+    @media (min-width: 1024px) { .stats-inner { padding: 0 3rem; } }
+    @media (min-width: 1280px) { .stats-inner { padding: 0 4rem; } }
+
+    /* ── Visible editorial grid lines (decorative) ── */
+    .stats-gridlines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .stats-gridlines__v {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line);
+      opacity: 0;
+    }
+    .stats-gridlines__h {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--line);
+      opacity: 0;
+    }
+    @media (max-width: 767px) {
+      .stats-gridlines { display: none; }
+    }
+
+    /* ── Section label ── */
+    .stats-label {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+    .stats-label__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    /* ── Hero stat: 343M — massive, bleeds the page ── */
+    .stats-hero {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 1rem;
+    }
+    .stats-hero__row {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .stats-hero__number {
+      font-family: 'Canela', serif;
+      font-weight: 300;
+      font-size: clamp(6rem, 14vw, 14rem);
+      line-height: 0.82;
+      color: var(--text);
+      letter-spacing: -0.04em;
+      position: relative;
+    }
+    .stats-hero__suffix {
+      font-size: 0.4em;
+      font-weight: 300;
+      color: var(--text-dim);
+      vertical-align: baseline;
+      letter-spacing: -0.02em;
+    }
+    /* Ghost watermark behind hero number */
+    .stats-hero__ghost {
+      position: absolute;
+      top: 50%;
+      right: -5%;
+      transform: translateY(-50%);
+      font-family: 'Canela', serif;
+      font-weight: 300;
+      font-size: clamp(10rem, 28vw, 28rem);
+      line-height: 0.75;
+      color: var(--text);
+      opacity: 0.025;
+      letter-spacing: -0.05em;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+    }
+    @media (max-width: 767px) {
+      .stats-hero__ghost { display: none; }
+    }
+
+    /* Label + line next to hero */
+    .stats-hero__meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-bottom: 0.4em;
+    }
+    .stats-hero__tag {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--yellow);
+    }
+    .stats-hero__desc {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 14px;
+      color: var(--text-soft);
+      max-width: 16rem;
+      line-height: 1.5;
+    }
+
+    /* ── Accent divider ── */
+    .stats-divider {
+      position: relative;
+      z-index: 2;
+      height: 1px;
+      background: var(--line);
+      margin: 3rem 0;
+    }
+    .stats-divider__accent {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      height: 3px;
+      width: 0;
+      border-radius: 2px;
+    }
+
+    /* ── Mid stats — editorial scatter ── */
+    .stats-mid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem 0;
+    }
+    @media (min-width: 768px) {
+      .stats-mid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 0;
+        align-items: end;
+      }
+    }
+
+    /* Individual stat blocks — each placed deliberately */
+    .stats-block {
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .stats-block--projects  { grid-column: 1 / 4; }
+      .stats-block--clients   { grid-column: 4 / 7; padding-left: 2rem; }
+      .stats-block--content   { grid-column: 7 / 13; padding-left: 3rem; }
+    }
+
+    .stats-block__number {
+      font-family: 'Canela', serif;
+      font-weight: 300;
+      line-height: 0.85;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .stats-block--projects .stats-block__number {
+      font-size: clamp(3.5rem, 6vw, 5rem);
+    }
+    .stats-block--clients .stats-block__number {
+      font-size: clamp(3.5rem, 6vw, 5rem);
+    }
+    .stats-block--content .stats-block__number {
+      font-size: clamp(4rem, 7vw, 6.5rem);
+    }
+    .stats-block__label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      margin-top: 0.6rem;
+    }
+    /* Thin vertical separators between mid blocks (desktop) */
+    @media (min-width: 768px) {
+      .stats-block--clients::before,
+      .stats-block--content::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: var(--line);
+      }
+    }
+
+    /* ── Bottom row: floating 20+ offset right ── */
+    .stats-bottom {
+      position: relative;
+      z-index: 2;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    @media (max-width: 767px) {
+      .stats-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+    }
+    .stats-bottom__cta-text {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 13px;
+      color: var(--text-dim);
+      max-width: 20rem;
+      line-height: 1.6;
+    }
+    .stats-bottom__brands {
+      text-align: right;
+    }
+    @media (max-width: 767px) {
+      .stats-bottom__brands { text-align: left; }
+    }
+    .stats-bottom__number {
+      font-family: 'Canela', serif;
+      font-weight: 400;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      line-height: 0.85;
+      color: var(--orange);
+      letter-spacing: -0.03em;
+    }
+    .stats-bottom__suffix {
+      display: inline-block;
+      font-size: 0.55em;
+      color: var(--orange);
+      opacity: 0.65;
+      vertical-align: baseline;
+    }
+    .stats-bottom__label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      margin-top: 0.4rem;
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .stats-hero__number,
+      .stats-block__number,
+      .stats-bottom__number {
+        will-change: auto !important;
+      }
+    }
+
     /* ── Selection ────────────────────────────────────────── */
     ::selection {
       background: rgba(244, 196, 48, 0.25);
@@ -1476,6 +1812,118 @@
       </div>
 
     </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 5 — STATS "THE RECEIPTS"
+       ════════════════════════════════════════════════════════ -->
+  <section id="stats">
+
+    <!-- Marquee ticker strip -->
+    <div class="stats-marquee">
+      <div class="stats-marquee__track">
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--yellow);"></span>Community-Led</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--blue);"></span>Culture-Smart</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--orange);"></span>Performance-Backed</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--yellow);"></span>29 Projects</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--blue);"></span>55 Clients Worldwide</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--orange);"></span>343M+ Engagements</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--yellow);"></span>2,345 Content Pieces</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--blue);"></span>20+ Brands Elevated</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--yellow);"></span>Community-Led</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--blue);"></span>Culture-Smart</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--orange);"></span>Performance-Backed</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--yellow);"></span>29 Projects</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--blue);"></span>55 Clients Worldwide</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--orange);"></span>343M+ Engagements</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--yellow);"></span>2,345 Content Pieces</span>
+        <span class="stats-marquee__item"><span class="stats-marquee__dot" style="background:var(--blue);"></span>20+ Brands Elevated</span>
+      </div>
+    </div>
+
+    <!-- Stats body -->
+    <div class="stats-body">
+
+      <!-- Ghost watermark -->
+      <div class="stats-hero__ghost" aria-hidden="true">343</div>
+
+      <!-- Decorative editorial grid lines -->
+      <div class="stats-gridlines">
+        <div class="stats-gridlines__v" style="left: 25%;"></div>
+        <div class="stats-gridlines__v" style="left: 50%;"></div>
+        <div class="stats-gridlines__v" style="left: 75%;"></div>
+        <div class="stats-gridlines__h" style="top: 45%;"></div>
+      </div>
+
+      <div class="stats-inner">
+
+        <!-- Section label -->
+        <div class="stats-label">
+          <span class="stats-label__dot"></span>
+          <span>The Receipts</span>
+        </div>
+
+        <!-- Hero stat — 343M -->
+        <div class="stats-hero">
+          <div class="stats-hero__row">
+            <div class="stats-hero__number">
+              <span data-count-to="343" data-count-duration="1.8">0</span><span class="stats-hero__suffix">M</span>
+            </div>
+            <div class="stats-hero__meta">
+              <span class="stats-hero__tag">Total Reach</span>
+              <p class="stats-hero__desc">Engagement and views delivered across every platform, campaign, and community.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accent divider with color line -->
+        <div class="stats-divider">
+          <div class="stats-divider__accent" style="background: var(--yellow);"></div>
+        </div>
+
+        <!-- Mid stats — editorial scatter on 12-col grid -->
+        <div class="stats-mid">
+
+          <div class="stats-block stats-block--projects" data-stats-block>
+            <div class="stats-block__number">
+              <span data-count-to="29" data-count-duration="1.2">0</span>
+            </div>
+            <p class="stats-block__label">Projects Delivered</p>
+          </div>
+
+          <div class="stats-block stats-block--clients" data-stats-block>
+            <div class="stats-block__number">
+              <span data-count-to="55" data-count-duration="1.4">0</span>
+            </div>
+            <p class="stats-block__label">Clients Worldwide</p>
+          </div>
+
+          <div class="stats-block stats-block--content" data-stats-block>
+            <div class="stats-block__number">
+              <span data-count-to="2345" data-count-duration="2.0" data-count-format="comma">0</span>
+            </div>
+            <p class="stats-block__label">Content Pieces Created</p>
+          </div>
+
+        </div>
+
+        <!-- Bottom row: whisper text + floating 20+ -->
+        <div class="stats-bottom">
+          <p class="stats-bottom__cta-text">
+            Numbers are nice. But what matters is what's behind them&mdash;strategy, culture, and communities that actually move.
+          </p>
+          <div class="stats-bottom__brands" data-stats-float>
+            <div class="stats-bottom__number">
+              <span data-count-to="20" data-count-duration="1.0">0</span><span class="stats-bottom__suffix">+</span>
+            </div>
+            <p class="stats-bottom__label">Brands Elevated</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </section>
 
   <!-- Spacer so scroll completes fully -->
@@ -2156,6 +2604,183 @@
           opacity: 0, y: 30,
           duration: 0.5, stagger: 0.08, ease: 'power3.out',
           scrollTrigger: { trigger: '#services', start: 'top 80%' }
+        });
+      }
+
+    })();
+
+    // ══════════════════════════════════════════════════════════
+    // SECTION 5 — STATS "THE RECEIPTS"
+    // ══════════════════════════════════════════════════════════
+    ;(function initStats() {
+
+      const section = document.getElementById('stats');
+      if (!section) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ── Count-up utility ──
+      function countUp(el, target, duration, format) {
+        if (prefersReduced) {
+          el.textContent = format === 'comma' ? target.toLocaleString() : target;
+          return;
+        }
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: duration,
+          ease: 'power2.out',
+          snap: { val: 1 },
+          onUpdate: function() {
+            el.textContent = format === 'comma' ? Math.round(obj.val).toLocaleString() : Math.round(obj.val);
+          }
+        });
+      }
+
+      // ── Hero overshoot count ──
+      function countUpHero(el, target, duration) {
+        if (prefersReduced) { el.textContent = target; return; }
+        const overshoot = Math.round(target * 1.06);
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: overshoot,
+          duration: duration * 0.65,
+          ease: 'power2.in',
+          snap: { val: 1 },
+          onUpdate: function() { el.textContent = Math.round(obj.val); },
+          onComplete: function() {
+            gsap.to(obj, {
+              val: target,
+              duration: duration * 0.35,
+              ease: 'expo.out',
+              snap: { val: 1 },
+              onUpdate: function() { el.textContent = Math.round(obj.val); }
+            });
+          }
+        });
+      }
+
+      // ── Master timeline ──
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#stats .stats-body',
+          start: 'top 78%',
+          once: true
+        }
+      });
+
+      // Phase 0: Editorial grid lines fade in
+      const gridV = section.querySelectorAll('.stats-gridlines__v');
+      const gridH = section.querySelectorAll('.stats-gridlines__h');
+      gridV.forEach(function(line, i) {
+        tl.to(line, { opacity: 1, duration: 0.8, ease: 'power3.out' }, i * 0.1);
+      });
+      gridH.forEach(function(line) {
+        tl.to(line, { opacity: 1, duration: 0.8, ease: 'power3.out' }, 0.15);
+      });
+
+      // Phase 0.5: Ghost watermark drifts in
+      const ghost = section.querySelector('.stats-hero__ghost');
+      if (ghost) {
+        gsap.set(ghost, { opacity: 0, x: 60 });
+        tl.to(ghost, { opacity: 0.025, x: 0, duration: 1.8, ease: 'power3.out' }, 0);
+      }
+
+      // Phase 1: Label
+      const label = section.querySelector('.stats-label');
+      gsap.set(label, { opacity: 0, y: 12 });
+      tl.to(label, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, 0.1);
+
+      // Phase 2: Hero stat
+      const heroNumber = section.querySelector('.stats-hero__number');
+      const heroCountEl = heroNumber.querySelector('[data-count-to]');
+      const heroSuffix = heroNumber.querySelector('.stats-hero__suffix');
+      const heroMeta = section.querySelector('.stats-hero__meta');
+
+      gsap.set(heroNumber, { opacity: 0, y: 30 });
+      gsap.set(heroSuffix, { opacity: 0 });
+      gsap.set(heroMeta, { opacity: 0, x: -20 });
+
+      tl.to(heroNumber, { opacity: 1, y: 0, duration: 0.7, ease: 'power4.out' }, 0.2);
+      tl.add(function() { countUpHero(heroCountEl, 343, 1.8); }, 0.35);
+      tl.to(heroSuffix, { opacity: 1, duration: 0.5, ease: 'power3.out' }, 1.5);
+      tl.to(heroMeta, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.9);
+
+      // Phase 3: Accent divider draws
+      const accentLine = section.querySelector('.stats-divider__accent');
+      if (accentLine) {
+        tl.to(accentLine, { width: '30%', duration: 1.0, ease: 'power4.out' }, 0.6);
+      }
+
+      // Phase 4: Mid-stat blocks — staggered from bottom
+      const blocks = section.querySelectorAll('[data-stats-block]');
+      blocks.forEach(function(block, i) {
+        const numEl = block.querySelector('[data-count-to]');
+        const lbl = block.querySelector('.stats-block__label');
+
+        gsap.set(block, { opacity: 0, y: 35 });
+        if (lbl) gsap.set(lbl, { opacity: 0, y: 8 });
+
+        tl.to(block, {
+          opacity: 1, y: 0, duration: 0.6, ease: 'power3.out'
+        }, 1.0 + i * 0.18);
+
+        if (numEl) {
+          const target = parseInt(numEl.getAttribute('data-count-to'));
+          const dur = parseFloat(numEl.getAttribute('data-count-duration') || '1.2');
+          const fmt = numEl.getAttribute('data-count-format') || '';
+          tl.add(function() { countUp(numEl, target, dur, fmt); }, 1.1 + i * 0.18);
+        }
+
+        if (lbl) {
+          tl.to(lbl, { opacity: 1, y: 0, duration: 0.35, ease: 'power3.out' }, 1.4 + i * 0.18);
+        }
+      });
+
+      // Phase 5: Bottom row — cta text + floating 20+
+      const bottomCta = section.querySelector('.stats-bottom__cta-text');
+      const floatEl = section.querySelector('[data-stats-float]');
+
+      if (bottomCta) {
+        gsap.set(bottomCta, { opacity: 0, y: 15 });
+        tl.to(bottomCta, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 1.6);
+      }
+
+      if (floatEl) {
+        const floatNum = floatEl.querySelector('[data-count-to]');
+        const floatSuffix = floatEl.querySelector('.stats-bottom__suffix');
+        const floatLabel = floatEl.querySelector('.stats-bottom__label');
+
+        gsap.set(floatEl, { opacity: 0, x: 40 });
+
+        tl.to(floatEl, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 1.7);
+
+        if (floatNum) {
+          tl.add(function() { countUp(floatNum, 20, 1.0, ''); }, 1.8);
+        }
+        if (floatSuffix) {
+          tl.to(floatSuffix, {
+            scale: 1.25, duration: 0.2, ease: 'power2.out',
+            yoyo: true, repeat: 1
+          }, 2.5);
+        }
+        if (floatLabel) {
+          gsap.set(floatLabel, { opacity: 0, y: 6 });
+          tl.to(floatLabel, { opacity: 1, y: 0, duration: 0.3, ease: 'power3.out' }, 2.1);
+        }
+      }
+
+      // ── Subtle scroll parallax on ghost + grid lines ──
+      if (!prefersReduced && ghost) {
+        gsap.to(ghost, {
+          y: -60,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#stats',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.8
+          }
         });
       }
 
