@@ -534,6 +534,55 @@
       }
     }
 
+    /* ── Logo Grid — "& Many More" ─────────────────────────── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .logo-grid-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--line);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .logo-grid-item img {
+      width: 80px;
+      height: 40px;
+      object-fit: contain;
+      opacity: 0.7;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .logo-grid-item:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-2px);
+    }
+    .logo-grid-item:hover img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    @media (min-width: 768px) {
+      .logo-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .logo-grid-item {
+        height: 110px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .logo-grid {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 1rem;
+      }
+      .logo-grid-item {
+        height: 120px;
+      }
+    }
+
     /* ── Services Section ──────────────────────────────────── */
     #services {
       position: relative;
@@ -3106,42 +3155,35 @@
           <span class="card-brand-label">Community</span>
         </div>
 
-        <!-- Card 7 — Adobe -->
-        <div class="tca-scroll-card" style="z-index: 16; margin-left: -70px; margin-top: -90px; --glow: #FF0000;">
-          <svg width="130" height="48" viewBox="0 0 96 30" fill="none"><path d="M4 26L15 4l11 22H19l-3.2-7H11.5L4 26z" fill="#FF0000"/><rect x="12.5" y="15" width="5.5" height="2" fill="#FF0000"/><text x="30" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#FF0000">Adobe</text></svg>
-          <span class="card-brand-label">Creative Suite</span>
-        </div>
 
-        <!-- Card 8 — Airbnb -->
-        <div class="tca-scroll-card" style="z-index: 17; margin-left: -79px; margin-top: -100px; --glow: #FF5A5F;">
-          <svg width="130" height="48" viewBox="0 0 96 30" fill="none"><path d="M14 24c-2.5-3-4-6.5-4-9.5 0-4.5 3-7.5 5-9 2 1.5 5 4.5 5 9 0 3-1.5 6.5-4 9.5-.8 1-1.2 1-2 0z" fill="#FF5A5F"/><circle cx="15" cy="11" r="2.5" fill="none" stroke="#FF5A5F" stroke-width="1.5"/><text x="26" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#FF5A5F">Airbnb</text></svg>
-          <span class="card-brand-label">Travel & Culture</span>
-        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Card 9 — Linear -->
-        <div class="tca-scroll-card" style="z-index: 18; margin-left: -70px; margin-top: -90px; --glow: #5E6AD2;">
-          <svg width="130" height="48" viewBox="0 0 96 30" fill="none"><rect x="4" y="4" width="22" height="22" rx="6" fill="#5E6AD2"/><path d="M9 20L20 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M9 15L15 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M14 20L20 14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><text x="30" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#5E6AD2">Linear</text></svg>
-          <span class="card-brand-label">Product</span>
-        </div>
-
-        <!-- Card 10 — Vercel -->
-        <div class="tca-scroll-card" style="z-index: 19; margin-left: -79px; margin-top: -100px; --glow: #888888;">
-          <svg width="130" height="48" viewBox="0 0 96 30" fill="none"><path d="M15 5L27 25H3L15 5z" fill="#222"/><text x="32" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#222">Vercel</text></svg>
-          <span class="card-brand-label">Infrastructure</span>
-        </div>
-
-        <!-- Card 11 — Framer -->
-        <div class="tca-scroll-card" style="z-index: 20; margin-left: -70px; margin-top: -90px; --glow: #0055FF;">
-          <svg width="130" height="48" viewBox="0 0 100 30" fill="none"><path d="M5 4h18v8H14l9 9H5v-9h9L5 4z" fill="#0055FF"/><text x="28" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#0055FF">Framer</text></svg>
-          <span class="card-brand-label">Web Design</span>
-        </div>
-
-        <!-- Card 12 — Dropbox -->
-        <div class="tca-scroll-card" style="z-index: 21; margin-left: -79px; margin-top: -100px; --glow: #0061FF;">
-          <svg width="140" height="48" viewBox="0 0 106 30" fill="none"><path d="M10 4L4 8.5l6 4.5 6-4.5L10 4zM22 4l-6 4.5 6 4.5 6-4.5L22 4zM4 17.5l6 4.5 6-4.5-6-4.5-6 4.5zM22 13l-6 4.5 6 4.5 6-4.5L22 13zM16 18.5l-6 4.5-6-4.5" fill="#0061FF"/><text x="32" y="20" font-family="Satoshi,sans-serif" font-size="13" font-weight="700" fill="#0061FF">Dropbox</text></svg>
-          <span class="card-brand-label">Storage</span>
-        </div>
-
+  <!-- ── Logo Grid — "& Many More" ────────────────────────── -->
+  <section id="logo-grid-section" class="relative" style="background: var(--bg);">
+    <div class="absolute inset-x-0 top-0 h-px" style="background: var(--line);"></div>
+    <div class="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-16 py-20 lg:py-28">
+      <p class="text-[13px] sm:text-[15px] uppercase tracking-[0.32em] font-sans font-medium mb-10 text-center" style="color: var(--text-dim);">& Many More</p>
+      <div class="logo-grid">
+        <!-- Row 1 -->
+        <div class="logo-grid-item"><img src="logos/acme.png" alt="Acme" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/amara.png" alt="Amara" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/asgardia.png" alt="Asgardia" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/atica.png" alt="Atica" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/aven.png" alt="Aven" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/circle.png" alt="Circle" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/code-lab.png" alt="Code Lab" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/earth2.png" alt="Earth2" loading="lazy"></div>
+        <!-- Row 2 -->
+        <div class="logo-grid-item"><img src="logos/fox-hub.png" alt="Fox Hub" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/goldline.png" alt="Goldline" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/hex-lab.png" alt="Hex Lab" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/hexa.png" alt="Hexa" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/hooks.png" alt="Hooks" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/ideaa.png" alt="Ideaa" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/kanba.png" alt="Kanba" loading="lazy"></div>
+        <div class="logo-grid-item"><img src="logos/kyan.png" alt="Kyan" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -4541,22 +4583,16 @@
       // to create the "messy scattered pile" look
       // Spread cards wide so logos stay visible — no heavy overlap
       const finalPositions = [
-        { x: -340, y: -180, rot: -8  },   // Spotify (top-left)
-        { x:  140, y: -200, rot:  6  },   // Netflix (top-center-right)
-        { x:  380, y: -100, rot: -5  },   // Figma (right)
-        { x: -180, y:  -40, rot:  10 },   // Stripe (center-left)
-        { x:  260, y:   20, rot: -7  },   // Slack (center-right)
-        { x: -380, y:   40, rot:  5  },   // Discord (far-left)
-        { x:   10, y: -120, rot: -4  },   // Adobe (top-center)
-        { x:  360, y:  160, rot:  8  },   // Airbnb (bottom-right)
-        { x: -280, y:  180, rot: -6  },   // Linear (bottom-left)
-        { x:  120, y:  140, rot:  4  },   // Vercel (bottom-center-right)
-        { x: -100, y:  200, rot:  7  },   // Framer (bottom-center-left)
-        { x:  -40, y:   60, rot: -3  },   // Dropbox (center)
+        { x: -380, y: -180, rot: -8  },   // Card 1 (top-left)
+        { x:  380, y: -180, rot:  6  },   // Card 2 (top-right)
+        { x:  400, y:   40, rot: -7  },   // Card 3 (center-right)
+        { x: -400, y:   40, rot:  10 },   // Card 4 (center-left)
+        { x:  280, y:  200, rot:  5  },   // Card 5 (bottom-right)
+        { x: -280, y:  200, rot: -6  },   // Card 6 (bottom-left)
       ];
 
       // Starting rotations (alternating left/right, varied)
-      const startRotations = [35, -40, 30, -35, 42, -28, 38, -45, 32, -36, 40, -30];
+      const startRotations = [35, -40, 30, -35, 42, -28];
 
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -4580,7 +4616,7 @@
         scrollTrigger: {
           trigger: '#logo-stack',
           start: '50% 50%',
-          end: '500% 50%',
+          end: '250% 50%',
           scrub: true,
           pin: true,
         }
@@ -4588,18 +4624,12 @@
 
       // Entry directions — cards fly in from all sides
       const entryDirections = [
-        { x: 0,      y: '120vh'  },  // bottom
-        { x: '-120vw', y: 0      },  // left
-        { x: '120vw',  y: 0      },  // right
-        { x: 0,      y: '-120vh' },  // top
-        { x: '-100vw', y: '80vh' },  // bottom-left
-        { x: '100vw',  y: '-80vh'},  // top-right
-        { x: '100vw',  y: '80vh' },  // bottom-right
-        { x: '-100vw', y: '-80vh'},  // top-left
-        { x: 0,      y: '120vh'  },  // bottom
-        { x: '120vw',  y: 0      },  // right
-        { x: '-120vw', y: 0      },  // left
-        { x: 0,      y: '-120vh' },  // top
+        { x: 0,      y: '120vh'  },   // bottom
+        { x: '-120vw', y: 0      },   // left
+        { x: '120vw',  y: 0      },   // right
+        { x: 0,      y: '-120vh' },   // top
+        { x: '-100vw', y: '80vh' },   // bottom-left
+        { x: '100vw',  y: '-80vh'},   // top-right
       ];
 
       // Pair cards — two fly in at the same time, directly to final positions
@@ -4624,6 +4654,37 @@
         }, pairStart);
       });
 
+    })();
+
+    // ══════════════════════════════════════════════════════════
+    // SECTION 3B — LOGO GRID STAGGER ENTRANCE
+    // ══════════════════════════════════════════════════════════
+    (function () {
+      const gridItems = gsap.utils.toArray('.logo-grid-item');
+      if (!gridItems.length) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced) {
+        gsap.set(gridItems, { opacity: 1, y: 0, scale: 1 });
+        return;
+      }
+
+      gsap.set(gridItems, { opacity: 0, y: 30, scale: 0.85 });
+
+      gsap.to(gridItems, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.06,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#logo-grid-section',
+          start: 'top 80%',
+          once: true,
+        }
+      });
     })();
 
     // ══════════════════════════════════════════════════════════
