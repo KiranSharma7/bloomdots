@@ -611,7 +611,7 @@
     @media (min-width: 768px) {
       .services-grid {
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto;
         gap: 1rem;
         padding: 0 3rem;
       }
@@ -631,26 +631,23 @@
       transition: border-color 0.5s;
     }
     @media (min-width: 768px) {
-      .svc-tile--tiktok,
+      .svc-tile--website,
       .svc-tile--content { border-radius: 8px; }
       .svc-tile--cultural { border-radius: 16px; }
     }
 
-    /* Desktop grid spans — asymmetric mosaic */
+    /* Desktop grid spans — asymmetric mosaic (4 tiles) */
     @media (min-width: 768px) {
-      .svc-tile--tiktok      { grid-column: span 7; min-height: 440px; }
-      .svc-tile--influencer  { grid-column: span 5; min-height: 440px; }
-      .svc-tile--social      { grid-column: span 5; min-height: 360px; }
-      .svc-tile--content     { grid-column: span 7; min-height: 360px; }
-      .svc-tile--community   { grid-column: span 5; min-height: 300px; }
-      .svc-tile--cultural    { grid-column: span 3; min-height: 300px; }
-      .svc-tile--digital     { grid-column: span 4; min-height: 300px; }
+      .svc-tile--website   { grid-column: span 7; min-height: 440px; }
+      .svc-tile--content   { grid-column: span 5; min-height: 440px; }
+      .svc-tile--paid      { grid-column: span 5; min-height: 360px; }
+      .svc-tile--cultural  { grid-column: span 7; min-height: 360px; }
     }
     @media (min-width: 1024px) {
-      .svc-tile--tiktok      { min-height: 480px; }
-      .svc-tile--influencer  { min-height: 480px; }
-      .svc-tile--social      { min-height: 380px; }
-      .svc-tile--content     { min-height: 380px; }
+      .svc-tile--website   { min-height: 500px; }
+      .svc-tile--content   { min-height: 500px; }
+      .svc-tile--paid      { min-height: 420px; }
+      .svc-tile--cultural  { min-height: 420px; }
     }
 
     /* Video layer */
@@ -734,20 +731,190 @@
       will-change: transform;
     }
     @media (min-width: 768px) {
-      .svc-tile--tiktok .svc-tile__name {
+      .svc-tile--website .svc-tile__name {
         font-size: 2.8rem;
       }
-      .svc-tile--content .svc-tile__name {
+      .svc-tile--cultural .svc-tile__name {
         font-size: 2.4rem;
       }
-      .svc-tile--influencer .svc-tile__name,
-      .svc-tile--social .svc-tile__name {
+      .svc-tile--content .svc-tile__name,
+      .svc-tile--paid .svc-tile__name {
         font-size: 2.2rem;
       }
-      /* Compact tiles */
-      .svc-tile--cultural .svc-tile__name {
-        font-size: 1.5rem;
-      }
+    }
+
+    /* ── Services "Also" capabilities strip ── */
+    /* ── Services "Also" — image card grid ── */
+    .services-also {
+      padding: 0 1.25rem;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 640px)  { .services-also { padding: 0 2rem; } }
+    @media (min-width: 768px)  { .services-also { padding: 0 3rem; } }
+    @media (min-width: 1280px) { .services-also { padding: 0 4rem; } }
+
+    .services-also__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1rem;
+    }
+
+    .services-also__label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      color: var(--text-dim);
+    }
+
+    .services-also__count {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+    }
+
+    /* 6-card grid: 3 columns × 2 rows */
+    .services-also__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+    }
+    @media (max-width: 767px) {
+      .services-also__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 479px) {
+      .services-also__grid { grid-template-columns: 1fr; }
+    }
+
+    /* Single card */
+    .svc-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: #0d0e10;
+      min-height: 200px;
+      cursor: pointer;
+      transition: border-color 0.4s ease;
+    }
+    @media (min-width: 1024px) { .svc-card { min-height: 220px; } }
+
+    .svc-card:hover {
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    /* Image layer */
+    .svc-card__img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .svc-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.32;
+      transition: opacity 0.5s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .svc-card:hover .svc-card__img img {
+      opacity: 0.55;
+      transform: scale(1.06);
+    }
+
+    /* Gradient scrim — bottom-weighted */
+    .svc-card__scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75) 0%,
+        rgba(0,0,0,0.15) 55%,
+        transparent 100%
+      );
+    }
+
+    /* Noise */
+    .svc-card__noise {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
+
+    /* Content */
+    .svc-card__body {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 1.1rem 1.25rem;
+      min-height: inherit;
+    }
+
+    .svc-card__num {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .svc-card__name {
+      font-family: 'Canela', serif;
+      font-size: 1.15rem;
+      line-height: 1.15;
+      color: var(--text);
+      margin: 0;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (min-width: 1024px) { .svc-card__name { font-size: 1.25rem; } }
+    .svc-card:hover .svc-card__name {
+      transform: translateY(-3px);
+    }
+
+    /* Accent bar at bottom */
+    .svc-card__accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      z-index: 4;
+      transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .svc-card:hover .svc-card__accent {
+      width: 100%;
+    }
+
+    /* Glow */
+    .svc-card__glow {
+      position: absolute;
+      bottom: -4rem;
+      left: -3rem;
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.5s ease;
+    }
+    .svc-card:hover .svc-card__glow {
+      opacity: 0.18;
     }
 
     /* Service tag (hero tiles only) */
@@ -3212,14 +3379,14 @@
 
       <!-- Row 1: Wide + Narrow ───────────────────────────── -->
 
-      <!-- Tile 1: TikTok Marketing (col-7, hero) -->
-      <div class="svc-tile svc-tile--tiktok" data-accent="var(--yellow)">
+      <!-- Tile 1: Website Design (col-7, hero) -->
+      <div class="svc-tile svc-tile--website" data-accent="var(--yellow)">
         <div class="svc-tile__glow" style="background: #f4c430;"></div>
         <div class="svc-tile__thumb">
-          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80&auto=format" alt="TikTok Marketing" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format" alt="Website Design" loading="lazy">
         </div>
         <div class="svc-tile__video-wrap">
-          <video src="videos/social-media.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="videos/content.mp4" muted loop playsinline preload="metadata"></video>
           <div class="svc-tile__overlay"></div>
         </div>
         <div class="svc-tile__noise"></div>
@@ -3229,119 +3396,19 @@
           </div>
           <div>
             <span class="svc-tile__tag" style="color: var(--yellow);">Primary Service</span>
-            <h3 class="svc-tile__name">TikTok Marketing</h3>
-            <p class="svc-tile__outcome">Built for retention + action</p>
+            <h3 class="svc-tile__name">Website Design</h3>
+            <p class="svc-tile__outcome">Conversion-driven. Premium by default.</p>
             <span class="svc-tile__explore">Explore →</span>
           </div>
         </div>
         <div class="svc-tile__accent" style="background: var(--yellow);"></div>
       </div>
 
-      <!-- Tile 2: Influencer Marketing (col-4, narrow) -->
-      <div class="svc-tile svc-tile--influencer" data-accent="var(--blue)">
+      <!-- Tile 2: Content (col-5) -->
+      <div class="svc-tile svc-tile--content" data-accent="var(--blue)">
         <div class="svc-tile__glow" style="background: #4f7cff;"></div>
         <div class="svc-tile__thumb">
-          <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?w=800&q=80&auto=format" alt="Influencer Marketing" loading="lazy">
-        </div>
-        <div class="svc-tile__video-wrap">
-          <video src="videos/influencer.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="svc-tile__overlay"></div>
-        </div>
-        <div class="svc-tile__noise"></div>
-        <div class="svc-tile__content">
-          <div>
-            <span class="svc-tile__num" style="color: var(--blue);">02</span>
-          </div>
-          <div>
-            <h3 class="svc-tile__name">Influencer Marketing</h3>
-            <p class="svc-tile__outcome">Trust + reach + content library</p>
-            <span class="svc-tile__explore">Explore →</span>
-          </div>
-        </div>
-        <div class="svc-tile__accent" style="background: var(--blue);"></div>
-      </div>
-
-      <!-- Row 2: Narrow + Wide (mirrored) ────────────────── -->
-
-      <!-- Tile 3: Social Media Management (col-4, narrow) -->
-      <div class="svc-tile svc-tile--social" data-accent="var(--orange)">
-        <div class="svc-tile__glow" style="background: #ff7a1a;"></div>
-        <div class="svc-tile__thumb">
-          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80&auto=format" alt="Social Media Management" loading="lazy">
-        </div>
-        <div class="svc-tile__video-wrap">
-          <video src="videos/podcast.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="svc-tile__overlay"></div>
-        </div>
-        <div class="svc-tile__noise"></div>
-        <div class="svc-tile__content">
-          <div>
-            <span class="svc-tile__num" style="color: var(--orange);">03</span>
-          </div>
-          <div>
-            <h3 class="svc-tile__name">Social Media Management</h3>
-            <p class="svc-tile__outcome">Consistency + community growth</p>
-            <span class="svc-tile__explore">Explore →</span>
-          </div>
-        </div>
-        <div class="svc-tile__accent" style="background: var(--orange);"></div>
-      </div>
-
-      <!-- Tile 4: Content Marketing (col-8, wide) -->
-      <div class="svc-tile svc-tile--content" data-accent="var(--yellow)">
-        <div class="svc-tile__glow" style="background: #f4c430;"></div>
-        <div class="svc-tile__thumb">
-          <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&q=80&auto=format" alt="Content Marketing" loading="lazy">
-        </div>
-        <div class="svc-tile__video-wrap">
-          <video src="videos/content.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="svc-tile__overlay"></div>
-        </div>
-        <div class="svc-tile__noise"></div>
-        <div class="svc-tile__content">
-          <div>
-            <span class="svc-tile__num" style="color: var(--yellow);">04</span>
-          </div>
-          <div>
-            <h3 class="svc-tile__name">Content Marketing</h3>
-            <p class="svc-tile__outcome">Platform-native visibility + conversion-optimized storytelling</p>
-            <span class="svc-tile__explore">Explore →</span>
-          </div>
-        </div>
-        <div class="svc-tile__accent" style="background: var(--yellow);"></div>
-      </div>
-
-      <!-- Row 3: Equal thirds ────────────────────────────── -->
-
-      <!-- Tile 5: Community Marketing (col-4) -->
-      <div class="svc-tile svc-tile--community" data-accent="var(--blue)">
-        <div class="svc-tile__glow" style="background: #4f7cff;"></div>
-        <div class="svc-tile__thumb">
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&auto=format" alt="Community Marketing" loading="lazy">
-        </div>
-        <div class="svc-tile__video-wrap">
-          <video src="videos/paid-media.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="svc-tile__overlay"></div>
-        </div>
-        <div class="svc-tile__noise"></div>
-        <div class="svc-tile__content">
-          <div>
-            <span class="svc-tile__num" style="color: var(--blue);">05</span>
-          </div>
-          <div>
-            <h3 class="svc-tile__name">Community Marketing</h3>
-            <p class="svc-tile__outcome">Deep audience connection + organic advocacy</p>
-            <span class="svc-tile__explore">Explore →</span>
-          </div>
-        </div>
-        <div class="svc-tile__accent" style="background: var(--blue);"></div>
-      </div>
-
-      <!-- Tile 6: Cultural Marketing (col-4) -->
-      <div class="svc-tile svc-tile--cultural" data-accent="var(--orange)">
-        <div class="svc-tile__glow" style="background: #ff7a1a;"></div>
-        <div class="svc-tile__thumb">
-          <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format" alt="Cultural Marketing" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&q=80&auto=format" alt="Content" loading="lazy">
         </div>
         <div class="svc-tile__video-wrap">
           <video src="videos/social-media.mp4" muted loop playsinline preload="metadata"></video>
@@ -3350,22 +3417,24 @@
         <div class="svc-tile__noise"></div>
         <div class="svc-tile__content">
           <div>
-            <span class="svc-tile__num" style="color: var(--orange);">06</span>
+            <span class="svc-tile__num" style="color: var(--blue);">02</span>
           </div>
           <div>
-            <h3 class="svc-tile__name">Cultural Marketing</h3>
-            <p class="svc-tile__outcome">Authentic cultural resonance + market expansion</p>
+            <h3 class="svc-tile__name">Content</h3>
+            <p class="svc-tile__outcome">Platform-native. Shareable by design.</p>
             <span class="svc-tile__explore">Explore →</span>
           </div>
         </div>
-        <div class="svc-tile__accent" style="background: var(--orange);"></div>
+        <div class="svc-tile__accent" style="background: var(--blue);"></div>
       </div>
 
-      <!-- Tile 7: Digital Marketing (col-4) -->
-      <div class="svc-tile svc-tile--digital" data-accent="var(--yellow)">
-        <div class="svc-tile__glow" style="background: #f4c430;"></div>
+      <!-- Row 2: Narrow + Wide (mirrored) ────────────────── -->
+
+      <!-- Tile 3: Paid Media (col-5) -->
+      <div class="svc-tile svc-tile--paid" data-accent="var(--orange)">
+        <div class="svc-tile__glow" style="background: #ff7a1a;"></div>
         <div class="svc-tile__thumb">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format" alt="Digital Marketing" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format" alt="Paid Media" loading="lazy">
         </div>
         <div class="svc-tile__video-wrap">
           <video src="videos/paid-media.mp4" muted loop playsinline preload="metadata"></video>
@@ -3374,11 +3443,35 @@
         <div class="svc-tile__noise"></div>
         <div class="svc-tile__content">
           <div>
-            <span class="svc-tile__num" style="color: var(--yellow);">07</span>
+            <span class="svc-tile__num" style="color: var(--orange);">03</span>
           </div>
           <div>
-            <h3 class="svc-tile__name">Digital Marketing</h3>
-            <p class="svc-tile__outcome">Multi-channel optimization + scalable growth</p>
+            <h3 class="svc-tile__name">Paid Media</h3>
+            <p class="svc-tile__outcome">Every dollar tracked. Every ad optimized.</p>
+            <span class="svc-tile__explore">Explore →</span>
+          </div>
+        </div>
+        <div class="svc-tile__accent" style="background: var(--orange);"></div>
+      </div>
+
+      <!-- Tile 4: Cultural Marketing (col-7) -->
+      <div class="svc-tile svc-tile--cultural" data-accent="var(--yellow)">
+        <div class="svc-tile__glow" style="background: #f4c430;"></div>
+        <div class="svc-tile__thumb">
+          <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format" alt="Cultural Marketing" loading="lazy">
+        </div>
+        <div class="svc-tile__video-wrap">
+          <video src="videos/influencer.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="svc-tile__overlay"></div>
+        </div>
+        <div class="svc-tile__noise"></div>
+        <div class="svc-tile__content">
+          <div>
+            <span class="svc-tile__num" style="color: var(--yellow);">04</span>
+          </div>
+          <div>
+            <h3 class="svc-tile__name">Cultural Marketing</h3>
+            <p class="svc-tile__outcome">Authentic resonance. Market expansion.</p>
             <span class="svc-tile__explore">Explore →</span>
           </div>
         </div>
@@ -3386,6 +3479,109 @@
       </div>
 
     </div>
+
+    <!-- Capabilities image card grid -->
+    <div class="services-also">
+      <div class="services-also__header">
+        <span class="services-also__label">Also in our toolkit</span>
+        <span class="services-also__count">06 capabilities</span>
+      </div>
+
+      <div class="services-also__grid">
+
+        <!-- Card 1: Influencer & UGC -->
+        <div class="svc-card">
+          <div class="svc-card__glow" style="background:#f4c430;"></div>
+          <div class="svc-card__img">
+            <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?w=600&q=80&auto=format" alt="Influencer & UGC Marketing" loading="lazy">
+          </div>
+          <div class="svc-card__scrim"></div>
+          <div class="svc-card__noise"></div>
+          <div class="svc-card__body">
+            <span class="svc-card__num" style="color:var(--yellow);">01</span>
+            <h4 class="svc-card__name">Influencer &amp; UGC Marketing</h4>
+          </div>
+          <div class="svc-card__accent" style="background:var(--yellow);"></div>
+        </div>
+
+        <!-- Card 2: Social Media -->
+        <div class="svc-card">
+          <div class="svc-card__glow" style="background:#4f7cff;"></div>
+          <div class="svc-card__img">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80&auto=format" alt="Social Media" loading="lazy">
+          </div>
+          <div class="svc-card__scrim"></div>
+          <div class="svc-card__noise"></div>
+          <div class="svc-card__body">
+            <span class="svc-card__num" style="color:var(--blue);">02</span>
+            <h4 class="svc-card__name">Social Media</h4>
+          </div>
+          <div class="svc-card__accent" style="background:var(--blue);"></div>
+        </div>
+
+        <!-- Card 3: Branding -->
+        <div class="svc-card">
+          <div class="svc-card__glow" style="background:#ff7a1a;"></div>
+          <div class="svc-card__img">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&q=80&auto=format" alt="Branding" loading="lazy">
+          </div>
+          <div class="svc-card__scrim"></div>
+          <div class="svc-card__noise"></div>
+          <div class="svc-card__body">
+            <span class="svc-card__num" style="color:var(--orange);">03</span>
+            <h4 class="svc-card__name">Branding</h4>
+          </div>
+          <div class="svc-card__accent" style="background:var(--orange);"></div>
+        </div>
+
+        <!-- Card 4: Email Marketing -->
+        <div class="svc-card">
+          <div class="svc-card__glow" style="background:#f4c430;"></div>
+          <div class="svc-card__img">
+            <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&q=80&auto=format" alt="Email Marketing" loading="lazy">
+          </div>
+          <div class="svc-card__scrim"></div>
+          <div class="svc-card__noise"></div>
+          <div class="svc-card__body">
+            <span class="svc-card__num" style="color:var(--yellow);">04</span>
+            <h4 class="svc-card__name">Email Marketing</h4>
+          </div>
+          <div class="svc-card__accent" style="background:var(--yellow);"></div>
+        </div>
+
+        <!-- Card 5: Podcast -->
+        <div class="svc-card">
+          <div class="svc-card__glow" style="background:#4f7cff;"></div>
+          <div class="svc-card__img">
+            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&q=80&auto=format" alt="Podcast" loading="lazy">
+          </div>
+          <div class="svc-card__scrim"></div>
+          <div class="svc-card__noise"></div>
+          <div class="svc-card__body">
+            <span class="svc-card__num" style="color:var(--blue);">05</span>
+            <h4 class="svc-card__name">Podcast</h4>
+          </div>
+          <div class="svc-card__accent" style="background:var(--blue);"></div>
+        </div>
+
+        <!-- Card 6: SEO -->
+        <div class="svc-card">
+          <div class="svc-card__glow" style="background:#ff7a1a;"></div>
+          <div class="svc-card__img">
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80&auto=format" alt="SEO" loading="lazy">
+          </div>
+          <div class="svc-card__scrim"></div>
+          <div class="svc-card__noise"></div>
+          <div class="svc-card__body">
+            <span class="svc-card__num" style="color:var(--orange);">06</span>
+            <h4 class="svc-card__name">SEO</h4>
+          </div>
+          <div class="svc-card__accent" style="background:var(--orange);"></div>
+        </div>
+
+      </div>
+    </div>
+
   </section>
 
   <!-- ════════════════════════════════════════════════════════
@@ -4705,6 +4901,7 @@
         gsap.set('.svc-headline', { clipPath: 'inset(0% 0 0 0)' });
         gsap.set('.svc-sub', { opacity: 1 });
         gsap.set(tiles, { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, rotation: 0, scale: 1 });
+        gsap.set('.services-also__header, .svc-card', { opacity: 1, clipPath: 'inset(0% 0% 0% 0%)', scale: 1 });
         return;
       }
 
@@ -4739,8 +4936,8 @@
         });
       });
 
-      // Stagger delays: top-left to bottom-right
-      const staggerDelays = [0, 0.12, 0.24, 0.18, 0.36, 0.42, 0.48];
+      // Stagger delays: top-left to bottom-right (4 tiles)
+      const staggerDelays = [0, 0.12, 0.22, 0.32];
 
       tiles.forEach((tile, i) => {
         gsap.to(tile, {
@@ -4815,6 +5012,34 @@
           duration: 0.5, stagger: 0.08, ease: 'power3.out',
           scrollTrigger: { trigger: '#services', start: 'top 80%' }
         });
+      }
+
+      // ── Also cards: stagger entrance ──
+      const alsoCards = gsap.utils.toArray('.svc-card');
+      if (alsoCards.length) {
+        gsap.fromTo('.services-also__header',
+          { opacity: 0, y: 8 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.4, ease: 'power3.out',
+            immediateRender: false,
+            scrollTrigger: { trigger: '.services-also', start: 'top bottom', once: true },
+          }
+        );
+        gsap.fromTo(alsoCards,
+          { clipPath: 'inset(8% 8% 8% 8%)', opacity: 0.2, scale: 0.97 },
+          {
+            clipPath: 'inset(0% 0% 0% 0%)',
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.07,
+            ease: 'power4.out',
+            immediateRender: false,
+            delay: 0.1,
+            scrollTrigger: { trigger: '.services-also', start: 'top bottom', once: true },
+          }
+        );
       }
 
     })();
@@ -5252,7 +5477,7 @@
           scrollTrigger: {
             trigger: '.process-timeline',
             start: 'top 72%',
-            end: 'bottom 30%',
+            end: 'bottom 55%',
             scrub: 0.6,
             onUpdate: function(self) {
               const p = self.progress;
