@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloomDots — Creative Agency Wireframe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Satoshi', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Canela', serif; }
+
+    /* ── Canela (display) ─────────────────────────────────── */
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Thin-Trial.otf') format('opentype');
+      font-weight: 100; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-ThinItalic-Trial.otf') format('opentype');
+      font-weight: 100; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Light-Trial.otf') format('opentype');
+      font-weight: 300; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-LightItalic-Trial.otf') format('opentype');
+      font-weight: 300; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Regular-Trial.otf') format('opentype');
+      font-weight: 400; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-RegularItalic-Trial.otf') format('opentype');
+      font-weight: 400; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Medium-Trial.otf') format('opentype');
+      font-weight: 500; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-MediumItalic-Trial.otf') format('opentype');
+      font-weight: 500; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Bold-Trial.otf') format('opentype');
+      font-weight: 700; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-BoldItalic-Trial.otf') format('opentype');
+      font-weight: 700; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-Black-Trial.otf') format('opentype');
+      font-weight: 900; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Canela';
+      src: url('Canela_Collection/Canela Family/Canela-BlackItalic-Trial.otf') format('opentype');
+      font-weight: 900; font-style: italic;
+    }
+
+    /* ── Satoshi (body / UI) ──────────────────────────────── */
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Light.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Light.woff') format('woff');
+      font-weight: 300; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-LightItalic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-LightItalic.woff') format('woff');
+      font-weight: 300; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+      font-weight: 400; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.woff') format('woff');
+      font-weight: 400; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+      font-weight: 500; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-MediumItalic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-MediumItalic.woff') format('woff');
+      font-weight: 500; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+      font-weight: 700; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BoldItalic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BoldItalic.woff') format('woff');
+      font-weight: 700; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Black.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Black.woff') format('woff');
+      font-weight: 900; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BlackItalic.woff2') format('woff2'),
+           url('Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-BlackItalic.woff') format('woff');
+      font-weight: 900; font-style: italic;
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- HEADER / NAV -->
+  <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="w-32 h-6 bg-gray-300 rounded flex items-center justify-center text-xs text-gray-600 font-mono">[LOGO]</div>
+      <div class="hidden md:flex gap-8">
+        <div class="w-16 h-4 bg-gray-300 rounded flex items-center justify-center text-xs text-gray-600 font-mono">[Nav]</div>
+        <div class="w-16 h-4 bg-gray-300 rounded flex items-center justify-center text-xs text-gray-600 font-mono">[Nav]</div>
+        <div class="w-16 h-4 bg-gray-300 rounded flex items-center justify-center text-xs text-gray-600 font-mono">[Nav]</div>
+        <div class="w-16 h-4 bg-gray-300 rounded flex items-center justify-center text-xs text-gray-600 font-mono">[Nav]</div>
+        <div class="w-16 h-4 bg-gray-300 rounded flex items-center justify-center text-xs text-gray-600 font-mono">[Nav]</div>
+        <div class="w-16 h-4 bg-gray-300 rounded flex items-center justify-center text-xs text-gray-600 font-mono">[Nav]</div>
+      </div>
+      <div class="w-6 h-6 bg-gray-300 rounded md:hidden flex items-center justify-center text-xs text-gray-600 font-mono">≡</div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- S1: HERO / LANDING -->
+    <section class="relative min-h-screen bg-gray-100 border-b border-gray-200">
+      <div class="absolute inset-0 bg-gray-200 border-4 border-dashed border-gray-400 flex items-center justify-center text-gray-600 font-mono text-sm">[VIDEO BACKGROUND]</div>
+      <div class="relative h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl w-full">
+          <div class="h-20 bg-gray-300 rounded mb-8 mx-auto w-4/5 flex items-center justify-center text-gray-600 font-mono text-sm">[H1 HEADLINE]</div>
+          <div class="h-8 bg-gray-300 rounded mb-12 mx-auto w-3/5 flex items-center justify-center text-gray-600 font-mono text-xs">[SUBHEADLINE]</div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <div class="h-12 bg-gray-900 rounded w-full sm:w-40 flex items-center justify-center text-white font-mono text-xs">[CTA PRIMARY]</div>
+            <div class="h-12 border-2 border-gray-900 rounded w-full sm:w-40 flex items-center justify-center text-gray-900 font-mono text-xs">[CTA SECONDARY]</div>
+          </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+          <div class="text-gray-600 font-mono text-xs mb-2">[SCROLL]</div>
+          <div class="w-6 h-6 bg-gray-400 rounded animate-bounce"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LABEL -->
+    <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+      SECTION 2 — DOTS THAT CONNECT (TEAM)
+    </div>
+
+    <!-- S2: DOTS THAT CONNECT (TEAM) -->
+    <section class="bg-gray-900 border-b border-gray-700 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-12 bg-gray-700 rounded w-64 mx-auto mb-16 flex items-center justify-center text-gray-500 font-mono text-xs">[SECTION HEADING]</div>
+
+        <!-- Desktop Scattered -->
+        <div class="hidden md:block relative h-96 mb-12">
+          <div class="absolute top-0 left-0 w-16 h-16 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute top-8 left-24 w-20 h-20 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute top-0 right-20 w-14 h-14 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute top-20 right-0 w-24 h-24 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute top-32 left-10" style="width: 72px; height: 72px;" class="bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute top-40 left-1/3 w-16 h-16 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute top-56 right-32 w-20 h-20 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute top-32 right-1/4 w-14 h-14 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute bottom-0 left-1/4 w-24 h-24 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute bottom-10 right-1/3 w-16 h-16 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute bottom-20 left-1/2 w-20 h-20 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+          <div class="absolute bottom-0 right-10 w-14 h-14 bg-gray-700 border border-dashed border-gray-600 rounded-full flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+        </div>
+
+        <!-- Mobile Grid -->
+        <div class="md:hidden grid grid-cols-2 gap-8">
+          <div class="text-center">
+            <div class="w-24 h-24 bg-gray-700 border border-dashed border-gray-600 rounded-full mx-auto mb-3 flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+            <div class="h-3 bg-gray-700 rounded w-3/4 mx-auto mb-2 flex items-center justify-center text-gray-500 font-mono text-xs">[NAME]</div>
+            <div class="h-2 bg-gray-700 rounded w-1/2 mx-auto flex items-center justify-center text-gray-500 font-mono text-xs">[ROLE]</div>
+          </div>
+          <div class="text-center">
+            <div class="w-24 h-24 bg-gray-700 border border-dashed border-gray-600 rounded-full mx-auto mb-3 flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+            <div class="h-3 bg-gray-700 rounded w-3/4 mx-auto mb-2 flex items-center justify-center text-gray-500 font-mono text-xs">[NAME]</div>
+            <div class="h-2 bg-gray-700 rounded w-1/2 mx-auto flex items-center justify-center text-gray-500 font-mono text-xs">[ROLE]</div>
+          </div>
+          <div class="text-center">
+            <div class="w-24 h-24 bg-gray-700 border border-dashed border-gray-600 rounded-full mx-auto mb-3 flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+            <div class="h-3 bg-gray-700 rounded w-3/4 mx-auto mb-2 flex items-center justify-center text-gray-500 font-mono text-xs">[NAME]</div>
+            <div class="h-2 bg-gray-700 rounded w-1/2 mx-auto flex items-center justify-center text-gray-500 font-mono text-xs">[ROLE]</div>
+          </div>
+          <div class="text-center">
+            <div class="w-24 h-24 bg-gray-700 border border-dashed border-gray-600 rounded-full mx-auto mb-3 flex items-center justify-center text-gray-500 font-mono text-xs">[PHOTO]</div>
+            <div class="h-3 bg-gray-700 rounded w-3/4 mx-auto mb-2 flex items-center justify-center text-gray-500 font-mono text-xs">[NAME]</div>
+            <div class="h-2 bg-gray-700 rounded w-1/2 mx-auto flex items-center justify-center text-gray-500 font-mono text-xs">[ROLE]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LABEL -->
+    <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+      SECTION 3 — LOCAL TO GLOBAL (LOGO WALL)
+    </div>
+
+    <!-- S3: LOCAL TO GLOBAL -->
+    <section class="bg-gray-900 border-b border-gray-700 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-12 bg-gray-700 rounded w-64 mx-auto mb-16 flex items-center justify-center text-gray-500 font-mono text-xs">[SECTION HEADING]</div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+          <div class="bg-gray-700 border border-dashed border-gray-600 rounded h-20 flex items-center justify-center text-gray-500 font-mono text-xs">[LOGO]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LABEL -->
+    <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+      SECTION 4 — OUR SERVICES (MOSAIC GRID)
+    </div>
+
+    <!-- S4: OUR SERVICES -->
+    <section class="bg-white border-b border-gray-200 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-12 bg-gray-300 rounded w-64 mx-auto mb-16 flex items-center justify-center text-gray-600 font-mono text-xs">[SECTION HEADING]</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="md:col-span-2 border border-gray-300 rounded-lg p-8">
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[SERVICE TITLE]</div>
+            <div class="space-y-2 mb-4">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-4/5 flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+            </div>
+            <div class="h-3 bg-gray-300 rounded w-24 flex items-center justify-center text-gray-600 font-mono text-xs">[LINK]</div>
+          </div>
+          <div class="border border-gray-300 rounded-lg p-8">
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[SERVICE TITLE]</div>
+            <div class="space-y-2 mb-4">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-4/5 flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+            </div>
+            <div class="h-3 bg-gray-300 rounded w-24 flex items-center justify-center text-gray-600 font-mono text-xs">[LINK]</div>
+          </div>
+          <div class="border border-gray-300 rounded-lg p-8">
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[SERVICE TITLE]</div>
+            <div class="space-y-2 mb-4">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-4/5 flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+            </div>
+            <div class="h-3 bg-gray-300 rounded w-24 flex items-center justify-center text-gray-600 font-mono text-xs">[LINK]</div>
+          </div>
+          <div class="md:col-span-2 border border-gray-300 rounded-lg p-8">
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[SERVICE TITLE]</div>
+            <div class="space-y-2 mb-4">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-4/5 flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+            </div>
+            <div class="h-3 bg-gray-300 rounded w-24 flex items-center justify-center text-gray-600 font-mono text-xs">[LINK]</div>
+          </div>
+          <div class="border border-gray-300 rounded-lg p-8">
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[SERVICE TITLE]</div>
+            <div class="space-y-2 mb-4">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-4/5 flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+            </div>
+            <div class="h-3 bg-gray-300 rounded w-24 flex items-center justify-center text-gray-600 font-mono text-xs">[LINK]</div>
+          </div>
+          <div class="border border-gray-300 rounded-lg p-8">
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[SERVICE TITLE]</div>
+            <div class="space-y-2 mb-4">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-4/5 flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+            </div>
+            <div class="h-3 bg-gray-300 rounded w-24 flex items-center justify-center text-gray-600 font-mono text-xs">[LINK]</div>
+          </div>
+          <div class="border border-gray-300 rounded-lg p-8">
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[SERVICE TITLE]</div>
+            <div class="space-y-2 mb-4">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-4/5 flex items-center justify-center text-gray-600 font-mono text-xs">[OUTCOME TEXT]</div>
+            </div>
+            <div class="h-3 bg-gray-300 rounded w-24 flex items-center justify-center text-gray-600 font-mono text-xs">[LINK]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LABEL -->
+    <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+      SECTION 5 — STATS / NUMBERS
+    </div>
+
+    <!-- S5: STATS -->
+    <section class="bg-gray-50 border-b border-gray-200 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="text-center border border-gray-300 rounded-lg p-6">
+            <div class="h-16 bg-gray-300 rounded w-16 mx-auto mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[NUMBER]</div>
+            <div class="h-3 bg-gray-300 rounded w-24 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+          </div>
+          <div class="text-center border border-gray-300 rounded-lg p-6">
+            <div class="h-16 bg-gray-300 rounded w-16 mx-auto mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[NUMBER]</div>
+            <div class="h-3 bg-gray-300 rounded w-24 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+          </div>
+          <div class="text-center border border-gray-300 rounded-lg p-6">
+            <div class="h-16 bg-gray-300 rounded w-16 mx-auto mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[NUMBER]</div>
+            <div class="h-3 bg-gray-300 rounded w-24 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+          </div>
+          <div class="text-center border border-gray-300 rounded-lg p-6">
+            <div class="h-16 bg-gray-300 rounded w-16 mx-auto mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[NUMBER]</div>
+            <div class="h-3 bg-gray-300 rounded w-24 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+          </div>
+          <div class="text-center border border-gray-300 rounded-lg p-6">
+            <div class="h-16 bg-gray-300 rounded w-16 mx-auto mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[NUMBER]</div>
+            <div class="h-3 bg-gray-300 rounded w-24 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+          </div>
+          <div class="text-center border border-gray-300 rounded-lg p-6">
+            <div class="h-16 bg-gray-300 rounded w-16 mx-auto mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[NUMBER]</div>
+            <div class="h-3 bg-gray-300 rounded w-24 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LABEL -->
+    <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+      SECTION 6 — PORTFOLIO / CASE STUDIES (HORIZONTAL SCROLL)
+    </div>
+
+    <!-- S6: PORTFOLIO -->
+    <section class="bg-white border-b border-gray-200 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-12 bg-gray-300 rounded w-64 mx-auto mb-16 flex items-center justify-center text-gray-600 font-mono text-xs">[SECTION HEADING]</div>
+        <div class="overflow-x-auto flex gap-8 pb-4 snap-x snap-mandatory">
+          <div class="flex-shrink-0 w-96 border border-gray-300 rounded-lg p-6">
+            <div class="h-12 w-12 bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[LOGO]</div>
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[PROJECT]</div>
+            <div class="mb-6">
+              <div class="h-3 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+              <div class="space-y-2">
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+            </div>
+            <div class="h-10 bg-gray-900 rounded w-full flex items-center justify-center text-white font-mono text-xs">[BUTTON]</div>
+          </div>
+
+          <div class="flex-shrink-0 w-96 border border-gray-300 rounded-lg p-6">
+            <div class="h-12 w-12 bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[LOGO]</div>
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[PROJECT]</div>
+            <div class="mb-6">
+              <div class="h-3 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+              <div class="space-y-2">
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+            </div>
+            <div class="h-10 bg-gray-900 rounded w-full flex items-center justify-center text-white font-mono text-xs">[BUTTON]</div>
+          </div>
+
+          <div class="flex-shrink-0 w-96 border border-gray-300 rounded-lg p-6">
+            <div class="h-12 w-12 bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[LOGO]</div>
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[PROJECT]</div>
+            <div class="mb-6">
+              <div class="h-3 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+              <div class="space-y-2">
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+            </div>
+            <div class="h-10 bg-gray-900 rounded w-full flex items-center justify-center text-white font-mono text-xs">[BUTTON]</div>
+          </div>
+
+          <div class="flex-shrink-0 w-96 border border-gray-300 rounded-lg p-6">
+            <div class="h-12 w-12 bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[LOGO]</div>
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[PROJECT]</div>
+            <div class="mb-6">
+              <div class="h-3 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+              <div class="space-y-2">
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+                <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+              <div class="h-24 bg-gray-300 border border-dashed border-gray-400 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[IMG]</div>
+            </div>
+            <div class="h-10 bg-gray-900 rounded w-full flex items-center justify-center text-white font-mono text-xs">[BUTTON]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LABEL -->
+    <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+      SECTION 7 — HOW WE DO IT (PROCESS)
+    </div>
+
+    <!-- S7: HOW WE DO IT -->
+    <section class="bg-gray-50 border-b border-gray-200 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-12 bg-gray-300 rounded w-64 mx-auto mb-16 flex items-center justify-center text-gray-600 font-mono text-xs">[SECTION HEADING]</div>
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+          <!-- Step 1 -->
+          <div class="flex-1">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-900 mx-auto mb-6 bg-gray-300 text-gray-600 font-mono text-xs">[1]</div>
+            <div class="h-6 bg-gray-300 rounded w-24 mx-auto mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[STEP TITLE]</div>
+            <div class="space-y-2">
+              <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              <div class="h-2 bg-gray-300 rounded w-4/5 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="hidden md:flex items-center justify-center flex-shrink-0 h-12">
+            <span class="text-3xl text-gray-400">→</span>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex-1">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-900 mx-auto mb-6 bg-gray-300 text-gray-600 font-mono text-xs">[2]</div>
+            <div class="h-6 bg-gray-300 rounded w-24 mx-auto mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[STEP TITLE]</div>
+            <div class="space-y-2">
+              <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              <div class="h-2 bg-gray-300 rounded w-4/5 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="hidden md:flex items-center justify-center flex-shrink-0 h-12">
+            <span class="text-3xl text-gray-400">→</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex-1">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-900 mx-auto mb-6 bg-gray-300 text-gray-600 font-mono text-xs">[3]</div>
+            <div class="h-6 bg-gray-300 rounded w-24 mx-auto mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[STEP TITLE]</div>
+            <div class="space-y-2">
+              <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              <div class="h-2 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+              <div class="h-2 bg-gray-300 rounded w-4/5 mx-auto flex items-center justify-center text-gray-600 font-mono text-xs">[BULLET]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LABEL -->
+    <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+      SECTION 8 — FOUNDER NOTE
+    </div>
+
+    <!-- S8: FOUNDER NOTE -->
+    <section class="bg-white border-b border-gray-200 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="h-96 bg-gray-300 border border-dashed border-gray-400 rounded-lg flex items-center justify-center text-gray-600 font-mono text-sm">[FOUNDER PHOTO]</div>
+          </div>
+          <div>
+            <div class="h-8 bg-gray-300 rounded w-48 mb-6 flex items-center justify-center text-gray-600 font-mono text-xs">[SECTION HEADING]</div>
+            <div class="space-y-3 mb-8">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[PARAGRAPH]</div>
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[PARAGRAPH]</div>
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[PARAGRAPH]</div>
+              <div class="h-3 bg-gray-300 rounded w-4/5 flex items-center justify-center text-gray-600 font-mono text-xs">[PARAGRAPH]</div>
+            </div>
+            <div class="h-3 bg-gray-300 rounded w-16 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[NAME]</div>
+            <div class="h-2 bg-gray-300 rounded w-24 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[TITLE]</div>
+            <div class="h-1 bg-gray-300 rounded w-12 flex items-center justify-center text-gray-600 font-mono text-xs">[SIG]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LABEL -->
+    <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+      SECTION 9 — READY TO BLOOM? (CONTACT FORM)
+    </div>
+
+    <!-- S9: CONTACT CTA -->
+    <section class="bg-gray-50 border-b border-gray-200 py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-12 bg-gray-300 rounded w-80 mx-auto mb-16 flex items-center justify-center text-gray-600 font-mono text-xs">[SECTION HEADING]</div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Form -->
+          <div class="md:col-span-2 bg-white border border-gray-300 rounded-lg p-8">
+            <div class="space-y-6">
+              <div>
+                <div class="h-4 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+                <div class="h-10 bg-gray-200 border border-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[INPUT]</div>
+              </div>
+              <div>
+                <div class="h-4 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+                <div class="h-10 bg-gray-200 border border-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[INPUT]</div>
+              </div>
+              <div>
+                <div class="h-4 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+                <div class="h-10 bg-gray-200 border border-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[INPUT]</div>
+              </div>
+              <div>
+                <div class="h-4 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+                <div class="h-10 bg-gray-200 border border-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[SELECT]</div>
+              </div>
+              <div>
+                <div class="h-4 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+                <div class="h-10 bg-gray-200 border border-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[SELECT]</div>
+              </div>
+              <div>
+                <div class="h-4 bg-gray-300 rounded w-24 mb-3 flex items-center justify-center text-gray-600 font-mono text-xs">[LABEL]</div>
+                <div class="h-24 bg-gray-200 border border-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[TEXTAREA]</div>
+              </div>
+              <div class="h-10 bg-gray-900 rounded w-full flex items-center justify-center text-white font-mono text-xs">[SUBMIT BUTTON]</div>
+            </div>
+          </div>
+
+          <!-- Book a Call Card -->
+          <div class="bg-white border border-gray-300 rounded-lg p-8 h-fit">
+            <div class="h-6 bg-gray-300 rounded w-32 mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[HEADING]</div>
+            <div class="space-y-2 mb-6">
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-full flex items-center justify-center text-gray-600 font-mono text-xs">[TEXT]</div>
+              <div class="h-3 bg-gray-300 rounded w-3/4 flex items-center justify-center text-gray-600 font-mono text-xs">[TEXT]</div>
+            </div>
+            <div class="h-10 bg-gray-900 rounded w-full flex items-center justify-center text-white font-mono text-xs">[CTA BUTTON]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SECTION LABEL -->
+  <div class="bg-gray-100 py-2 px-4 text-xs text-gray-500 font-mono border-b border-gray-200">
+    FOOTER
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-gray-200 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Address Block -->
+        <div class="space-y-2">
+          <div class="h-4 bg-gray-300 rounded w-32 flex items-center justify-center text-gray-600 font-mono text-xs">[COMPANY NAME]</div>
+          <div class="h-3 bg-gray-300 rounded w-40 flex items-center justify-center text-gray-600 font-mono text-xs">[ADDRESS]</div>
+          <div class="h-3 bg-gray-300 rounded w-40 flex items-center justify-center text-gray-600 font-mono text-xs">[ADDRESS]</div>
+          <div class="h-3 bg-gray-300 rounded w-40 flex items-center justify-center text-gray-600 font-mono text-xs">[ADDRESS]</div>
+        </div>
+
+        <!-- Contact & Socials -->
+        <div class="text-center">
+          <div class="h-3 bg-gray-300 rounded w-48 mx-auto mb-4 flex items-center justify-center text-gray-600 font-mono text-xs">[EMAIL]</div>
+          <div class="flex justify-center gap-4">
+            <div class="w-6 h-6 bg-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[S]</div>
+            <div class="w-6 h-6 bg-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[S]</div>
+            <div class="w-6 h-6 bg-gray-300 rounded flex items-center justify-center text-gray-600 font-mono text-xs">[S]</div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-right">
+          <div class="h-3 bg-gray-300 rounded w-40 ml-auto flex items-center justify-center text-gray-600 font-mono text-xs">[COPYRIGHT]</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
