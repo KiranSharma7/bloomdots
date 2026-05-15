@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F0F0F0; padding: 20px 24px; }
+  .row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    width: 90px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+  .info { display: flex; flex-direction: column; gap: 2px; }
+  .name { font-size: 12px; font-weight: 600; color: #1A1A1A; }
+  .val  { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #888; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="card" style="box-shadow: 0 1px 4px rgba(0,0,0,0.07)"></div>
+    <div class="info">
+      <div class="name">shadow-sm</div>
+      <div class="val">0 1px 4px rgba(0,0,0,0.07)</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card" style="box-shadow: 0 2px 12px rgba(0,0,0,0.09)"></div>
+    <div class="info">
+      <div class="name">shadow-md</div>
+      <div class="val">0 2px 12px rgba(0,0,0,0.09)</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card" style="box-shadow: 0 8px 32px rgba(0,0,0,0.13)"></div>
+    <div class="info">
+      <div class="name">shadow-lg</div>
+      <div class="val">0 8px 32px rgba(0,0,0,0.13)</div>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom:0">
+    <div class="card" style="box-shadow: 0 20px 60px rgba(0,0,0,0.18)"></div>
+    <div class="info">
+      <div class="name">shadow-xl</div>
+      <div class="val">0 20px 60px rgba(0,0,0,0.18)</div>
+    </div>
+  </div>
+</body>
+</html>

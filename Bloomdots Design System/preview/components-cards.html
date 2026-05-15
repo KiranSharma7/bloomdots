@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F0F0F0; padding: 20px 24px; }
+  .row { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; align-items: flex-start; }
+  .label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; width: 100%; margin-bottom: 2px; }
+
+  /* Standard card */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    padding: 20px;
+    width: 180px;
+  }
+  .card-overline { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #E84E28; margin-bottom: 6px; }
+  .card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; color: #1A1A1A; line-height: 1.25; margin-bottom: 8px; }
+  .card-body  { font-size: 12px; color: #888; line-height: 1.6; }
+  .card-cta   { margin-top: 14px; font-size: 12px; font-weight: 600; color: #E84E28; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+
+  /* Colored card */
+  .card-orange { background: #E84E28; }
+  .card-orange .card-title { color: #fff; }
+  .card-orange .card-body  { color: rgba(255,255,255,0.75); }
+  .card-orange .card-cta   { color: #FAB72B; }
+
+  .card-blue { background: #29B9EA; }
+  .card-blue .card-title { color: #fff; }
+  .card-blue .card-body  { color: rgba(255,255,255,0.8); }
+  .card-blue .card-cta   { color: #fff; }
+
+  /* Dark card */
+  .card-dark { background: #1A1A1A; }
+  .card-dark .card-overline { color: #FAB72B; }
+  .card-dark .card-title { color: #F5F5F5; }
+  .card-dark .card-body  { color: #777; }
+  .card-dark .card-cta   { color: #F08165; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="label">Light · Orange · Blue · Dark</span>
+    <div class="card">
+      <div class="card-overline">Strategy</div>
+      <div class="card-title">Content that converts</div>
+      <div class="card-body">We build campaigns that move people from scroll to action.</div>
+      <a class="card-cta">Learn more →</a>
+    </div>
+    <div class="card card-orange">
+      <div class="card-title">Make your brand unskippable</div>
+      <div class="card-body">Bold content engineered for attention.</div>
+      <a class="card-cta">Get started →</a>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">Creative production</div>
+      <div class="card-body">Video, photo, copy — all in one place.</div>
+      <a class="card-cta">See our work →</a>
+    </div>
+    <div class="card card-dark">
+      <div class="card-overline">Agency</div>
+      <div class="card-title">Your partner in bold</div>
+      <div class="card-body">From brief to final cut, we've got you.</div>
+      <a class="card-cta">Meet the team →</a>
+    </div>
+  </div>
+</body>
+</html>

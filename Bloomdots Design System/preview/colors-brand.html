@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #fff; padding: 20px 24px 24px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .swatch-group { display: flex; flex-direction: column; gap: 6px; }
+  .swatch-main {
+    height: 72px;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    padding: 8px 10px;
+  }
+  .swatch-hex {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.85);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .swatch-hex.dark { color: rgba(0,0,0,0.45); }
+  .name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1A1A1A;
+    letter-spacing: 0.02em;
+  }
+  .role {
+    font-size: 11px;
+    color: #888;
+  }
+  .mini-row { display: flex; gap: 4px; margin-top: 4px; }
+  .mini { height: 16px; flex: 1; border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="swatch-group">
+    <div class="swatch-main" style="background:#E84E28">
+      <span class="swatch-hex">#E84E28</span>
+    </div>
+    <div class="name">Bloom Orange</div>
+    <div class="role">Brand Primary</div>
+    <div class="mini-row">
+      <div class="mini" style="background:#FDF0EC"></div>
+      <div class="mini" style="background:#FAD5C9"></div>
+      <div class="mini" style="background:#F5AC97"></div>
+      <div class="mini" style="background:#F08165"></div>
+      <div class="mini" style="background:#E84E28"></div>
+      <div class="mini" style="background:#D1401C"></div>
+      <div class="mini" style="background:#922A10"></div>
+      <div class="mini" style="background:#4E1507"></div>
+    </div>
+  </div>
+  <div class="swatch-group">
+    <div class="swatch-main" style="background:#29B9EA">
+      <span class="swatch-hex">#29B9EA</span>
+    </div>
+    <div class="name">Bloom Blue</div>
+    <div class="role">Brand Secondary</div>
+    <div class="mini-row">
+      <div class="mini" style="background:#E8F7FD"></div>
+      <div class="mini" style="background:#C5EAFA"></div>
+      <div class="mini" style="background:#8DD7F5"></div>
+      <div class="mini" style="background:#55C3F0"></div>
+      <div class="mini" style="background:#29B9EA"></div>
+      <div class="mini" style="background:#1AA3D4"></div>
+      <div class="mini" style="background:#0C6E91"></div>
+      <div class="mini" style="background:#053A4E"></div>
+    </div>
+  </div>
+  <div class="swatch-group">
+    <div class="swatch-main" style="background:#FAB72B">
+      <span class="swatch-hex dark">#FAB72B</span>
+    </div>
+    <div class="name">Bloom Amber</div>
+    <div class="role">Brand Accent</div>
+    <div class="mini-row">
+      <div class="mini" style="background:#FEF9EC"></div>
+      <div class="mini" style="background:#FDEFC9"></div>
+      <div class="mini" style="background:#FBDF93"></div>
+      <div class="mini" style="background:#FAD05D"></div>
+      <div class="mini" style="background:#FAB72B"></div>
+      <div class="mini" style="background:#E09F14"></div>
+      <div class="mini" style="background:#966809"></div>
+      <div class="mini" style="background:#4D3502"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

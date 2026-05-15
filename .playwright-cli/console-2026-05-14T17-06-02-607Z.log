@@ -1,0 +1,15 @@
+[     371ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    1272ms] [LOG] %c●%c●%c●%c  BloomDots. Make Your Brand Unskippable.
+%cNice. You opened the console, that is exactly the kind of curious we build for. color:#FAB72B;font-size:15px color:#29B9EA;font-size:15px color:#E84E28;font-size:15px color:#f5f1e8;font-size:13px;font-weight:700 color:#888;font-size:12px @ http://localhost:8765/index.html:4128
+[    4066ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8765/favicon.ico:0
+[   56316ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[   57376ms] [LOG] %c●%c●%c●%c  BloomDots. Make Your Brand Unskippable.
+%cNice. You opened the console, that is exactly the kind of curious we build for. color:#FAB72B;font-size:15px color:#29B9EA;font-size:15px color:#E84E28;font-size:15px color:#f5f1e8;font-size:13px;font-weight:700 color:#888;font-size:12px @ http://localhost:8765/index.html:4139
+[  107905ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[  108516ms] [LOG] %c●%c●%c●%c  BloomDots. Make Your Brand Unskippable.
+%cNice. You opened the console, that is exactly the kind of curious we build for. color:#FAB72B;font-size:15px color:#29B9EA;font-size:15px color:#E84E28;font-size:15px color:#f5f1e8;font-size:13px;font-weight:700 color:#888;font-size:12px @ http://localhost:8765/index.html:4139
+[  160228ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[  160706ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: http://localhost:8765/Bloomdots%20Design%20System/fonts/Canela-Bold-Trial.otf @ http://localhost:8765/index.html:3241
+[  160707ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: http://localhost:8765/Bloomdots%20Design%20System/fonts/Canela-BoldItalic-Trial.otf @ http://localhost:8765/index.html:3241
+[  161062ms] [LOG] %c●%c●%c●%c  BloomDots. Make Your Brand Unskippable.
+%cNice. You opened the console, that is exactly the kind of curious we build for. color:#FAB72B;font-size:15px color:#29B9EA;font-size:15px color:#E84E28;font-size:15px color:#f5f1e8;font-size:13px;font-weight:700 color:#888;font-size:12px @ http://localhost:8765/index.html:4139

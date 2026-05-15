@@ -1,0 +1,401 @@
+/**
+ * Bloomdots Design System — CSS Custom Properties
+ * colors_and_type.css
+ *
+ * Usage: <link rel="stylesheet" href="colors_and_type.css">
+ * Dark theme: add class="dark" or data-theme="dark" to <html>
+ */
+
+/* ─── Brand Fonts: Satoshi ──────────────────────────────────────── */
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-LightItalic.otf') format('opentype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Italic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-MediumItalic.otf') format('opentype'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-BoldItalic.otf') format('opentype'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Black.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-BlackItalic.otf') format('opentype'); font-weight: 900; font-style: italic; font-display: swap; }
+
+/* ─── Brand Fonts: Canela (Display / Editorial) ─────────────────── */
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-Thin-Trial.otf') format('opentype'); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-ThinItalic-Trial.otf') format('opentype'); font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-Light-Trial.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-LightItalic-Trial.otf') format('opentype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-Regular-Trial.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-RegularItalic-Trial.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-Medium-Trial.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-MediumItalic-Trial.otf') format('opentype'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-Bold-Trial.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-BoldItalic-Trial.otf') format('opentype'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-Black-Trial.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela'; src: url('fonts/Canela-BlackItalic-Trial.otf') format('opentype'); font-weight: 900; font-style: italic; font-display: swap; }
+
+/* ─── Supplemental: JetBrains Mono (mono/code only) ─────────────── */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── Brand Color Primitives ────────────────────────────────────── */
+:root {
+  /* Bloom Blue scale */
+  --bd-blue-50:  #E8F7FD;
+  --bd-blue-100: #C5EAFA;
+  --bd-blue-200: #8DD7F5;
+  --bd-blue-300: #55C3F0;
+  --bd-blue-400: #29B9EA;   /* ← Brand Blue */
+  --bd-blue-500: #1AA3D4;
+  --bd-blue-600: #1188B2;
+  --bd-blue-700: #0C6E91;
+  --bd-blue-800: #095570;
+  --bd-blue-900: #053A4E;
+
+  /* Bloom Orange scale */
+  --bd-orange-50:  #FDF0EC;
+  --bd-orange-100: #FAD5C9;
+  --bd-orange-200: #F5AC97;
+  --bd-orange-300: #F08165;
+  --bd-orange-400: #E84E28;   /* ← Brand Orange */
+  --bd-orange-500: #D1401C;
+  --bd-orange-600: #B23516;
+  --bd-orange-700: #922A10;
+  --bd-orange-800: #72200C;
+  --bd-orange-900: #4E1507;
+
+  /* Bloom Amber scale */
+  --bd-amber-50:  #FEF9EC;
+  --bd-amber-100: #FDEFC9;
+  --bd-amber-200: #FBDF93;
+  --bd-amber-300: #FAD05D;
+  --bd-amber-400: #FAB72B;   /* ← Brand Amber */
+  --bd-amber-500: #E09F14;
+  --bd-amber-600: #BC840F;
+  --bd-amber-700: #966809;
+  --bd-amber-800: #724F05;
+  --bd-amber-900: #4D3502;
+
+  /* Neutral scale */
+  --bd-neutral-0:   #FFFFFF;
+  --bd-neutral-50:  #F7F7F7;
+  --bd-neutral-100: #EFEFEF;
+  --bd-neutral-200: #E2E2E2;
+  --bd-neutral-300: #CBCBCB;
+  --bd-neutral-400: #ABABAB;
+  --bd-neutral-500: #888888;
+  --bd-neutral-600: #636363;
+  --bd-neutral-700: #444444;
+  --bd-neutral-800: #2B2B2B;
+  --bd-neutral-900: #1A1A1A;
+  --bd-neutral-950: #111111;
+}
+
+/* ─── Light Theme (Default) ─────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Brand accents */
+  --color-brand-primary:   var(--bd-orange-400);
+  --color-brand-secondary: var(--bd-blue-400);
+  --color-brand-accent:    var(--bd-amber-400);
+
+  /* Backgrounds */
+  --color-bg:         var(--bd-neutral-0);
+  --color-bg-surface: var(--bd-neutral-50);
+  --color-bg-raised:  var(--bd-neutral-100);
+  --color-bg-overlay: rgba(0, 0, 0, 0.04);
+
+  /* Foregrounds */
+  --color-fg:         var(--bd-neutral-950);
+  --color-fg-1:       var(--bd-neutral-900);
+  --color-fg-2:       var(--bd-neutral-700);
+  --color-fg-3:       var(--bd-neutral-500);
+  --color-fg-disabled: var(--bd-neutral-400);
+  --color-fg-on-brand: #FFFFFF;
+
+  /* Borders */
+  --color-border:         var(--bd-neutral-200);
+  --color-border-strong:  var(--bd-neutral-300);
+  --color-border-subtle:  var(--bd-neutral-100);
+
+  /* Semantic / Interactive */
+  --color-interactive:        var(--bd-orange-400);
+  --color-interactive-hover:  var(--bd-orange-500);
+  --color-interactive-press:  var(--bd-orange-600);
+  --color-link:               var(--bd-blue-500);
+  --color-link-hover:         var(--bd-blue-600);
+  --color-focus-ring:         rgba(41, 185, 234, 0.35);
+
+  /* Status */
+  --color-success:  #1B9E5B;
+  --color-warning:  var(--bd-amber-500);
+  --color-error:    #D0291C;
+  --color-info:     var(--bd-blue-500);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.09);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.13);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+/* ─── Dark Theme ────────────────────────────────────────────────── */
+[data-theme="dark"],
+.dark {
+  color-scheme: dark;
+
+  /* Brand accents — slightly lighter for dark bg legibility */
+  --color-brand-primary:   var(--bd-orange-300);
+  --color-brand-secondary: var(--bd-blue-300);
+  --color-brand-accent:    var(--bd-amber-300);
+
+  /* Backgrounds */
+  --color-bg:         #111111;
+  --color-bg-surface: #1A1A1A;
+  --color-bg-raised:  #242424;
+  --color-bg-overlay: rgba(255, 255, 255, 0.04);
+
+  /* Foregrounds */
+  --color-fg:         #F5F5F5;
+  --color-fg-1:       #EDEDED;
+  --color-fg-2:       #B0B0B0;
+  --color-fg-3:       #777777;
+  --color-fg-disabled: #555555;
+  --color-fg-on-brand: #FFFFFF;
+
+  /* Borders */
+  --color-border:        #2E2E2E;
+  --color-border-strong: #3E3E3E;
+  --color-border-subtle: #222222;
+
+  /* Semantic / Interactive */
+  --color-interactive:       var(--bd-orange-300);
+  --color-interactive-hover: var(--bd-orange-200);
+  --color-interactive-press: var(--bd-orange-400);
+  --color-link:              var(--bd-blue-300);
+  --color-link-hover:        var(--bd-blue-200);
+  --color-focus-ring:        rgba(85, 195, 240, 0.4);
+
+  /* Status */
+  --color-success:  #3DC87A;
+  --color-warning:  var(--bd-amber-400);
+  --color-error:    #F04438;
+  --color-info:     var(--bd-blue-300);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* ─── Typography ─────────────────────────────────────────────────── */
+:root {
+  /* Font families
+   * Canela  → Display & editorial headlines (high-contrast serif)
+   * Satoshi → Headings, body, UI (geometric sans)
+   * JetBrains Mono → Code / technical use only
+   */
+  --font-display: 'Canela',  serif;
+  --font-heading: 'Satoshi', sans-serif;
+  --font-body:    'Satoshi', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Font weights — Satoshi & Canela: 100 Thin · 300 Light · 400 Regular · 500 Medium · 700 Bold · 900 Black */
+  --fw-thin:       100;
+  --fw-light:      300;
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-semibold:   700;   /* maps to Bold — no 600 in either family */
+  --fw-bold:       700;
+  --fw-extrabold:  900;   /* maps to Black */
+
+  /* Type scale — major third (1.25×) */
+  --text-xs:   0.64rem;   /*  ~10px */
+  --text-sm:   0.8rem;    /*  ~13px */
+  --text-base: 1rem;      /*   16px */
+  --text-md:   1.25rem;   /*   20px */
+  --text-lg:   1.563rem;  /*   25px */
+  --text-xl:   1.953rem;  /*  ~31px */
+  --text-2xl:  2.441rem;  /*  ~39px */
+  --text-3xl:  3.052rem;  /*  ~49px */
+  --text-4xl:  3.815rem;  /*  ~61px */
+  --text-5xl:  4.768rem;  /*  ~76px */
+
+  /* Line heights */
+  --lh-tight:   1.1;
+  --lh-snug:    1.25;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.65;
+  --lh-loose:   1.8;
+
+  /* Letter spacing */
+  --ls-tight:   -0.02em;
+  --ls-snug:    -0.01em;
+  --ls-normal:  0;
+  --ls-wide:    0.04em;
+  --ls-wider:   0.08em;
+  --ls-widest:  0.12em;
+}
+
+/* ─── Semantic Type Styles ──────────────────────────────────────── */
+:root {
+  /* Display — hero-level text */
+  --type-display-font:    var(--font-display);
+  --type-display-size:    var(--text-5xl);
+  --type-display-weight:  var(--fw-extrabold);
+  --type-display-lh:      var(--lh-tight);
+  --type-display-ls:      var(--ls-tight);
+
+  /* H1 */
+  --type-h1-font:   var(--font-heading);
+  --type-h1-size:   var(--text-4xl);
+  --type-h1-weight: var(--fw-bold);
+  --type-h1-lh:     var(--lh-tight);
+  --type-h1-ls:     var(--ls-snug);
+
+  /* H2 */
+  --type-h2-font:   var(--font-heading);
+  --type-h2-size:   var(--text-3xl);
+  --type-h2-weight: var(--fw-bold);
+  --type-h2-lh:     var(--lh-snug);
+  --type-h2-ls:     var(--ls-snug);
+
+  /* H3 */
+  --type-h3-font:   var(--font-heading);
+  --type-h3-size:   var(--text-2xl);
+  --type-h3-weight: var(--fw-semibold);
+  --type-h3-lh:     var(--lh-snug);
+  --type-h3-ls:     var(--ls-snug);
+
+  /* H4 */
+  --type-h4-font:   var(--font-heading);
+  --type-h4-size:   var(--text-xl);
+  --type-h4-weight: var(--fw-semibold);
+  --type-h4-lh:     var(--lh-normal);
+  --type-h4-ls:     0;
+
+  /* Lead / intro paragraph */
+  --type-lead-font:   var(--font-body);
+  --type-lead-size:   var(--text-md);
+  --type-lead-weight: var(--fw-regular);
+  --type-lead-lh:     var(--lh-relaxed);
+  --type-lead-ls:     0;
+
+  /* Body */
+  --type-body-font:   var(--font-body);
+  --type-body-size:   var(--text-base);
+  --type-body-weight: var(--fw-regular);
+  --type-body-lh:     var(--lh-relaxed);
+  --type-body-ls:     0;
+
+  /* Small / caption */
+  --type-small-font:   var(--font-body);
+  --type-small-size:   var(--text-sm);
+  --type-small-weight: var(--fw-regular);
+  --type-small-lh:     var(--lh-normal);
+  --type-small-ls:     0;
+
+  /* Label — UI elements */
+  --type-label-font:   var(--font-body);
+  --type-label-size:   var(--text-sm);
+  --type-label-weight: var(--fw-medium);
+  --type-label-lh:     1;
+  --type-label-ls:     var(--ls-wide);
+
+  /* Overline */
+  --type-overline-font:   var(--font-body);
+  --type-overline-size:   var(--text-xs);
+  --type-overline-weight: var(--fw-semibold);
+  --type-overline-lh:     1;
+  --type-overline-ls:     var(--ls-widest);
+
+  /* Mono */
+  --type-mono-font:   var(--font-mono);
+  --type-mono-size:   0.9em;
+  --type-mono-weight: var(--fw-regular);
+  --type-mono-lh:     var(--lh-normal);
+}
+
+/* ─── Spacing Tokens ─────────────────────────────────────────────── */
+:root {
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+}
+
+/* ─── Border Radius Tokens ──────────────────────────────────────── */
+:root {
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-pill: 999px;
+  --radius-full: 50%;
+}
+
+/* ─── Utility Base Classes ──────────────────────────────────────── */
+.bd-display {
+  font-family: var(--type-display-font);
+  font-size:   var(--type-display-size);
+  font-weight: var(--type-display-weight);
+  line-height: var(--type-display-lh);
+  letter-spacing: var(--type-display-ls);
+}
+.bd-h1 {
+  font-family: var(--type-h1-font);
+  font-size:   var(--type-h1-size);
+  font-weight: var(--type-h1-weight);
+  line-height: var(--type-h1-lh);
+  letter-spacing: var(--type-h1-ls);
+}
+.bd-h2 {
+  font-family: var(--type-h2-font);
+  font-size:   var(--type-h2-size);
+  font-weight: var(--type-h2-weight);
+  line-height: var(--type-h2-lh);
+  letter-spacing: var(--type-h2-ls);
+}
+.bd-h3 {
+  font-family: var(--type-h3-font);
+  font-size:   var(--type-h3-size);
+  font-weight: var(--type-h3-weight);
+  line-height: var(--type-h3-lh);
+  letter-spacing: var(--type-h3-ls);
+}
+.bd-h4 {
+  font-family: var(--type-h4-font);
+  font-size:   var(--type-h4-size);
+  font-weight: var(--type-h4-weight);
+  line-height: var(--type-h4-lh);
+  letter-spacing: var(--type-h4-ls);
+}
+.bd-lead  { font-family: var(--type-lead-font);  font-size: var(--type-lead-size);  font-weight: var(--type-lead-weight);  line-height: var(--type-lead-lh); }
+.bd-body  { font-family: var(--type-body-font);  font-size: var(--type-body-size);  font-weight: var(--type-body-weight);  line-height: var(--type-body-lh); }
+.bd-small { font-family: var(--type-small-font); font-size: var(--type-small-size); font-weight: var(--type-small-weight); line-height: var(--type-small-lh); }
+.bd-label {
+  font-family: var(--type-label-font);
+  font-size:   var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  line-height: var(--type-label-lh);
+  letter-spacing: var(--type-label-ls);
+  text-transform: uppercase;
+}
+.bd-overline {
+  font-family: var(--type-overline-font);
+  font-size:   var(--type-overline-size);
+  font-weight: var(--type-overline-weight);
+  line-height: var(--type-overline-lh);
+  letter-spacing: var(--type-overline-ls);
+  text-transform: uppercase;
+}

@@ -1,0 +1,22 @@
+[     365ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Kalpana%20Pachhai.jpg:0
+[     371ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Nimmi%20Thapa.jpg:0
+[     379ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Rakshak%20Karki.jpg:0
+[     392ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Shristi%20Kharel.jpg:0
+[     973ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[     975ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Sanjay%20Thakuri.jpg:0
+[    1184ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Yujan%20Silwal.jpg:0
+[    1185ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Rahul%20Ghamal.jpg:0
+[    1185ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Adit%20Thapa.jpg:0
+[    1186ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Bhavana%20Poudel.jpg:0
+[    1186ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Anjila%20Thapa.jpg:0
+[    1313ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Shristi%20Kharel.jpg:0
+[    1314ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Rakshak%20Karki.jpg:0
+[    1314ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Yujan%20Silwal.jpg:0
+[    1315ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Bhavana%20Poudel.jpg:0
+[    1315ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Sanjay%20Thakuri.jpg:0
+[    1316ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Anjila%20Thapa.jpg:0
+[    1316ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Kalpana%20Pachhai.jpg:0
+[    1317ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Rahul%20Ghamal.jpg:0
+[    1317ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Nimmi%20Thapa.jpg:0
+[    1318ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/Team-members/Adit%20Thapa.jpg:0
+[    4499ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8765/favicon.ico:0

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F7F7F7; padding: 24px; }
+  .row { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .logo-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    background: #fff; border-radius: 12px; padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .logo-wrap.dark { background: #111; }
+  .logo-wrap.orange-bg { background: #E84E28; }
+  .logo-wrap.blue-bg { background: #29B9EA; }
+  img.logo { width: 64px; height: 64px; object-fit: contain; }
+  .bg-label { font-size: 10px; color: #aaa; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+  .bg-label.light { color: rgba(255,255,255,0.65); }
+
+  .wordmark {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: #1A1A1A;
+    display: flex; align-items: center; gap: 2px;
+  }
+  .wordmark .dot-b { color: #E84E28; }
+  .wordmark .dot-d { color: #29B9EA; }
+  .wordmark.light { color: #fff; }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="logo-wrap">
+    <img class="logo" src="../assets/logo.jpeg" alt="Bloomdots mark">
+    <span class="bg-label">Light bg</span>
+  </div>
+  <div class="logo-wrap dark">
+    <img class="logo" src="../assets/logo.jpeg" alt="Bloomdots mark" style="filter:brightness(1.05)">
+    <span class="bg-label light">Dark bg</span>
+  </div>
+  <div class="logo-wrap" style="gap:12px; padding: 20px 28px;">
+    <div class="wordmark"><span class="dot-b">Bloom</span><span class="dot-d">dots</span></div>
+    <span class="bg-label">Wordmark (typeset)</span>
+  </div>
+  <div class="logo-wrap orange-bg">
+    <img class="logo" src="../assets/logo.jpeg" alt="Bloomdots mark" style="filter:brightness(1.1) saturate(0.2) invert(1)">
+    <span class="bg-label light">Orange bg</span>
+  </div>
+</div>
+</body>
+</html>

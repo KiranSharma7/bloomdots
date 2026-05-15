@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-12T00:00:00Z",
+  "title": "Design System: Bloomdots",
+  "extensions": {
+    "colorMeta": {
+      "bloom-orange":       { "role": "primary",   "displayName": "Bloom Orange",       "canonical": "#E84E28", "tonalRamp": ["#4E1507","#722010","#921A10","#B23516","#D1401C","#E84E28","#F08165","#F5AC97","#FAD5C9","#FDF0EC"] },
+      "bloom-orange-hover": { "role": "primary",   "displayName": "Bloom Orange Hover", "canonical": "#D1401C", "tonalRamp": ["#4E1507","#722010","#921A10","#B23516","#D1401C","#E84E28","#F08165","#F5AC97","#FAD5C9","#FDF0EC"] },
+      "bloom-orange-press": { "role": "primary",   "displayName": "Bloom Orange Press", "canonical": "#B23516", "tonalRamp": ["#4E1507","#722010","#921A10","#B23516","#D1401C","#E84E28","#F08165","#F5AC97","#FAD5C9","#FDF0EC"] },
+      "bloom-blue":         { "role": "secondary", "displayName": "Bloom Blue",         "canonical": "#29B9EA", "tonalRamp": ["#053A4E","#095570","#0C6E91","#1188B2","#1AA3D4","#29B9EA","#55C3F0","#8DD7F5","#C5EAFA","#E8F7FD"] },
+      "bloom-blue-hover":   { "role": "secondary", "displayName": "Bloom Blue Hover",   "canonical": "#1AA3D4", "tonalRamp": ["#053A4E","#095570","#0C6E91","#1188B2","#1AA3D4","#29B9EA","#55C3F0","#8DD7F5","#C5EAFA","#E8F7FD"] },
+      "bloom-amber":        { "role": "tertiary",  "displayName": "Bloom Amber",        "canonical": "#FAB72B", "tonalRamp": ["#4D3502","#724F05","#966809","#BC840F","#E09F14","#FAB72B","#FAD05D","#FBDF93","#FDEFC9","#FEF9EC"] },
+      "neutral-white":      { "role": "neutral",   "displayName": "Near-White Canvas",  "canonical": "#FFFFFF", "tonalRamp": ["#1A1A1A","#2B2B2B","#444444","#636363","#888888","#ABABAB","#CBCBCB","#E2E2E2","#EFEFEF","#F7F7F7"] },
+      "neutral-surface":    { "role": "neutral",   "displayName": "Ash Surface",        "canonical": "#F7F7F7", "tonalRamp": ["#1A1A1A","#2B2B2B","#444444","#636363","#888888","#ABABAB","#CBCBCB","#E2E2E2","#EFEFEF","#F7F7F7"] },
+      "neutral-fg":         { "role": "neutral",   "displayName": "Rich Ink",           "canonical": "#1A1A1A", "tonalRamp": ["#111111","#1A1A1A","#2B2B2B","#444444","#636363","#888888","#ABABAB","#CBCBCB","#E2E2E2","#F7F7F7"] },
+      "dark-bg":            { "role": "neutral",   "displayName": "Dark Canvas",        "canonical": "#111111", "tonalRamp": ["#111111","#1A1A1A","#242424","#2E2E2E","#3E3E3E","#555555","#777777","#B0B0B0","#EDEDED","#F5F5F5"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Hero headlines only. One per screen. Canela Black 900." },
+      "headline": { "displayName": "Headline", "purpose": "Section-opening statements. H1 on interior pages." },
+      "title":    { "displayName": "Title",    "purpose": "Section headers, feature names. H2." },
+      "body":     { "displayName": "Body",     "purpose": "All prose. Max 65–75ch line length." },
+      "label":    { "displayName": "Label",    "purpose": "Button text, nav items, UI labels. Uppercase + tracking." },
+      "overline": { "displayName": "Overline", "purpose": "Category labels above card titles. Always uppercase." }
+    },
+    "shadows": [
+      { "name": "shadow-sm", "value": "0 1px 4px rgba(0,0,0,0.07)",  "purpose": "Small controls: dropdowns, tooltips." },
+      { "name": "shadow-md", "value": "0 2px 12px rgba(0,0,0,0.09)", "purpose": "Card hover state, modals, floating panels." },
+      { "name": "shadow-lg", "value": "0 8px 32px rgba(0,0,0,0.13)", "purpose": "Lifted card (hover + translateY(-2px)), drawers, sticky headers." },
+      { "name": "shadow-xl", "value": "0 20px 60px rgba(0,0,0,0.18)","purpose": "Full-screen overlays, feature spotlights." }
+    ],
+    "motion": [
+      { "name": "ease-enter",  "value": "cubic-bezier(0.0, 0.0, 0.2, 1.0)", "purpose": "Entrance transitions (ease-out). Fade-up entrances." },
+      { "name": "ease-state",  "value": "cubic-bezier(0.4, 0.0, 0.2, 1.0)", "purpose": "State changes (ease-in-out). Colour transitions, border shifts." },
+      { "name": "duration-micro",  "value": "200ms", "purpose": "Micro-interactions: hover colour, press scale." },
+      { "name": "duration-layout", "value": "400ms", "purpose": "Layout-level transitions: card lifts, panel open/close." }
+    ],
+    "breakpoints": [
+      { "name": "sm",  "value": "640px" },
+      { "name": "md",  "value": "768px" },
+      { "name": "lg",  "value": "1024px" },
+      { "name": "xl",  "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The dominant CTA. Bloom Orange fill, Satoshi Bold label, 8px radius.",
+      "html": "<button class=\"ds-btn-primary\">GET STARTED</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; font-family: 'Satoshi', system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: #E84E28; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; cursor: pointer; text-decoration: none; transition: background 0.18s ease-out, transform 0.18s ease-out; } .ds-btn-primary:hover { background: #D1401C; transform: translateY(-1px); } .ds-btn-primary:active { background: #B23516; transform: scale(0.97); transition: none; } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(41,185,234,0.4); }"
+    },
+    {
+      "name": "Secondary Button (Blue)",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Bloom Blue fill. Secondary call to action alongside Orange primary.",
+      "html": "<button class=\"ds-btn-secondary\">LEARN MORE</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; font-family: 'Satoshi', system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: #29B9EA; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; cursor: pointer; transition: background 0.18s ease-out, transform 0.18s ease-out; } .ds-btn-secondary:hover { background: #1AA3D4; transform: translateY(-1px); } .ds-btn-secondary:active { background: #1188B2; transform: scale(0.97); transition: none; } .ds-btn-secondary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(41,185,234,0.4); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Transparent fill, 2px Bloom Orange border. Tertiary CTA on light surfaces.",
+      "html": "<button class=\"ds-btn-outline\">OUR SERVICES</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; font-family: 'Satoshi', system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: transparent; color: #E84E28; border: 2px solid #E84E28; border-radius: 8px; padding: 9px 19px; cursor: pointer; transition: background 0.18s ease-out, color 0.18s ease-out; } .ds-btn-outline:hover { background: #E84E28; color: #fff; } .ds-btn-outline:active { background: #D1401C; border-color: #D1401C; transform: scale(0.97); transition: none; } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(41,185,234,0.4); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Transparent fill, Stone Border. Quiet secondary action on light surfaces.",
+      "html": "<button class=\"ds-btn-ghost\">READ MORE</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; font-family: 'Satoshi', system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: transparent; color: #1A1A1A; border: 2px solid #E2E2E2; border-radius: 8px; padding: 9px 19px; cursor: pointer; transition: border-color 0.18s ease-out, color 0.18s ease-out; } .ds-btn-ghost:hover { border-color: #CBCBCB; color: #444; } .ds-btn-ghost:active { transform: scale(0.97); transition: none; } .ds-btn-ghost:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(41,185,234,0.4); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Standard text field. Stone Border at rest, Bloom Blue focus glow.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\">Brand name</label><input class=\"ds-input\" type=\"text\" placeholder=\"e.g. Bloomdots\"><span class=\"ds-field-hint\">How your brand appears publicly</span></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 5px; } .ds-field-label { font-family: 'Satoshi', system-ui, sans-serif; font-size: 11px; font-weight: 500; color: #444; } .ds-field-hint { font-family: 'Satoshi', system-ui, sans-serif; font-size: 10px; color: #ABABAB; } .ds-input { font-family: 'Satoshi', system-ui, sans-serif; font-size: 13px; font-weight: 400; color: #1A1A1A; background: #fff; border: 1.5px solid #E2E2E2; border-radius: 8px; padding: 9px 12px; outline: none; width: 100%; transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out; } .ds-input::placeholder { color: #ABABAB; } .ds-input:focus { border-color: #29B9EA; box-shadow: 0 0 0 3px rgba(41,185,234,0.15); } .ds-input.error { border-color: #D0291C; } .ds-input.success { border-color: #1B9E5B; }"
+    },
+    {
+      "name": "Standard Card (Light)",
+      "kind": "card",
+      "refersTo": null,
+      "description": "White card with overline, title, body, and CTA link. Lifts on hover.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-overline\">Strategy</div><div class=\"ds-card-title\">Content that converts</div><div class=\"ds-card-body\">We build campaigns that move people from scroll to action.</div><a class=\"ds-card-cta\">Learn more →</a></div>",
+      "css": ".ds-card { background: #fff; border-radius: 12px; box-shadow: none; padding: 20px; width: 200px; transition: box-shadow 0.2s ease-out, transform 0.2s ease-out; } .ds-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.13); transform: translateY(-2px); } .ds-card-overline { font-family: 'Satoshi', system-ui, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #E84E28; margin-bottom: 6px; } .ds-card-title { font-family: 'Satoshi', system-ui, sans-serif; font-size: 15px; font-weight: 700; color: #1A1A1A; line-height: 1.25; margin-bottom: 8px; } .ds-card-body { font-family: 'Satoshi', system-ui, sans-serif; font-size: 12px; color: #888; line-height: 1.6; } .ds-card-cta { margin-top: 14px; display: flex; align-items: center; gap: 4px; font-family: 'Satoshi', system-ui, sans-serif; font-size: 12px; font-weight: 700; color: #E84E28; text-decoration: none; }"
+    },
+    {
+      "name": "Brand Card (Orange)",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Full Bloom Orange surface card. Used for emphasis, not repetition.",
+      "html": "<div class=\"ds-card-brand-orange\"><div class=\"ds-card-title\">Make your brand unskippable</div><div class=\"ds-card-body\">Bold content engineered for attention.</div><a class=\"ds-card-cta\">Get started →</a></div>",
+      "css": ".ds-card-brand-orange { background: #E84E28; border-radius: 12px; padding: 20px; width: 200px; transition: box-shadow 0.2s ease-out, transform 0.2s ease-out; } .ds-card-brand-orange:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.2); transform: translateY(-2px); } .ds-card-brand-orange .ds-card-title { font-family: 'Satoshi', system-ui, sans-serif; font-size: 15px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 8px; } .ds-card-brand-orange .ds-card-body { font-family: 'Satoshi', system-ui, sans-serif; font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.6; } .ds-card-brand-orange .ds-card-cta { margin-top: 14px; display: flex; align-items: center; gap: 4px; font-family: 'Satoshi', system-ui, sans-serif; font-size: 12px; font-weight: 700; color: #FAB72B; text-decoration: none; }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "badge-orange",
+      "description": "Pill-shaped status indicator. Orange tint variant shown.",
+      "html": "<span class=\"ds-badge ds-badge-orange\"><span class=\"ds-badge-dot\"></span> Active</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 4px; font-family: 'Satoshi', system-ui, sans-serif; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.02em; white-space: nowrap; } .ds-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.6; flex-shrink: 0; } .ds-badge-orange { background: #FDF0EC; color: #B23516; } .ds-badge-blue { background: #E8F7FD; color: #1188B2; } .ds-badge-amber { background: #FEF9EC; color: #966809; } .ds-badge-green { background: #E8F6EF; color: #1B9E5B; } .ds-badge-neutral { background: #EFEFEF; color: #636363; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip-default",
+      "description": "Rounded-rectangle filter chip. Default and selected (orange) states.",
+      "html": "<div style=\"display:flex;gap:8px;\"><span class=\"ds-chip ds-chip-selected\">All Work</span><span class=\"ds-chip\">Video</span><span class=\"ds-chip\">Photography</span></div>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; font-family: 'Satoshi', system-ui, sans-serif; font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 8px; background: #fff; border: 1.5px solid #E2E2E2; color: #1A1A1A; cursor: pointer; transition: background 0.15s ease-out, border-color 0.15s ease-out, color 0.15s ease-out; } .ds-chip:hover { border-color: #CBCBCB; } .ds-chip-selected { background: #E84E28; color: #fff; border-color: #E84E28; } .ds-chip-selected:hover { background: #D1401C; border-color: #D1401C; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Vivid Collaborator",
+    "overview": "Bloomdots is not a broadcaster who shouts. It is the creative partner that stands next to the brand and helps it speak with a voice it did not know it had. Warmth and momentum are the twin poles: every surface should feel alive without feeling loud, confident without arrogance, kinetic without chaos. The system earns attention through colour conviction and typographic contrast, then holds it with honest, direct craft.\n\nThe palette is a tri-primary: Bloom Orange carries heat and cultural sharpness, Bloom Blue carries structure and trust, Bloom Amber carries optimism and spotlight. The three are co-equal; none is the default. Each section picks the brand colour that fits its job, and the page rotates through all three rather than leaning on one. Backgrounds stay clean so the brand colours carry all the weight. The Canela/Satoshi pairing creates editorial lift: high-contrast serif headlines feel like a magazine cover, while Satoshi's geometric legibility handles every UI need.\n\nThis system explicitly refuses: gradient text decorations, glassmorphism panels, identical card grids, hero-metric templates, and the generic SaaS landing page vocabulary.",
+    "keyCharacteristics": [
+      "Three co-equal brand primaries: Orange (heat), Blue (structure), Amber (spotlight). None is the default; each section picks the one that fits its job.",
+      "Editorial serif (Canela) reserved for display-level moments only.",
+      "Flat at rest, lifted on hover. Depth is earned through interaction.",
+      "Brand colours used as full-bleed surface backgrounds at hero scale.",
+      "Motion is confident and clean. Fade up, ease out, no spring physics."
+    ],
+    "rules": [
+      { "name": "The Tri-Primary Rule",         "body": "One brand colour leads per surface, not per brand. The page rotates through Orange, Blue, and Amber across its sections; no single colour is the default for every accent. Frequency is each colour's power.",        "section": "colors" },
+      { "name": "The Single-Lead Rule",         "body": "Within one surface (a section, a card, a hero), one brand colour dominates and the other two appear at most as small accents (overline, icon, focus ring). Mixing all three at equal weight inside one element reads as noise.", "section": "colors" },
+      { "name": "The No-Gradient Rule",         "body": "The three brand colours appear as solid fills, never as gradients. Gradient overlays on photographic images for text protection are permitted.",           "section": "colors" },
+      { "name": "The Canela Ceiling Rule",      "body": "Canela is Display only. Never use it for body text, labels, or anything below H1. Diluting it across the hierarchy destroys its editorial impact.",        "section": "typography" },
+      { "name": "The Scale Ratio Rule",         "body": "The type scale runs on a major-third (1.25x) progression. Do not introduce off-scale sizes.",                                                              "section": "typography" },
+      { "name": "The Flat-by-Default Rule",     "body": "No shadow at rest. Shadow is a state indicator. If an element always has a shadow and never changes, the shadow is decoration. Remove it.",               "section": "elevation" },
+      { "name": "The Card Colour Rule",         "body": "Coloured card variants (orange, blue, dark) are used for emphasis, not repetition. Vary the surface; use colour to direct attention to one.",             "section": "components" }
+    ],
+    "dos": [
+      "Do pick one brand colour per surface to lead its CTAs and accents, drawn from Orange, Blue, or Amber based on the section's register. Rotate the lead colour across sections so the page travels through all three.",
+      "Do use Canela display type at full scale (76px+) for hero headlines.",
+      "Do apply full-bleed Bloom Orange, Bloom Blue, or Rich Ink backgrounds to hero and callout sections.",
+      "Do keep body copy within 65-75ch.",
+      "Do use Shadow MD/LG only on hover or interactive states.",
+      "Do use Bloom Amber as a full-bleed surface on equal footing with Orange and Blue. It is not reserved for accents; an entire section can lead with Amber when the register calls for spotlight or optimism.",
+      "Do write CTAs in all caps for primary buttons (GET STARTED, SEE WORK).",
+      "Do use the dot motif (low-opacity circles/teardrops) as background decoration in hero sections.",
+      "Do use sentence case for all display headlines."
+    ],
+    "donts": [
+      "Don't use gradient text (background-clip: text).",
+      "Don't use glassmorphism as decoration.",
+      "Don't use border-left greater than 1px as a coloured accent stripe on cards or callouts.",
+      "Don't mix all three brand colours at equal weight inside a single surface (one section, one card, one hero). Pick one lead per surface.",
+      "Don't treat any one brand colour as the default. Defaulting to a single colour across every section is the failure mode this system is designed to avoid.",
+      "Don't use identical card grids where every card has the same layout.",
+      "Don't use gradients on primary UI surfaces.",
+      "Don't use spring physics, bounce, or elastic easing.",
+      "Don't place the logo on a coloured background without a white backing or inverted treatment.",
+      "Don't use exclamation marks in body copy.",
+      "Don't use Canela below H1 level.",
+      "Don't use the hero-metric template (big number, small label, gradient accent).",
+      "Don't use cold or desaturated photography."
+    ]
+  }
+}

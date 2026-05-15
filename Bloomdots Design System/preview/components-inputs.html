@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F7F7F7; padding: 20px 24px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+  .label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; width: 100%; }
+
+  .field-group { display: flex; flex-direction: column; gap: 5px; min-width: 180px; }
+  .field-label { font-size: 11px; font-weight: 500; color: #444; }
+  .field-hint  { font-size: 10px; color: #aaa; }
+  .field-error { font-size: 10px; color: #D0291C; }
+
+  input[type=text], input[type=email], textarea, select {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: #1A1A1A;
+    background: #fff;
+    border: 1.5px solid #E2E2E2;
+    border-radius: 8px;
+    padding: 9px 12px;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.15s;
+  }
+  input:focus, textarea:focus, select:focus { border-color: #29B9EA; box-shadow: 0 0 0 3px rgba(41,185,234,0.15); }
+  input.error { border-color: #D0291C; }
+  input.success { border-color: #1B9E5B; }
+  textarea { resize: none; height: 64px; }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+  ::placeholder { color: #ABABAB; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="label">Default · Focus · Error · Success</span>
+    <div class="field-group">
+      <div class="field-label">Brand name</div>
+      <input type="text" placeholder="e.g. Bloomdots">
+      <div class="field-hint">How your brand appears publicly</div>
+    </div>
+    <div class="field-group">
+      <div class="field-label">Email address</div>
+      <input type="email" class="error" value="not-an-email">
+      <div class="field-error">Please enter a valid email</div>
+    </div>
+    <div class="field-group">
+      <div class="field-label">Company URL</div>
+      <input type="text" class="success" value="bloomdots.com">
+    </div>
+  </div>
+  <div class="row">
+    <span class="label">Textarea · Select</span>
+    <div class="field-group" style="min-width:240px">
+      <div class="field-label">Project brief</div>
+      <textarea placeholder="Tell us about your brand and goals…"></textarea>
+    </div>
+    <div class="field-group">
+      <div class="field-label">Service type</div>
+      <select>
+        <option>Content Strategy</option>
+        <option>Video Production</option>
+        <option>Social Media</option>
+      </select>
+    </div>
+  </div>
+</body>
+</html>

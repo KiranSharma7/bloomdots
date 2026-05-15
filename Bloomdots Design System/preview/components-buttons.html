@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F7F7F7; padding: 20px 24px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; align-items: center; }
+  .label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; width: 100%; }
+  .divider { width: 100%; height: 1px; background: #E8E8E8; margin: 2px 0 10px; }
+
+  /* Base button */
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 13px;
+    border: none; cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.18s ease-out;
+    text-decoration: none;
+  }
+
+  /* Sizes */
+  .btn-sm  { padding: 6px 14px;  font-size: 12px; border-radius: 6px; }
+  .btn-md  { padding: 10px 20px; font-size: 13px; }
+  .btn-lg  { padding: 13px 28px; font-size: 15px; border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+
+  /* Variants */
+  .btn-primary   { background: #E84E28; color: #fff; }
+  .btn-secondary { background: #29B9EA; color: #fff; }
+  .btn-amber     { background: #FAB72B; color: #1A1A1A; }
+  .btn-outline   { background: transparent; color: #E84E28; border: 2px solid #E84E28; }
+  .btn-ghost     { background: transparent; color: #1A1A1A; border: 2px solid #E2E2E2; }
+  .btn-dark      { background: #1A1A1A; color: #fff; }
+  .btn-disabled  { background: #EFEFEF; color: #ABABAB; cursor: not-allowed; }
+
+  /* Pill */
+  .btn-pill { border-radius: 999px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="label">Primary · Secondary · Accent</span>
+    <button class="btn btn-primary btn-md">Get Started</button>
+    <button class="btn btn-secondary btn-md">Learn More</button>
+    <button class="btn btn-amber btn-md">See Our Work</button>
+  </div>
+  <div class="row">
+    <span class="label">Outline · Ghost · Dark</span>
+    <button class="btn btn-outline btn-md">Our Services</button>
+    <button class="btn btn-ghost btn-md">Read More</button>
+    <button class="btn btn-dark btn-md">Contact Us</button>
+  </div>
+  <div class="row">
+    <span class="label">Sizes</span>
+    <button class="btn btn-primary btn-sm">Small</button>
+    <button class="btn btn-primary btn-md">Medium</button>
+    <button class="btn btn-primary btn-lg">Large — Unskippable</button>
+  </div>
+  <div class="row">
+    <span class="label">Pill Shape · Disabled</span>
+    <button class="btn btn-primary btn-md btn-pill">Get Started</button>
+    <button class="btn btn-outline btn-md btn-pill">See Work</button>
+    <button class="btn btn-disabled btn-md">Unavailable</button>
+  </div>
+</body>
+</html>

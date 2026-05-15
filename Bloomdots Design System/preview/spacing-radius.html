@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F7F7F7; padding: 20px 24px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; align-items: end; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .box { background: #E84E28; width: 40px; }
+  .token { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #888; text-align: center; }
+  .val   { font-size: 10px; font-weight: 600; color: #1A1A1A; text-align: center; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="item">
+    <div class="box" style="height:40px;border-radius:4px"></div>
+    <div class="val">4px</div><div class="token">--radius-sm</div>
+  </div>
+  <div class="item">
+    <div class="box" style="height:40px;border-radius:8px"></div>
+    <div class="val">8px</div><div class="token">--radius-md</div>
+  </div>
+  <div class="item">
+    <div class="box" style="height:40px;border-radius:12px"></div>
+    <div class="val">12px</div><div class="token">--radius-lg</div>
+  </div>
+  <div class="item">
+    <div class="box" style="height:40px;border-radius:16px"></div>
+    <div class="val">16px</div><div class="token">--radius-xl</div>
+  </div>
+  <div class="item">
+    <div class="box" style="height:40px;border-radius:999px"></div>
+    <div class="val">pill</div><div class="token">--radius-pill</div>
+  </div>
+  <div class="item">
+    <div class="box" style="height:40px;width:40px;border-radius:50%"></div>
+    <div class="val">full</div><div class="token">--radius-full</div>
+  </div>
+</div>
+</body>
+</html>

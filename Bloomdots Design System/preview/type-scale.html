@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face { font-family: 'Canela'; src: url('../fonts/Canela-Regular-Trial.otf') format('opentype'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'Canela'; src: url('../fonts/Canela-Medium-Trial.otf') format('opentype'); font-weight: 500; font-style: normal; }
+  @font-face { font-family: 'Canela'; src: url('../fonts/Canela-Bold-Trial.otf') format('opentype'); font-weight: 700; font-style: normal; }
+  @font-face { font-family: 'Canela'; src: url('../fonts/Canela-Black-Trial.otf') format('opentype'); font-weight: 900; font-style: normal; }
+  @font-face { font-family: 'Satoshi'; src: url('../fonts/Satoshi-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'Satoshi'; src: url('../fonts/Satoshi-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; }
+  @font-face { font-family: 'Satoshi'; src: url('../fonts/Satoshi-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; padding: 16px 20px; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 80px 120px 1fr;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #F0F0F0;
+  }
+  .row:last-child { border-bottom: none; }
+  .tag  { font-family: 'Satoshi', sans-serif; font-size: 10px; font-weight: 500; color: #bbb; letter-spacing: 0.04em; }
+  .spec { font-family: 'Satoshi', sans-serif; font-size: 9px; color: #ddd; font-variant-numeric: tabular-nums; }
+  .pill {
+    display: inline-block;
+    font-family: 'Satoshi', sans-serif; font-size: 8px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 1px 5px; border-radius: 3px; margin-right: 4px;
+    vertical-align: middle; position: relative; top: -1px;
+  }
+  .canela-pill { background: #FDF0EC; color: #E84E28; }
+  .satoshi-pill { background: #E8F7FD; color: #1188B2; }
+</style>
+</head>
+<body>
+
+  <div class="row">
+    <span class="tag">display</span>
+    <span class="spec">Canela 900 · 76px · −0.025</span>
+    <span style="font-family:'Canela',serif; font-weight:900; font-size:44px; line-height:1.05; letter-spacing:-0.025em; color:#111">
+      <span class="pill canela-pill">Canela</span>Unskippable
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="tag">display–i</span>
+    <span class="spec">Canela 700i · 76px</span>
+    <span style="font-family:'Canela',serif; font-weight:700; font-size:38px; font-style:italic; line-height:1.05; letter-spacing:-0.02em; color:#E84E28">
+      Make it bold.
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="tag">h1</span>
+    <span class="spec">Canela 700 · 61px · −0.02</span>
+    <span style="font-family:'Canela',serif; font-weight:700; font-size:34px; line-height:1.1; letter-spacing:-0.02em; color:#111">
+      Your story. Told boldly.
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="tag">h2</span>
+    <span class="spec">Satoshi 700 · 49px · −0.015</span>
+    <span style="font-family:'Satoshi',sans-serif; font-weight:700; font-size:28px; line-height:1.2; letter-spacing:-0.015em; color:#111">
+      <span class="pill satoshi-pill">Satoshi</span>Creative content
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="tag">h3</span>
+    <span class="spec">Satoshi 700 · 39px</span>
+    <span style="font-family:'Satoshi',sans-serif; font-weight:700; font-size:22px; line-height:1.25; color:#111">
+      What we do
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="tag">h4</span>
+    <span class="spec">Satoshi 500 · 31px</span>
+    <span style="font-family:'Satoshi',sans-serif; font-weight:500; font-size:18px; line-height:1.3; color:#111">
+      Campaign strategy
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="tag">lead</span>
+    <span class="spec">Satoshi 400 · 20px</span>
+    <span style="font-family:'Satoshi',sans-serif; font-weight:400; font-size:14px; line-height:1.65; color:#555">
+      Creative content that commands attention and moves people.
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="tag">body</span>
+    <span class="spec">Satoshi 400 · 16px</span>
+    <span style="font-family:'Satoshi',sans-serif; font-weight:400; font-size:13px; line-height:1.65; color:#666">
+      We craft stories, campaigns, and content your audience can't ignore.
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="tag">label</span>
+    <span class="spec">Satoshi 700 · 12px · +0.08</span>
+    <span style="font-family:'Satoshi',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#888">
+      Get Started
+    </span>
+  </div>
+
+</body>
+</html>

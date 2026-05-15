@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "skills": {
+    "color-expert": {
+      "source": "meodai/skill.color-expert",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "81d46268e034d72cf2a805a2b9a5e5e052ed57ed9a7fa9e74950d408f1cd6102"
+    },
+    "color-palette": {
+      "source": "jezweb/claude-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/design-assets/skills/color-palette/SKILL.md",
+      "computedHash": "44d5b40b13ca787c1c63225d4af517e7096e8d7c3ede62d16bd5acdd25794ec3"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
+      "computedHash": "daf64ca15f4fa081a6747766db538e2dbd1131725ed4fcdd3d538dc62c7035ba"
+    },
+    "grill-with-docs": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/grill-with-docs/SKILL.md",
+      "computedHash": "e95d83038cb68774469932969b060438bc457973657269a479571321c93a9140"
+    },
+    "handoff": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/handoff/SKILL.md",
+      "computedHash": "da4dbb91d4556dac70c27ad2a0de223ba3475bfe8919162edee6867b4056751a"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "skillPath": "skill/SKILL.md",
+      "computedHash": "8833ba9691dd006cea03013cffa8d5aaf0835ec8179186e0188c6fc388737147"
+    },
+    "setup-matt-pocock-skills": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+      "computedHash": "f686b246e95afeaeeb3ff21b0f9f2c1ab29b02958468170cc9802fb477508488"
+    }
+  }
+}

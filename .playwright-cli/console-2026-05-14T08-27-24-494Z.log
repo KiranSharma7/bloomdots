@@ -1,0 +1,4 @@
+[     887ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    2405ms] [WARNING] GSAP target .svc-label not found. https://gsap.com @ https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js:9
+[    2408ms] [WARNING] GSAP target  not found. https://gsap.com @ https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js:9
+[    5524ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8081/favicon.ico:0

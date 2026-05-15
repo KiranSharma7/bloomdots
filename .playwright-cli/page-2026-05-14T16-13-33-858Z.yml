@@ -1,0 +1,440 @@
+- generic [active] [ref=e1]:
+  - navigation:
+    - link "Bloom" [ref=e2] [cursor=pointer]:
+      - /url: "#hero"
+      - generic [ref=e3]: Bloom
+    - generic [ref=e8]:
+      - link "Start a Project" [ref=e9] [cursor=pointer]:
+        - /url: "#contact"
+        - generic [ref=e10]: Start a Project
+        - img [ref=e11]
+      - button [ref=e14] [cursor=pointer]
+  - banner [ref=e17]:
+    - generic [ref=e22]:
+      - heading "Make Your Brand Unskippable" [level=1] [ref=e23]:
+        - generic [ref=e24]: Make Your Brand
+        - generic [ref=e25]: Unskippable
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: Community-led, culture-smart, performance-backed. We make brand work that moves with culture, not against it.
+        - link "Schedule a strategy session" [ref=e29] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e30]: Schedule a strategy session
+          - img [ref=e31]
+    - generic [ref=e35]: Scroll
+  - generic [ref=e43]:
+    - generic:
+      - paragraph: THE BRANDS WE MOVE
+      - heading "Brands that get it." [level=2]:
+        - text: Brands that
+        - generic: get it.
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - img [ref=e46]:
+          - generic [ref=e51]: Spotify
+        - generic [ref=e52]: Music & Culture
+      - generic [ref=e53]:
+        - img [ref=e54]:
+          - generic [ref=e56]: Netflix
+        - generic [ref=e57]: Entertainment
+      - generic [ref=e58]:
+        - img [ref=e59]:
+          - generic [ref=e65]: Figma
+        - generic [ref=e66]: Design Tools
+      - generic [ref=e67]:
+        - img [ref=e68]:
+          - generic [ref=e70]: Stripe
+        - generic [ref=e71]: Fintech
+      - generic [ref=e72]:
+        - img [ref=e73]:
+          - generic [ref=e82]: Slack
+        - generic [ref=e83]: Communication
+      - generic [ref=e84]:
+        - img [ref=e85]:
+          - generic [ref=e87]: Discord
+        - generic [ref=e88]: Community
+  - generic [ref=e90]:
+    - heading "& many more" [level=2] [ref=e91]:
+      - generic [ref=e93]: "& many more"
+    - generic [ref=e95]:
+      - img "Acme" [ref=e97]
+      - img "Amara" [ref=e99]
+      - img "Asgardia" [ref=e101]
+      - img "Atica" [ref=e103]
+      - img "Aven" [ref=e105]
+      - img "Circle" [ref=e107]
+      - img "Code Lab" [ref=e109]
+      - img "Earth2" [ref=e111]
+      - img "Fox Hub" [ref=e113]
+      - img "Goldline" [ref=e115]
+      - img "Hex Lab" [ref=e117]
+      - img "Hexa" [ref=e119]
+      - img "Hooks" [ref=e121]
+      - img "Ideaa" [ref=e123]
+      - img "Kanba" [ref=e125]
+      - img "Kyan" [ref=e127]
+  - generic [ref=e128]:
+    - generic [ref=e130]:
+      - paragraph [ref=e131]: WHAT WE DO
+      - heading "Services That Come With Outcomes." [level=2] [ref=e132]:
+        - text: Services That
+        - text: Come With Outcomes.
+      - paragraph [ref=e133]: Platform-native creative that earns attention, then turns it into action.
+    - generic [ref=e134]:
+      - link "Website Design service. Conversion-driven, premium by default. Start a conversation." [ref=e135] [cursor=pointer]:
+        - /url: "#contact"
+        - generic [ref=e141]:
+          - heading "Website Design" [level=3] [ref=e142]
+          - paragraph [ref=e143]: Conversion-driven. Premium by default.
+          - generic [ref=e144]: Explore →
+      - link "Content service. Platform-native, shareable by design. Start a conversation." [ref=e145] [cursor=pointer]:
+        - /url: "#contact"
+        - generic [ref=e151]:
+          - heading "Content" [level=3] [ref=e152]
+          - paragraph [ref=e153]: Platform-native. Shareable by design.
+          - generic [ref=e154]: Explore →
+      - link "Paid Media service. Every dollar tracked, every ad optimised. Start a conversation." [ref=e155] [cursor=pointer]:
+        - /url: "#contact"
+        - generic [ref=e161]:
+          - heading "Paid Media" [level=3] [ref=e162]
+          - paragraph [ref=e163]: Every dollar tracked. Every ad optimised.
+          - generic [ref=e164]: Explore →
+      - link "Cultural Marketing service. Authentic resonance, market expansion. Start a conversation." [ref=e165] [cursor=pointer]:
+        - /url: "#contact"
+        - generic [ref=e171]:
+          - heading "Cultural Marketing" [level=3] [ref=e172]
+          - paragraph [ref=e173]: Authentic resonance. Market expansion.
+          - generic [ref=e174]: Explore →
+    - generic [ref=e175]:
+      - generic [ref=e176]:
+        - generic [ref=e177]: Also in our toolkit
+        - generic [ref=e178]: 06 capabilities
+      - list [ref=e179]:
+        - listitem [ref=e180]:
+          - generic [ref=e181]: "01"
+          - generic [ref=e182]: Influencer & UGC Marketing
+        - listitem [ref=e183]:
+          - generic [ref=e184]: "02"
+          - generic [ref=e185]: Social Media
+        - listitem [ref=e186]:
+          - generic [ref=e187]: "03"
+          - generic [ref=e188]: Branding
+        - listitem [ref=e189]:
+          - generic [ref=e190]: "04"
+          - generic [ref=e191]: Email Marketing
+        - listitem [ref=e192]:
+          - generic [ref=e193]: "05"
+          - generic [ref=e194]: Podcast
+        - listitem [ref=e195]:
+          - generic [ref=e196]: "06"
+          - generic [ref=e197]: SEO
+  - generic [ref=e198]:
+    - generic [ref=e200]:
+      - generic [ref=e201]: Community-Led
+      - generic [ref=e203]: Culture-Smart
+      - generic [ref=e205]: Performance-Backed
+      - generic [ref=e207]: Internet-Native
+      - generic [ref=e209]: Trend-Literate
+      - generic [ref=e211]: Audience-First
+      - generic [ref=e213]: Built To Travel
+      - generic [ref=e215]: Always-On
+      - generic [ref=e217]: Community-Led
+      - generic [ref=e219]: Culture-Smart
+      - generic [ref=e221]: Performance-Backed
+      - generic [ref=e223]: Internet-Native
+      - generic [ref=e225]: Trend-Literate
+      - generic [ref=e227]: Audience-First
+      - generic [ref=e229]: Built To Travel
+      - generic [ref=e231]: Always-On
+    - generic [ref=e233]:
+      - generic: "343"
+      - generic [ref=e234]:
+        - paragraph [ref=e235]: FOR THE RECORD
+        - generic [ref=e238]:
+          - generic [ref=e239]: 343M+
+          - generic [ref=e240]:
+            - generic [ref=e241]: Engagements
+            - paragraph [ref=e242]: Community-led campaigns built to travel across feeds, formats, and cultures.
+        - generic [ref=e245]:
+          - generic [ref=e246]:
+            - generic [ref=e247]: "29"
+            - paragraph [ref=e248]: Projects
+          - generic [ref=e249]:
+            - generic [ref=e250]: "55"
+            - paragraph [ref=e251]: Clients Worldwide
+          - generic [ref=e252]:
+            - generic [ref=e253]: 2,345
+            - paragraph [ref=e254]: Content Pieces
+        - generic [ref=e255]:
+          - generic [ref=e256]:
+            - paragraph [ref=e257]: Numbers only matter when the work keeps moving after the campaign goes live.
+            - link "Start a conversation" [ref=e258] [cursor=pointer]:
+              - /url: "#contact"
+              - text: Start a conversation
+              - generic [ref=e259]: →
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - text: "20"
+              - generic [ref=e262]: +
+            - paragraph [ref=e263]: Brands Elevated
+  - generic [ref=e264]:
+    - generic [ref=e266]: Proof in the wild
+    - heading "Built in culture. Measured in market." [level=2] [ref=e267]:
+      - text: Built in culture.
+      - text: Measured in market.
+    - paragraph [ref=e268]: Four examples of how community insight became content systems, live activations, and measurable demand.
+  - generic [ref=e272]:
+    - generic [ref=e273]:
+      - generic [ref=e274]:
+        - img [ref=e276]
+        - generic [ref=e279]: Ramadan Campaign · 2024
+      - generic [ref=e280]: "01"
+      - heading "Ramadan Unfiltered" [level=3] [ref=e281]
+      - paragraph [ref=e282]: Turned a seasonal moment into creator-led stories that felt native to the community, not borrowed by the brand.
+      - generic [ref=e283]:
+        - generic [ref=e284]: What we handled
+        - list [ref=e285]:
+          - listitem [ref=e286]: Community Marketing
+          - listitem [ref=e287]: Content Creation
+          - listitem [ref=e288]: Influencer Strategy
+      - generic [ref=e289] [cursor=pointer]:
+        - generic [ref=e290]: See the Ramadan case
+        - generic [ref=e291]: →
+    - generic [ref=e293]:
+      - img "Ramadan food spread" [ref=e295]
+      - img "Community gathering" [ref=e297]
+      - img "Cultural food" [ref=e299]
+      - img "Content creation" [ref=e301]
+  - generic [ref=e305]:
+    - generic [ref=e306]:
+      - generic [ref=e307]:
+        - img [ref=e309]
+        - generic [ref=e311]: Event Series · 2024
+      - generic [ref=e312]: "02"
+      - heading "Sound of the City" [level=3] [ref=e313]
+      - paragraph [ref=e314]: Built a touring content engine around local scenes, giving each city its own proof of belonging.
+      - generic [ref=e315]:
+        - generic [ref=e316]: What we handled
+        - list [ref=e317]:
+          - listitem [ref=e318]: Cultural Marketing
+          - listitem [ref=e319]: Event Activation
+          - listitem [ref=e320]: Social Content
+      - generic [ref=e321] [cursor=pointer]:
+        - generic [ref=e322]: See the event case
+        - generic [ref=e323]: →
+    - generic [ref=e325]:
+      - img "Concert crowd" [ref=e327]
+      - img "Live music" [ref=e329]
+      - img "DJ performance" [ref=e331]
+      - img "Event activation" [ref=e333]
+  - generic [ref=e337]:
+    - generic [ref=e338]:
+      - generic [ref=e339]:
+        - img [ref=e341]
+        - generic [ref=e346]: Digital Campaign · 2025
+      - generic [ref=e347]: "03"
+      - heading "Gen-Z Playbook" [level=3] [ref=e348]
+      - paragraph [ref=e349]: Reframed short-form content around creator behavior, replacing brand-first posting with audience-first prompts.
+      - generic [ref=e350]:
+        - generic [ref=e351]: What we handled
+        - list [ref=e352]:
+          - listitem [ref=e353]: Digital Marketing
+          - listitem [ref=e354]: TikTok Strategy
+          - listitem [ref=e355]: UGC Campaigns
+      - generic [ref=e356] [cursor=pointer]:
+        - generic [ref=e357]: See the Gen-Z case
+        - generic [ref=e358]: →
+    - generic [ref=e360]:
+      - img "Social media content" [ref=e362]
+      - img "Creator setup" [ref=e364]
+      - img "Phone content" [ref=e366]
+      - img "Gen Z culture" [ref=e368]
+  - generic [ref=e371]:
+    - generic [ref=e372]:
+      - generic [ref=e373]:
+        - img [ref=e375]
+        - generic [ref=e378]: Multi-Market · 2025
+      - generic [ref=e379]: "04"
+      - heading "The Homegrown Edit" [level=3] [ref=e380]
+      - paragraph [ref=e381]: Connected regional makers, markets, and rituals into one expandable story across twenty-eight local contexts.
+      - generic [ref=e382]:
+        - generic [ref=e383]: What we handled
+        - list [ref=e384]:
+          - listitem [ref=e385]: Community Marketing
+          - listitem [ref=e386]: Cultural Marketing
+          - listitem [ref=e387]: Content Marketing
+      - generic [ref=e388] [cursor=pointer]:
+        - generic [ref=e389]: See the local case
+        - generic [ref=e390]: →
+    - generic [ref=e392]:
+      - img "Local market" [ref=e394]
+      - img "Local produce" [ref=e396]
+      - img "Community market" [ref=e398]
+      - img "Homegrown culture" [ref=e400]
+  - generic [ref=e401]:
+    - generic [ref=e403]:
+      - generic [ref=e404]: HOW WE DO IT
+      - heading "Three Moves. No Wasted Motion." [level=2] [ref=e405]:
+        - text: Three Moves.
+        - text: No Wasted Motion.
+      - paragraph [ref=e406]: Strategy, execution, and growth — distilled into a system that actually works.
+    - generic [ref=e407]:
+      - img [ref=e409]
+      - generic [ref=e410]:
+        - generic [ref=e411]:
+          - generic [ref=e413]: "01"
+          - generic [ref=e414]:
+            - heading "Insight" [level=3] [ref=e415]
+            - paragraph [ref=e416]: We listen, research, and decode your audience — finding the cultural signals that matter.
+            - list [ref=e417]:
+              - listitem [ref=e418]: Audience Analysis
+              - listitem [ref=e419]: Cultural Mapping
+              - listitem [ref=e420]: Competitive Audit
+        - generic [ref=e421]:
+          - generic [ref=e423]: "02"
+          - generic [ref=e424]:
+            - heading "Build" [level=3] [ref=e425]
+            - paragraph [ref=e426]: We create content, campaigns, and communities that connect — built to move culture.
+            - list [ref=e427]:
+              - listitem [ref=e428]: Content Production
+              - listitem [ref=e429]: Community Building
+              - listitem [ref=e430]: Campaign Launch
+        - generic [ref=e431]:
+          - generic [ref=e433]: "03"
+          - generic [ref=e434]:
+            - heading "Optimize" [level=3] [ref=e435]
+            - paragraph [ref=e436]: We refine, scale, and turn momentum into measurable results — no guesswork, just growth.
+            - list [ref=e437]:
+              - listitem [ref=e438]: Performance Analysis
+              - listitem [ref=e439]: Iteration Cycles
+              - listitem [ref=e440]: Scale Playbook
+  - generic [ref=e443]:
+    - img "Adit Thapa — Founder of BloomDots" [ref=e445]
+    - generic [ref=e447]:
+      - generic [ref=e448]: A WORD FROM THE FOUNDER
+      - blockquote [ref=e449]: “ We don’t just build campaigns. We build the cultural bridges that make brands part of the conversation.
+      - paragraph [ref=e450]: "BloomDots started with one belief: the brands that win aren’t the loudest — they’re the most culturally connected. Every project we take on is a chance to prove that strategy rooted in real communities creates outcomes no media buy can replicate. We’re not chasing trends. We’re building relevance that compounds."
+      - paragraph [ref=e451]: Adit Thapa
+      - paragraph [ref=e452]: Founder & Creative Director
+      - img [ref=e453]
+  - generic [ref=e457]:
+    - generic [ref=e458]:
+      - generic [ref=e459]: Let's Work Together
+      - heading "Ready to Bloom?" [level=2] [ref=e460]:
+        - generic [ref=e461]: Ready to
+        - emphasis [ref=e463]: Bloom?
+      - paragraph [ref=e464]: Tell us what you're building. We'll tell you how to make it unskippable.
+    - generic [ref=e465]:
+      - generic [ref=e466]:
+        - generic [ref=e467]:
+          - generic [ref=e468]:
+            - generic [ref=e469]: Full Name
+            - textbox "Full Name" [ref=e470]:
+              - /placeholder: Your name
+          - generic [ref=e471]:
+            - generic [ref=e472]: Email Address
+            - textbox "Email Address" [ref=e473]:
+              - /placeholder: hello@company.com
+        - generic [ref=e474]:
+          - generic [ref=e475]: Company / Brand
+          - textbox "Company / Brand" [ref=e476]:
+            - /placeholder: Where do you work?
+        - generic [ref=e477]:
+          - generic [ref=e478]:
+            - generic [ref=e479]: Service
+            - generic [ref=e480]:
+              - combobox "Service" [ref=e481]:
+                - option "What are you after?" [disabled] [selected]
+                - option "Community Marketing"
+                - option "Cultural Marketing"
+                - option "Content Marketing"
+                - option "Digital Marketing"
+                - option "Full Service"
+              - img
+          - generic [ref=e482]:
+            - generic [ref=e483]: Budget Range
+            - generic [ref=e484]:
+              - combobox "Budget Range" [ref=e485]:
+                - option "Estimated budget" [disabled] [selected]
+                - option "Under $5,000"
+                - option "$5,000 – $15,000"
+                - option "$15,000 – $50,000"
+                - option "$50,000 – $100,000"
+                - option "$100,000+"
+              - img
+        - generic [ref=e486]:
+          - generic [ref=e487]: Tell us about your project
+          - textbox "Tell us about your project" [ref=e488]:
+            - /placeholder: What are you building? What's the goal? Any timeline?
+        - button "Send Message" [ref=e489] [cursor=pointer]:
+          - generic [ref=e490]: Send Message
+          - img [ref=e492]
+      - complementary [ref=e494]:
+        - generic [ref=e495]:
+          - heading "Prefer a call?" [level=3] [ref=e500]
+          - paragraph [ref=e501]: Skip the form. Book a 30-minute intro call and let's talk strategy directly.
+          - link "Book a Call" [ref=e502] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Book a Call
+            - img [ref=e503]
+  - contentinfo [ref=e505]:
+    - generic:
+      - text: Bloom
+      - emphasis: Dots
+    - generic [ref=e507]:
+      - generic [ref=e509]: BloomDots
+      - link "Email BloomDots" [ref=e514] [cursor=pointer]:
+        - /url: "#contact"
+        - generic [ref=e515]: hello@bloomdots.com
+        - img [ref=e516]
+    - generic [ref=e519]:
+      - generic [ref=e520]:
+        - paragraph [ref=e521]: Community-led. Culture-smart. Performance-backed. We build brands that become part of the conversation.
+        - generic [ref=e522]:
+          - link "Instagram" [ref=e523] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e525]
+            - text: Instagram
+          - link "Twitter / X" [ref=e529] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e531]
+            - text: Twitter / X
+          - link "LinkedIn" [ref=e533] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e535]
+            - text: LinkedIn
+      - generic [ref=e539]:
+        - heading "Services" [level=4] [ref=e540]
+        - navigation "Services" [ref=e541]:
+          - link "Community Marketing" [ref=e542] [cursor=pointer]:
+            - /url: "#services"
+          - link "Cultural Marketing" [ref=e543] [cursor=pointer]:
+            - /url: "#services"
+          - link "Content Marketing" [ref=e544] [cursor=pointer]:
+            - /url: "#services"
+          - link "Digital Marketing" [ref=e545] [cursor=pointer]:
+            - /url: "#services"
+      - generic [ref=e546]:
+        - heading "Company" [level=4] [ref=e547]
+        - navigation "Company" [ref=e548]:
+          - link "Work" [ref=e549] [cursor=pointer]:
+            - /url: "#portfolio"
+          - link "Process" [ref=e550] [cursor=pointer]:
+            - /url: "#process"
+          - link "About" [ref=e551] [cursor=pointer]:
+            - /url: "#founder"
+          - link "Contact" [ref=e552] [cursor=pointer]:
+            - /url: "#contact"
+      - generic [ref=e553]:
+        - heading "Find Us" [level=4] [ref=e554]
+        - generic [ref=e555]:
+          - paragraph [ref=e556]: Vancouver, BC
+          - paragraph [ref=e557]: Canada — Global
+        - generic [ref=e558]:
+          - link "Privacy" [ref=e559] [cursor=pointer]:
+            - /url: "#contact"
+          - generic [ref=e560]: /
+          - link "Terms" [ref=e561] [cursor=pointer]:
+            - /url: "#contact"
+    - generic [ref=e563]:
+      - paragraph [ref=e568]: © 2026 BloomDots Creative Agency. All rights reserved.
+      - paragraph [ref=e569]: Made with intention.

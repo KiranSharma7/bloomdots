@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F7F7F7; padding: 20px 24px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; align-items: center; }
+  .label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; width: 100%; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 11px; font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.6; }
+
+  .badge-orange  { background: #FDF0EC; color: #B23516; }
+  .badge-blue    { background: #E8F7FD; color: #1188B2; }
+  .badge-amber   { background: #FEF9EC; color: #966809; }
+  .badge-green   { background: #E8F6EF; color: #1B9E5B; }
+  .badge-neutral { background: #EFEFEF; color: #636363; }
+  .badge-dark    { background: #1A1A1A; color: #F5F5F5; }
+
+  .badge-outline-orange { background: transparent; color: #E84E28; border: 1.5px solid #E84E28; }
+  .badge-outline-blue   { background: transparent; color: #1AA3D4; border: 1.5px solid #29B9EA; }
+
+  .chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12px; font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1.5px solid #E2E2E2;
+    color: #1A1A1A;
+    cursor: pointer;
+  }
+  .chip.selected { background: #E84E28; color: #fff; border-color: #E84E28; }
+  .chip.selected-blue { background: #29B9EA; color: #fff; border-color: #29B9EA; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="label">Status badges</span>
+    <span class="badge badge-orange"><span class="badge-dot"></span> Active</span>
+    <span class="badge badge-blue"><span class="badge-dot"></span> In Review</span>
+    <span class="badge badge-amber"><span class="badge-dot"></span> Pending</span>
+    <span class="badge badge-green"><span class="badge-dot"></span> Delivered</span>
+    <span class="badge badge-neutral"><span class="badge-dot"></span> Draft</span>
+    <span class="badge badge-dark">Featured</span>
+  </div>
+  <div class="row">
+    <span class="label">Outline badges</span>
+    <span class="badge badge-outline-orange">Campaign</span>
+    <span class="badge badge-outline-blue">Video</span>
+    <span class="badge badge-orange">Content</span>
+    <span class="badge badge-blue">Social</span>
+    <span class="badge badge-amber">Brand</span>
+    <span class="badge badge-neutral">Strategy</span>
+  </div>
+  <div class="row">
+    <span class="label">Filter chips</span>
+    <span class="chip selected">All Work</span>
+    <span class="chip">Video</span>
+    <span class="chip selected-blue chip">Social</span>
+    <span class="chip">Photography</span>
+    <span class="chip">Campaigns</span>
+    <span class="chip">Brand Identity</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+[     803ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    1857ms] [LOG] %c●%c●%c●%c  BloomDots. Make Your Brand Unskippable.
+%cNice. You opened the console, that is exactly the kind of curious we build for. color:#FAB72B;font-size:15px color:#29B9EA;font-size:15px color:#E84E28;font-size:15px color:#f5f1e8;font-size:13px;font-weight:700 color:#888;font-size:12px @ http://localhost:8765/index.html:4139
+[    4418ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8765/favicon.ico:0
