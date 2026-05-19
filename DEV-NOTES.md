@@ -80,3 +80,10 @@ Notes extracted from the hand-drawn wireframes (Wireframes/1–9.jpeg).
 | S3 — Logos | Scroll-triggered fade-in, logos appear one-by-one at random positions |
 | S4 — Services | Mouse-over: blurry background image on tile hover |
 | S6 — Portfolio | Horizontal scroll-to-side between project cards |
+
+
+---
+
+## Sandbox change log
+
+- 2026-05-19 — bloomdots-global.php: replaced :root palette with tri-primary (--bloom-orange #E84E28, --bloom-blue #29B9EA, --bloom-amber #FAB72B) + 10 surface/text vars; kept --orange/--blue/--yellow as aliases pending phase 3 sweep.
