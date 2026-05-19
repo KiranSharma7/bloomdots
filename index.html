@@ -185,14 +185,164 @@
       max-width: 38ch;
     }
 
-    .hero-cta-label {
+    /* ── Hero: Centered layout ─────────────────────────────── */
+    .hero-headline-block {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .hero-headline-main {
+      font-family: 'Canela', serif;
+      font-weight: 700;
+      font-size: clamp(4.5rem, 14vw, 12rem);
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 0;
+      display: block;
+    }
+
+    .hero-phrase-wrap {
+      position: relative;
+      width: 100%;
+      height: clamp(2.4rem, 5.5vw, 5rem);
+      overflow: hidden;
+      margin-top: 0.15em;
+    }
+
+    .hero-phrase {
+      font-family: 'Canela', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.6rem, 4.5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--bloom-amber);
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      will-change: transform, opacity;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      margin-top: clamp(1.5rem, 2.5vw, 2.25rem);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-cta-primary {
       font-family: 'Satoshi', sans-serif;
-      font-weight: 500;
-      font-size: 11px;
-      line-height: 1;
-      letter-spacing: 0.22em;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: #1A1A1A;
+      background: var(--bloom-amber);
+      padding: 0.875rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
       white-space: nowrap;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    }
+    .hero-cta-primary:hover {
+      background: var(--bloom-orange);
+      color: #f5f1e8;
+      transform: translateY(-1px);
+    }
+    .hero-cta-primary:focus-visible {
+      outline: 2px solid var(--bloom-amber);
+      outline-offset: 3px;
+    }
+
+    .hero-cta-secondary {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      background: transparent;
+      padding: 0.875rem 2rem;
+      border-radius: 6px;
+      border: 1.5px solid rgba(245,241,232,0.22);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    }
+    .hero-cta-secondary:hover {
+      border-color: rgba(245,241,232,0.72);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+    .hero-cta-secondary:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 3px;
+    }
+
+    /* Trust Bar */
+    .hero-trust {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.25rem;
+      border-top: 1px solid rgba(245,241,232,0.07);
+    }
+    @media (min-width: 640px) { .hero-trust { padding: 1.1rem 2rem; } }
+
+    .hero-trust__item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.5625rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 0 1.5rem;
+      white-space: nowrap;
+    }
+
+    .hero-trust__icon { flex-shrink: 0; }
+
+    .hero-trust__divider {
+      width: 1px;
+      height: 1.25rem;
+      background: rgba(245,241,232,0.10);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 639px) {
+      .hero-trust__divider { display: none; }
+      .hero-trust__item:not(:first-child) { display: none; }
+      .hero-trust__item { padding: 0; }
+    }
+
+    /* Eyebrow + sub centered overrides */
+    #hero-content .hero-eyebrow {
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 3;
+    }
+    #hero-content .hero-sub {
+      text-align: center;
+      max-width: 42ch;
+      position: relative;
+      z-index: 3;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -3139,55 +3289,68 @@
        ════════════════════════════════════════════════════════ -->
   <header id="hero" class="relative w-full h-screen overflow-hidden" style="background: var(--bg);">
 
-    <!-- Video Background -->
-    <video id="hero-video" autoplay="" muted="" loop="" playsinline="" preload="auto" class="absolute inset-0 w-full h-full object-cover" style="transform: scale(1.08); opacity: 0.6;" poster="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/16b5c7c1-f196-4707-b5d8-9ba5ecac10bc_1600w.jpg">
+    <!-- Video Background — recessed so type reads cleanly -->
+    <video id="hero-video" autoplay="" muted="" loop="" playsinline="" preload="auto" class="absolute inset-0 w-full h-full object-cover" style="transform: scale(1.08); opacity: 0.55;" poster="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/16b5c7c1-f196-4707-b5d8-9ba5ecac10bc_1600w.jpg">
       <source src="https://spark-labs.org/video/reel.mp4" type="video/mp4">
     </video>
 
     <!-- Gradient Overlay -->
-    <div class="absolute inset-0" style="background: linear-gradient(to top, var(--bg) 0%, rgba(11,11,13,0.5) 40%, transparent 100%);"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(to top, var(--bg) 0%, rgba(11,11,13,0.58) 50%, rgba(11,11,13,0.28) 100%);"></div>
 
-    <!-- Subtle Radial Glow (atmosphere) -->
-    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse at 30% 80%, rgba(244,196,48,0.06) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(79,124,255,0.04) 0%, transparent 50%);"></div>
+    <!-- Centered Hero Content -->
+    <div id="hero-content" class="absolute inset-0 flex flex-col items-center justify-center z-10 px-5 sm:px-8 text-center">
 
+      <!-- Eyebrow -->
+      <div class="hero-eyebrow" id="hero-eyebrow" style="opacity:0;">
+        <span class="hero-eyebrow__dot" aria-hidden="true"></span>
+        CREATIVE MARKETING AGENCY
+        <span class="hero-eyebrow__dot" aria-hidden="true"></span>
+        SYDNEY
+      </div>
 
-    <!-- Hero Content — Bottom Left -->
-    <div class="absolute bottom-0 left-0 w-full px-5 pb-16 pt-12 md:px-12 md:pb-24 md:pt-20 z-10">
-
-      <div class="max-w-3xl" id="hero-content">
-
-        <!-- Headline -->
-        <h1 class="hero-headline">
-          <span class="headline-line" id="headline-1">Make Your Brand</span>
-          <span class="headline-line headline-line--accent" id="headline-2">Unskippable<span class="headline-dot" aria-hidden="true"></span></span>
-        </h1>
-
-        <!-- Sub Copy + CTA Link — inline row matching inspiration -->
-        <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-0">
-
-          <!-- Sub Copy -->
-          <p id="hero-sub" class="hero-sub opacity-0">
-            Community-led, culture-smart, performance-backed. We make brand work that moves with culture, not against it.
-          </p>
-
-          <!-- CTA Link -->
-          <a href="#contact" id="hero-cta" class="group flex items-center gap-2 w-fit shrink-0 opacity-0 md:ml-6 pb-0.5 border-b transition-all duration-300">
-            <span class="hero-cta-label">Schedule a strategy session</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300 shrink-0"><path d="m7 7 10 10"></path><path d="M17 7v10H7"></path></svg>
-          </a>
+      <!-- Headline + rotating phrase -->
+      <div class="hero-headline-block">
+        <h1 class="hero-headline-main" id="headline-1">Content</h1>
+        <div class="hero-phrase-wrap" id="hero-phrase-wrap" aria-label="that represents the culture.">
+          <span class="hero-phrase" id="hero-phrase-0">that represents the culture.</span>
+          <span class="hero-phrase" id="hero-phrase-1" aria-hidden="true">that builds your audience.</span>
         </div>
       </div>
+
+      <!-- Body -->
+      <p id="hero-sub" class="hero-sub" style="opacity:0;">
+        Bloom Dots is a Sydney creative agency — social media management for growing businesses, and cultural marketing for brands that want to reach diverse communities.
+      </p>
+
+      <!-- CTA pair -->
+      <div id="hero-ctas" class="hero-ctas" style="opacity:0;">
+        <a href="#contact" class="hero-cta-primary">Start growing</a>
+        <a href="#services" class="hero-cta-secondary">See our work</a>
+      </div>
+
     </div>
 
-    <!-- Scroll Indicator — Bottom Center -->
-    <div id="scroll-indicator" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 opacity-0 z-20">
-      <span class="text-[10px] uppercase tracking-[0.3em] font-medium" style="color: var(--text-dim);">Scroll</span>
-      <div class="flex flex-col items-center gap-[6px]">
-        <span class="scroll-dot w-[5px] h-[5px] inline-block" style="background: var(--yellow);"></span>
-        <span class="scroll-dot w-[5px] h-[5px] inline-block" style="background: var(--blue);"></span>
-        <span class="scroll-dot w-[5px] h-[5px] inline-block" style="background: var(--orange);"></span>
+    <!-- Trust Bar -->
+    <div id="hero-trust" class="hero-trust" style="opacity:0;">
+      <div class="hero-trust__item">
+        <svg class="hero-trust__icon" width="14" height="11" viewBox="0 0 14 11" fill="none" aria-hidden="true">
+          <path d="M1.5 5.5L5.5 9.5L12.5 1.5" stroke="#29B9EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>TikTok Verified Agency</span>
+      </div>
+      <div class="hero-trust__divider" aria-hidden="true"></div>
+      <div class="hero-trust__item">
+        <span>Trusted by WorldRemit + Sendwave</span>
+      </div>
+      <div class="hero-trust__divider" aria-hidden="true"></div>
+      <div class="hero-trust__item">
+        <svg class="hero-trust__icon" width="11" height="14" viewBox="0 0 11 14" fill="none" aria-hidden="true">
+          <path d="M5.5 0C3.01 0 1 2.01 1 4.5c0 3.37 4.5 9 4.5 9S10 7.87 10 4.5C10 2.01 7.99 0 5.5 0zm0 6.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5z" fill="rgba(245,241,232,0.4)"/>
+        </svg>
+        <span>Based in Sydney · Parramatta</span>
       </div>
     </div>
+
   </header>
 
   <!-- ════════════════════════════════════════════════════════
@@ -4079,23 +4242,57 @@
     gsap.set(fullMenu, { autoAlpha: 0 });
     gsap.set('.menu-link', { opacity: 0, y: 16 });
 
+    // Prime phrases: both off-screen below the clip container
+    gsap.set('#hero-phrase-0', { y: '100%', opacity: 0 });
+    gsap.set('#hero-phrase-1', { y: '100%', opacity: 0 });
+
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' }, paused: true });
     heroTl
-      .fromTo('#logo', { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.55 }, 0.1)
-      .fromTo('#nav-cta', { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.24)
-      .fromTo('#hamburger', { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.3)
-      .fromTo('#headline-1', { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.42)
-      .fromTo('#headline-2', { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.52)
-      .fromTo('#hero-sub', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.7)
-      .fromTo('#hero-cta', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.78)
-      .fromTo('.headline-dot', { scale: 0 }, { scale: 1, duration: 0.5, ease: 'expo.out', transformOrigin: 'center' }, 1.0)
-      .fromTo('#scroll-indicator', { opacity: 0 }, { opacity: 1, duration: 0.45 }, 0.95);
+      .fromTo('#logo',         { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.55 }, 0.1)
+      .fromTo('#nav-cta',      { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.5  }, 0.24)
+      .fromTo('#hamburger',    { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.5  }, 0.3)
+      .fromTo('#hero-eyebrow', { opacity: 0, y: 14  }, { opacity: 1, y: 0, duration: 0.6  }, 0.44)
+      .fromTo('#headline-1',   { opacity: 0, y: 60  }, { opacity: 1, y: 0, duration: 0.8  }, 0.56)
+      .to('#hero-phrase-0',    { y: '0%', opacity: 1, duration: 0.65, ease: 'power4.out'   }, 0.74)
+      .fromTo('#hero-sub',     { opacity: 0, y: 20  }, { opacity: 1, y: 0, duration: 0.6  }, 0.9)
+      .fromTo('#hero-ctas',    { opacity: 0, y: 20  }, { opacity: 1, y: 0, duration: 0.6  }, 1.0)
+      .fromTo('#hero-trust',   { opacity: 0, y: 10  }, { opacity: 1, y: 0, duration: 0.5  }, 1.1);
+
+    // Phrase rotation loop — starts after heroTl completes, then every 3.5s
+    function startPhraseRotation() {
+      if (prefersReducedMotion) return;
+      const phrases = ['#hero-phrase-0', '#hero-phrase-1'];
+      const wrapEl = document.getElementById('hero-phrase-wrap');
+      let current = 0;
+
+      function swap() {
+        const next = (current + 1) % phrases.length;
+        const nextEl = document.querySelector(phrases[next]);
+        const currEl = document.querySelector(phrases[current]);
+
+        gsap.to(currEl, { y: '-100%', opacity: 0, duration: 0.42, ease: 'power3.in' });
+        gsap.fromTo(nextEl,
+          { y: '100%', opacity: 0 },
+          { y: '0%', opacity: 1, duration: 0.55, ease: 'power3.out', delay: 0.18 }
+        );
+        nextEl.removeAttribute('aria-hidden');
+        currEl.setAttribute('aria-hidden', 'true');
+        if (wrapEl) wrapEl.setAttribute('aria-label', nextEl.textContent);
+        current = next;
+      }
+
+      // First swap after 3.5s hold, then every 3.5s
+      setTimeout(() => {
+        swap();
+        setInterval(swap, 3500);
+      }, 3500);
+    }
 
     // ── Preloader timeline ───────────────────────────────────
     // Reduced-motion: skip entirely, reveal hero immediately.
     function finishPreloader() {
       document.documentElement.classList.remove('preloading');
-      heroTl.play();
+      heroTl.play().then(startPhraseRotation);
     }
 
     if (prefersReducedMotion || !preloader) {
@@ -4240,7 +4437,6 @@
     if (!prefersReducedMotion) {
       gsap.to('#hero-content', { y: -50, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.8 } });
       gsap.to('#hero-video', { scale: 1.04, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1 } });
-      gsap.to('#scroll-indicator', { opacity: 0, ease: 'none', scrollTrigger: { trigger: '#hero', start: '80px top', end: '200px top', scrub: true } });
     }
 // ══════════════════════════════════════════════════════════
     // SECTION 3 — LOGO CARD STACK (Scroll-Pinned Pile)
