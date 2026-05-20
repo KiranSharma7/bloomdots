@@ -10,6 +10,18 @@
 
 ---
 
+## Elementor-First Implementation Rule
+
+Every phase must start by using Elementor v3 widgets, containers, controls, global colors, global typography, responsive settings, and native Elementor features as much as possible.
+
+Use custom sandbox code only for the remaining behavior or styling that Elementor v3 cannot reasonably express:
+
+1. **Elementor first:** section structure, headings, text, images, buttons, icons, links, spacing, backgrounds, borders, responsive layout, global colors, and global typography.
+2. **Sandbox CSS second:** pseudo-elements, masks, special overlays, marquee mechanics, exact hover visuals, pinned-panel visual states, and responsive details that are awkward or impossible in native Elementor controls.
+3. **Sandbox JS last:** GSAP/ScrollTrigger/Lenis interactions from `index.html`, including scroll pinning, counters, phrase swaps, dot convergence, service expansion, timeline progression, and reveal choreography.
+
+Before adding or changing custom CSS for a visual property, check whether the relevant Elementor v3 widget/container setting can express it. Before adding or changing JavaScript, confirm the behavior is truly interactive/animated and not only static styling.
+
 ## File Structure
 
 - Source reference: `C:/Users/black/OneDrive/Desktop/Code/Testing/index.html`
@@ -96,6 +108,8 @@ Expected: commit succeeds and does not stage unrelated `.playwright-cli` deletio
 - Read: Elementor v3 global styles
 - Preserve: nav/footer/contact selectors
 
+**Elementor-first checkpoint:** Confirm Elementor v3 global colors and typography are the primary token source before changing sandbox variables. Sandbox globals should mirror or support those tokens, not replace them with a separate design system.
+
 - [ ] **Step 1: Read current global sandbox file**
 
 Run Novamira ability `novamira/read-file` with:
@@ -166,6 +180,8 @@ Expected: all three values are `true` after `wp_enqueue_scripts` has run on the 
 - Modify: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-section-hero.php`
 - Preserve: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-nav.php`
 
+**Elementor-first checkpoint:** Build the hero content with Elementor v3 containers, heading/text/button/image-or-video-capable widgets, global typography, global colors, and responsive controls first. Use sandbox CSS/JS only for exact hero video treatment, phrase motion, trust bar polish, and scroll/parallax behavior that Elementor cannot handle natively.
+
 - [ ] **Step 1: Read live hero subtree**
 
 Run Novamira ability `novamira/elementor-get-content` with:
@@ -229,6 +245,8 @@ Expected mobile: headline and CTAs fit without overlap, trust bar collapses as i
 - Modify: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-section-team.php`
 - Modify: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-section-logos.php`
 
+**Elementor-first checkpoint:** Use Elementor v3 containers/images/headings for every team member dot, logo card, and logo grid item. Use sandbox code only for the dot convergence, pinned logo stack, staggered reveal, and any random/scattered positioning needed for `index.html` parity.
+
 - [ ] **Step 1: Read team and logo subtrees**
 
 Run Novamira ability `novamira/elementor-get-content` for elements:
@@ -287,6 +305,8 @@ Expected: team dots converge on scroll; logo stack cards animate; logo grid item
 **Files:**
 - Modify: live Elementor page `32`
 - Modify: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-section-services.php`
+
+**Elementor-first checkpoint:** Use Elementor v3 containers, headings, text, image/video widgets where available, links/buttons, backgrounds, spacing, borders, and global typography/colors for the service wall structure. Use sandbox CSS/JS only for irregular media-wall polish, hover/tap expansion, video state classes, animated accent lines, and the expandable details panel.
 
 - [ ] **Step 1: Read current services subtree**
 
@@ -367,6 +387,8 @@ Expected mobile: tiles stack cleanly, tap opens details, text remains readable.
 - Modify: live Elementor page `32`
 - Modify: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-section-stats.php`
 
+**Elementor-first checkpoint:** Use Elementor v3 heading/text containers for every visible stat, label, CTA, and layout group. Use sandbox CSS/JS only for the marquee, count-up animation, gridline decoration, and exact receipts-section motion.
+
 - [ ] **Step 1: Read stats subtree**
 
 Run Novamira ability `novamira/elementor-get-content` with:
@@ -413,6 +435,8 @@ Expected: marquee loops smoothly, counters count once on entry, `343M+` is visua
 **Files:**
 - Modify: live Elementor page `32`
 - Modify: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-section-portfolio.php`
+
+**Elementor-first checkpoint:** Use Elementor v3 containers, image widgets, headings, text widgets, buttons, and native responsive controls for all portfolio panel content. Use sandbox CSS/JS only for pinned/stacked scrolling, panel scale/rotate/shrink states, image hover micro-motion, and mobile pinning fallbacks.
 
 - [ ] **Step 1: Read portfolio subtrees**
 
@@ -485,6 +509,8 @@ Expected mobile: portfolio panels stack naturally without pinning glitches or ex
 - Modify: live Elementor page `32`
 - Modify: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-section-process.php`
 
+**Elementor-first checkpoint:** Use Elementor v3 containers/headings/text widgets for the process intro, three phase blocks, numbers, titles, descriptions, and list items. Use sandbox CSS/JS only for the animated timeline line, active phase state, pinned desktop progression, and reveal choreography.
+
 - [ ] **Step 1: Read process subtree**
 
 Run Novamira ability `novamira/elementor-get-content` with:
@@ -545,6 +571,8 @@ Expected: labels/headline reveal, three process phases activate in order, list i
 **Files:**
 - Modify: live Elementor page `32`
 - Modify: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-section-founder.php`
+
+**Elementor-first checkpoint:** Use Elementor v3 containers, image widget, headings, and text widgets for portrait, quote, body copy, name, role, and signature/name treatment wherever possible. Use sandbox CSS/JS only for mask wipe, decorative dots, custom portrait overlay/grain, and reveal timing.
 
 - [ ] **Step 1: Read founder subtree**
 
@@ -612,6 +640,8 @@ Expected: portrait and copy match `index.html`; mask and content reveal fire onc
 - Read: live Elementor page `32`
 - Read: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-nav.php`
 - Read: `/home/customer/www/staging4.bloomdots.com.au/public_html/wp-content/novamira-sandbox/bloomdots-footer.php`
+
+**Elementor-first checkpoint:** Do not replace preserved areas with custom code. If a compatibility fix is unavoidable, prefer Elementor/native settings for contact content and only use scoped sandbox CSS/JS when the issue is caused by global section behavior.
 
 - [ ] **Step 1: Confirm contact subtree still exists**
 
