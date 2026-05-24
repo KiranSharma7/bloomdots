@@ -423,6 +423,52 @@
       .tt-item-val { font-size: 13.5px; }
     }
 
+    /* ---------- Mobile marquee mode ---------- */
+    .team-canvas.mode-marquee {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      height: auto !important;
+      min-height: unset;
+      padding: 16px 0 32px;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+    }
+    .marquee-row {
+      display: flex;
+      width: max-content;
+      gap: 14px;
+      will-change: transform;
+    }
+    .marquee-row--a { animation: marquee-scroll-left 38s linear infinite; }
+    .marquee-row--b { animation: marquee-scroll-right 44s linear infinite; }
+    .marquee-row--c { animation: marquee-scroll-left 52s linear infinite; }
+    .team-canvas.mode-marquee .sticker-node {
+      position: static;
+      flex: 0 0 auto;
+      width: 110px !important;
+      height: 110px !important;
+      transform: rotate(var(--marquee-rot, 0deg));
+    }
+    @keyframes marquee-scroll-left {
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-50%, 0, 0); }
+    }
+    @keyframes marquee-scroll-right {
+      from { transform: translate3d(-50%, 0, 0); }
+      to   { transform: translate3d(0, 0, 0); }
+    }
+    .team-canvas.mode-marquee .marquee-row:hover { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-row--a, .marquee-row--b { animation: none; }
+      .team-canvas.mode-marquee { overflow-x: auto; }
+    }
+    /* Hide grid toggle on mobile — marquee replaces both modes */
+    @media (max-width: 700px) {
+      .view-toggle { display: none; }
+    }
+
     /* ---------- Chase tally — appears after the first catch ---------- */
     .team-tally {
       display: inline-flex;
@@ -1017,6 +1063,9 @@
       const isMobile = W < 700;
       const isSmall  = W < 500;
 
+      // On phones: marquee instead of scatter
+      if (isMobile) { buildMarquee(); return; }
+
       // Sticker size (matches CSS)
       const size = isSmall ? 95 : (isMobile ? 120 : 150);
 
@@ -1134,6 +1183,60 @@
       }
       firstBuild = false;
 
+      refreshCanvasRect();
+    }
+
+    /* ---------- 3b. Mobile marquee builder ---------- */
+    function buildMarquee() {
+      canvas.classList.add("mode-marquee");
+      canvas.style.height = "";
+
+      const size = 110;
+      const rotPool = [-8, -5, -3, 0, 3, 5, 8];
+
+      // Three rows; split team roughly in thirds
+      const t = Math.ceil(TEAM.length / 3);
+      const rowsData = [TEAM.slice(0, t), TEAM.slice(t, t * 2), TEAM.slice(t * 2)];
+      const rowClasses = ["marquee-row--a", "marquee-row--b", "marquee-row--c"];
+
+      rowsData.forEach((rowItems, rIdx) => {
+        const row = document.createElement("div");
+        row.className = `marquee-row ${rowClasses[rIdx]}`;
+
+        // Duplicate items so the loop reads seamless
+        const seq = [...rowItems, ...rowItems];
+        seq.forEach((data, i) => {
+          const el = document.createElement("div");
+          el.className = "sticker-node";
+          el.tabIndex = 0;
+          el.setAttribute("role", "button");
+          el.setAttribute("aria-label", `View ${data.name}'s team profile`);
+          const rot = rotPool[Math.floor(rand() * rotPool.length)];
+          el.style.setProperty("--marquee-rot", rot + "deg");
+
+          const im = document.createElement("img");
+          im.src = data.img;
+          im.alt = data.name;
+          im.draggable = false;
+          im.decoding = "async";
+          im.loading = i < 6 ? "eager" : "lazy";
+          el.appendChild(im);
+
+          row.appendChild(el);
+
+          const node = {
+            el, data, size,
+            baseX: 0, baseY: 0, baseRot: rot,
+            offsetX: 0, offsetY: 0, rot, hovered: false, idleTween: null
+          };
+          nodes.push(node);
+          attachHoverHandlers(node);
+        });
+
+        canvas.appendChild(row);
+      });
+
+      firstBuild = false;
       refreshCanvasRect();
     }
 
@@ -1514,6 +1617,7 @@
         nodes.forEach(n => { if (n.idleTween) n.idleTween.kill(); });
         nodes.length = 0;
         canvas.innerHTML = "";
+        canvas.classList.remove("mode-marquee");
         buildScatter();
       }, 180);
     });
